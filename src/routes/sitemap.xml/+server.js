@@ -38,7 +38,7 @@ async function loadPages(ref) {
 			ref,
 			variables: {
 				after,
-				types: ["page"] // The page types to load
+				types: ["about"] // The page types to load
 			}
 		});
 
@@ -60,16 +60,16 @@ async function loadPages(ref) {
 	return pages;
 }
 
-export async function get({locals}) {
-	const ref = await getRef({session: locals, fetch});
+export async function GET() {
+	const ref = await getRef(fetch);
 	const pages = await loadPages(ref);
 
 	const smStream = new SitemapStream({ hostname: env.basePath });
 	const sitemap = await streamToPromise(Readable.from(staticPages.concat(pages)).pipe(smStream));
-	return {
+
+	return new Response(sitemap.toString(), {
 		headers: {
 			'Content-Type': 'application/xml'
-		},
-		body: sitemap.toString()
-	}
+		}
+	});
 }

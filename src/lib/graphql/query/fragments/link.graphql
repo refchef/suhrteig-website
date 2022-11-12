@@ -19,7 +19,7 @@ fragment Link on _Linkable {
 			type
 		}
 	}
-	... on Home {
+	... on Homepage {
 		title_txt:title
 		_meta {
 			uid

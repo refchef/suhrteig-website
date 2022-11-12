@@ -6,7 +6,7 @@
 	 * Helps the user exit the preview-mode
 	 */
 
-	import {session} from "$app/stores";
+	import {page} from "$app/stores";
 	import Cookies from "js-cookie";
 	import {previewSessionCookie} from "$lib/util/prismic.js";
 
@@ -19,7 +19,7 @@
 <style lang="scss" src="./PreviewTag.scss"/>
 
 <aside class="PreviewTag">
-	{#if $session.previewToken}
+	{#if $page.data.isPreview}
 		<button class="PreviewTag__button" on:click={clearSession}>
 			Exit preview
 		</button>

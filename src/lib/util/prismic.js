@@ -2,21 +2,19 @@ import btoa from "btoa-lite";
 import {GraphQLClient} from "graphql-request";
 import {env} from "$lib/util/env.js";
 import {asHTML, asText} from "@prismicio/helpers";
-import {browser, dev} from "$app/env";
+import {browser, dev} from "$app/environment";
 
-export const previewSessionCookie = "mutoco.prismic.preview";
+export const previewSessionCookie = "suhrteig.prismic.preview";
 
 /**
  * Resolve a doc to a link. Check doc.type and return the appropriate route
  * @param doc
  * @returns {string}
  */
-export const linkResolver = doc => {
+ export const linkResolver = doc => {
 	switch (doc.type) {
-		case 'home':
-			return '/';
-		case 'page':
-			return `/${doc.uid}`;
+		case 'project':
+			return `/project/${doc.uid}`;
 	}
 
 	return `/${doc.uid || ''}`;
@@ -27,10 +25,12 @@ export const linkResolver = doc => {
  * @param {string} type - the slice type coming from the prismic api
  * @returns {Promise<null|*>} a promise that resolves to a svelte-component or null
  */
-const componentFromType = async type => {
+ const componentFromType = async type => {
 	switch (type) {
-		case "text_image":
-			return await import("$lib/components/modules/TextImage/TextImage.svelte");
+		case "product":
+			return await import("$lib/components/modules/Product/Product.svelte");
+		case "links":
+			return await import("$lib/components/modules/Footer/Footer.svelte");
 	}
 
 	if (dev) {
@@ -47,8 +47,15 @@ const componentFromType = async type => {
  */
 const propsFromType = props => {
 	switch (props.type) {
-		case "text_image":
-			return props.primary;
+		case "products":
+			return {
+				fields: props.fields
+			};
+		case "links":
+			return {
+				fields: props.fields
+			};
+			
 	}
 
 	return {type: props.type || props.__typename};
@@ -80,8 +87,10 @@ const transformBlocks = async (blocks, fetch) => {
 export const prismicQuery = async ({query, fetch, ref, variables = {}}) => {
 	const client = new GraphQLClient(env.graphQlApi, {
 		fetch,
+		jsonSerializer: JSON,
 		method: "GET",
 		headers: {
+			"Origin": "http://localhost:5173",
 			"Prismic-ref": ref
 		}
 	});
@@ -96,18 +105,11 @@ export const prismicQuery = async ({query, fetch, ref, variables = {}}) => {
  * @param fetch – current fetch instance
  * @returns {Promise<string>}
  */
-export const getRef = async ({session, fetch}) => {
-	let ref;
-	if (session && session.previewToken) {
-		ref = session.previewToken;
-	} else {
-		const response = await fetch(`https://${env.prismicRepo}.cdn.prismic.io/api/v2`);
-		const json = await response.json();
+export const getRef = async (fetch) => {	
+	const response = await fetch(`https://${env.prismicRepo}.cdn.prismic.io/api/v2`);
+	const json = await response.json();
 
-		ref = json.refs.find(ref => ref.isMasterRef)?.ref;
-	}
-
-	return ref;
+	return json.refs.find(ref => ref.isMasterRef)?.ref;
 }
 
 const expandImageParams = img => (img ? {

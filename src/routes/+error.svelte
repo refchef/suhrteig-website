@@ -1,8 +1,8 @@
 <script>
-	import {dev} from "$app/env";
+	import {dev} from "$app/environment";
+	import { page } from '$app/stores';
 
-	export let status;
-	export let error;
+	const { status, error } = $page
 
 	const getTitle = code => {
 		switch (code) {
@@ -38,16 +38,4 @@
 		${error.message}
 	</pre>
 {/if}
-
-<script context="module">
-	export function load({ error, status }) {
-		return {
-			props: {
-				status,
-				error,
-				title: `${status}: ${error.message}`
-			}
-		};
-	}
-</script>
 

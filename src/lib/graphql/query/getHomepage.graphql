@@ -1,0 +1,38 @@
+query {
+	allHomepages {
+		homepage_e: edges {
+			node {
+				status
+				title_txt: title
+				tagline
+        		intro_html: intro
+				news_html: news
+				about_html: about
+				_blocks: body {
+					... on HomepageBodyProducts {
+						type
+						fields {
+							productname_txt: productname
+							description_txt: description
+							tags
+							weight
+							price
+							amount
+						}
+					}
+					... on HomepageBodyLinks {
+						type
+						fields {
+							linkname
+							link {
+								... on _ExternalLink {
+									url
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
