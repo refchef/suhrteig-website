@@ -1,0 +1,7 @@
+@import "variables";
+@import "mixins";
+
+.product {
+    display: grid;
+    grid-auto-flow: column;
+}
