@@ -19,6 +19,7 @@ query {
 							price
 							amount
 							productphoto_img: productphoto
+							soldout
 						}
 					}
 					... on HomepageBodyLinks {
