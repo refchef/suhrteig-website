@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixins";
+
+.product {
+    border: 1px red solid;
+    @include component-gap(l);
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.title {
+    
+}
+
+.product__item--wrapper {
+    border: 1px red solid;
+    display: inline-flex;
+}
+
+.product__item {
+    border: 1px red solid;
+
+}
+
+.product__image {
+    border-radius: 25px;
+}
+
+.product__tag {
+    color: $c-pink;
+    height: 2rem;
+    border: 1px $c-pink solid;
+}
