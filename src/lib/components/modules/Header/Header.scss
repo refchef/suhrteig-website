@@ -1,0 +1,59 @@
+@import "variables";
+@import "mixins";
+
+.Header {
+    font-size: small;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $c-light;
+    color: $c-dark;
+    @include space(height, m);
+    border-radius: 0 0 5rem 5rem;
+}
+
+
+.Header__phrase {
+    color: $c-dark;
+    margin: 0;
+}
+.Header__title {
+    color: $c-pink;
+}
+
+
+.Header__status {
+    display: flex;
+    align-items: center;
+
+}
+
+.Header__currentStatus {
+    border: 1px solid $c-pink;
+    align-items: center;
+    border-radius: 5rem;
+    padding: 2rem;
+    display: inline-flex;
+    margin-left: 2rem;
+    height: 5rem;
+    position: relative;
+    &:before {
+		content: '';
+		display: inline-block;
+		position: relative;
+		background: $c-pink;
+		width: 24px;
+		height: 24px;
+		border-radius: 100px;
+        margin-right: 1rem;
+		pointer-events: none;
+        animation: blinker 1.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+	}
+
+    @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+}

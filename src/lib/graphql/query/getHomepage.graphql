@@ -18,6 +18,7 @@ query {
 							weight
 							price
 							amount
+							productphoto_img: productphoto
 						}
 					}
 					... on HomepageBodyLinks {

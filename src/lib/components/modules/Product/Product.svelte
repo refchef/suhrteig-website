@@ -20,6 +20,7 @@
         <p>{ product.tags }</p>
         <p>CHF { product.price }</p>
         <p>max order amount { product.amount }</p>
+        <img src="{product.productphoto.url}" alt="">
     {/each}
 
 </section>

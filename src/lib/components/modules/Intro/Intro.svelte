@@ -1,0 +1,36 @@
+<script>
+    export let intro
+    console.log(intro);
+
+    // let nodes = [
+    //     { type: "tel", label: "Call", link: `tel:${contacts[0]}` },
+    //     { type: "mail", label: "Mail", link: `mail:${contacts[1]}` },
+    //     { type: "insta", label: "Insta", link: contacts[2] }
+    // ]
+</script>
+
+<style lang="scss" src="./Intro.scss"></style>
+
+<div class="intro">
+    <div class="intro__text">
+        <!-- {@html intro} -->
+        <div class="intro__text--small">
+            Montag wird bestellt — 
+        Mittwoch wird gebacken und geliefert
+    </div>
+        <div class="intro__text--big">Sauerteig- und Wildhefebrot in Basel gebacken.</div>
+    </div>
+    <div class="intro__links">
+        <ul class="intro__links__list">
+            <li class="intro__links__item intro__cta">
+                <a href="#bestellen">Jetzt bestellen</a>
+            </li>
+            <li class="intro__links__item">
+                <a href="#about">Über Suhrteig</a>
+            </li>
+            <li class="intro__links__item">
+                <a href="https://buttondown.email/suhrteig">Newstletter abonnieren</a>
+            </li>
+        </ul>
+    </div>
+</div>
