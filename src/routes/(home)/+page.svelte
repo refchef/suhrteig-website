@@ -2,7 +2,8 @@
 	import Header from "$lib/components/modules/Header/Header.svelte";
 	import Intro from "$lib/components/modules/Intro/Intro.svelte";
 	import News from "$lib/components/modules/News/News.svelte";
-	import Product from "$lib/components/modules/Product/Product.svelte";
+	import Product from "$lib/components/partials/Product/Product.svelte";
+	import ProductSlider from "$lib/components/modules/ProductSlider/ProductSlider.svelte"
 	import Cart from "$lib/components/modules/Cart/Cart.svelte";
 	import About from "$lib/components/modules/About/About.svelte";
 	import Footer from "$lib/components/modules/Footer/Footer.svelte";
@@ -23,10 +24,9 @@
 	
 	<!-- News.svelte -->
 	<News/>
-	<!-- Products.svelte -->
-	<div id="bestellen">
-		<Product products={homepage._blocks[0]}/>
-	</div>
+	<!-- ProductSlider.svelte -->
+	<ProductSlider products={homepage._blocks[0]} />
+	<!-- <Product products={homepage._blocks[0]}/> -->
 	
 	<!-- Cart.svelte -->
 	<Cart/>

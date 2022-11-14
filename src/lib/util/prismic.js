@@ -28,7 +28,7 @@ export const previewSessionCookie = "suhrteig.prismic.preview";
  const componentFromType = async type => {
 	switch (type) {
 		case "product":
-			return await import("$lib/components/modules/Product/Product.svelte");
+			return await import("$lib/components/partials/Product/Product.svelte");
 		case "links":
 			return await import("$lib/components/modules/Footer/Footer.svelte");
 	}
