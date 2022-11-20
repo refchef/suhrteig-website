@@ -1,39 +1,62 @@
 <script>
+    import { addToCart } from "$lib/util/cart"
+    import Image from "$lib/components/partials/Image/Image.svelte";
+    import ProductTag from "$lib/components/partials/ProductTag/ProductTag.svelte";
 
-    import Image from "../Image/Image.svelte";
 
     export let product;
-    const {productphoto, productname, weight, description, price, amount, tags, soldout} = product
     // console.log("Product Single -->", product)
-    // TODO: Split tags into comma
+    const {productphoto, productname, weight, description, price, amount, tags, soldout} = product
     let splitTags = tags.split(",")
-    console.log("Tags -->", splitTags)
-
+    
+    const addProduct = () => {
+		$addToCart = [...$addToCart, {
+			productname
+		}];
+        console.log($addToCart)
+	};
+    
 
 </script>
 
 <style lang="scss" src="./Product.scss"></style>
 
-<section class="product">    
+<article class="product">    
     <div class="product__item--wrapper">
         <div class="product__item">
-            <Image {...productphoto}/>
-            <h3 class="product__name">{ productname }</h3>
-            <p class="product__weight">{ weight }g</p>
-            <p class="product__description">{ description }</p>
-                {#each splitTags as tag}
-                    <p class="product__tag">{ tag }</p>
-                {/each}
-            <p class="product__price">CHF { price }</p>
-            <p>max order amount { amount }</p>
-
-            <button class="addProduct">
-                +
-            </button>
-                {#if soldout}
-                    <p>sold out</p>
+            <div class="product_photo">
+                {#if !soldout}
+                    <Image {...productphoto} ratio={"4:5"}/>
+                        <div class="product__button" >
+                            <!-- AddButton.svelte -->
+                            <button on:click={addProduct} type="submit" class="product__button__add">
+                                <p class="product__button--default">
+                                    +
+                                </p>
+                            </button>
+                        </div>
+                {:else}
+                    <div class:--soldOut={soldout}>
+                        <Image {...productphoto} ratio={"4:5"}/>
+                    </div>
+                    <div class="product__button">
+                        <button type="button" class="product__button__add">
+                            <p class="product__button--soldOut">
+                                    sold out
+                            </p>
+                        </button>
+                    </div>
                 {/if}
+            </div>
+            <p class="product__name">{ productname } <span class="product__weight">{ weight }g</span></p>
+            <p class="product__price">CHF { price }.–</p>
+            <p class="product__description">{ description }</p>
+            <!-- ProductTag.svelte -->
+            <ProductTag tags={splitTags}/>
+                
+            <!-- <p>max order amount { amount }</p> -->
+
         </div>
     </div>
 
-</section>
+</article>

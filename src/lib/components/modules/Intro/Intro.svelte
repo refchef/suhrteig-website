@@ -1,6 +1,10 @@
 <script>
-    export let intro
-    console.log(intro);
+    export let intro;
+    // import { onMount } from "svelte";
+
+    // onMount(() => {
+	// 	console.log('the component has mounted');
+	// });
 
     // let nodes = [
     //     { type: "tel", label: "Call", link: `tel:${contacts[0]}` },

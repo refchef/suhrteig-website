@@ -29,8 +29,6 @@ export const previewSessionCookie = "suhrteig.prismic.preview";
 	switch (type) {
 		case "product":
 			return await import("$lib/components/partials/Product/Product.svelte");
-		case "links":
-			return await import("$lib/components/modules/Footer/Footer.svelte");
 	}
 
 	if (dev) {
@@ -47,15 +45,10 @@ export const previewSessionCookie = "suhrteig.prismic.preview";
  */
 const propsFromType = props => {
 	switch (props.type) {
-		case "products":
+		case "product":
 			return {
 				fields: props.fields
-			};
-		case "links":
-			return {
-				fields: props.fields
-			};
-			
+			};			
 	}
 
 	return {type: props.type || props.__typename};
