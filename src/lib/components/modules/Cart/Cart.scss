@@ -2,20 +2,118 @@
 @import "mixins";
 
 .cart {
+    @include grid;
     background-color: $c-pink;
     padding: 5rem;
     border-radius: 0 0 3rem 3rem;
-    @include grid;
-}
-
-.cart__title {
     font-size: large;
-    color: $c-dark;
+    // display: flex;
 }
 
 .cart__summary {
-    @include flatlist
+    @include flatlist;
+    grid-column: 1 / span 2;
+    // border: 1px solid orange;
 }
+
+.cart__summary__title,
+.cart__form__title,
+.cart__input__title {
+    color: $c-dark;
+    margin: 0;
+    margin-bottom: 2.5rem;
+
+}
+
+.cart__summary__title {
+    grid-column: 1 / span 2;
+    // border: 1px solid red;
+}
+
+.cart__form__title {
+    grid-column: 3 / span 2;
+    // border: 1px solid darkcyan;
+}
+
+.cart__input__title {
+    grid-column: 7 / span 2;
+    // border: 1px solid yellow;
+
+}
+
+.highlight {
+    color: $c-dark;
+}
+
+.cart__form {
+    grid-column: 3 / span 4;
+    // border: 1px solid fuchsia;
+}
+
+
+.cart__form__wrapper {
+    // display: flex;
+}
+
+.cart__form__summary {
+    // width: 30%;
+    // border: 1px solid blue;
+}
+
+
+.cart__form__input {
+    grid-column: 7 / span 2;
+    // border: 1px solid yellow;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cart__form__field {
+    position: relative;
+    font-size: 14px;
+    border-top: 20px;
+    margin-bottom: 2rem;
+}
+
+.cart__form__field input {
+    appearance: none;
+    background: $c-pink;
+    padding: 20px;
+    border: 1px solid $c-dark;
+    border-radius: 50px;
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+}
+
+.cart__form__field .placeholder {
+    position: absolute;
+    left: 30px;
+    top: 50%;  
+    transform: translateY(-50%);
+    width: calc(100% - 24px);  
+    color: $c-dark;
+    color: #161a4358;
+    overflow: hidden;
+    padding: 5px;
+    transition: 
+        top 0.2s ease,
+        font-size 0.2s ease,
+        color 0.2s ease;
+}
+.cart__form__field input:valid + .placeholder,
+.cart__form__field input:focus + .placeholder {
+    top: 0;
+    font-size: 10px;
+    color: $c-dark;
+    background-color: $c-pink;
+    width: fit-content;
+
+  }
 
 .cart__item {
     display: flex;
@@ -37,16 +135,92 @@
     padding: 0 1rem 0 1rem;
 }
 
-.cart__button {
+.button__cart {
     @include blank-button;
+    cursor: pointer;
     background-color: $c-dark;
-    padding: 1rem;
+    font-size: large;
+    padding: 10px;
     height: 35px;
     width: 35px;
     border-radius: 25px;
-    display: flex;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.button__submit {
+    @include blank-button;
+    background-color: $c-dark;
+    padding: 20px;
+    border: 1px solid $c-dark;
+    border-radius: 50px;
+    width: 100%;
+    font-size: large;
+    // font-weight: bold;
+    // font-size: 14px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 
+// .button-19 {
+//   appearance: button;
+//   background-color: #1899D6;
+//   border: solid transparent;
+//   border-radius: 16px;
+//   border-width: 0 0 4px;
+//   box-sizing: border-box;
+//   color: #FFFFFF;
+//   cursor: pointer;
+//   display: inline-block;
+//   font-family: din-round,sans-serif;
+//   font-size: 15px;
+//   font-weight: 700;
+//   letter-spacing: .8px;
+//   line-height: 20px;
+//   margin: 0;
+//   outline: none;
+//   overflow: visible;
+//   padding: 13px 16px;
+//   text-align: center;
+//   text-transform: uppercase;
+//   touch-action: manipulation;
+//   transform: translateZ(0);
+//   transition: filter .2s;
+//   user-select: none;
+//   -webkit-user-select: none;
+//   vertical-align: middle;
+//   white-space: nowrap;
+//   width: 100%;
+// }
+
+// .button-19:after {
+//   background-clip: padding-box;
+//   background-color: #1CB0F6;
+//   border: solid transparent;
+//   border-radius: 16px;
+//   border-width: 0 0 4px;
+//   bottom: -4px;
+//   content: "";
+//   left: 0;
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   z-index: -1;
+// }
+
+// .button-19:main,
+// .button-19:focus {
+//   user-select: auto;
+// }
+
+// .button-19:hover:not(:disabled) {
+//   filter: brightness(1.1);
+//   -webkit-filter: brightness(1.1);
+// }
+
+// .button-19:disabled {
+//   cursor: auto;
+// }

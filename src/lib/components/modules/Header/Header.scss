@@ -2,7 +2,6 @@
 @import "mixins";
 
 .Header {
-    font-size: small;
     padding: 5rem;
     display: flex;
     align-items: center;
@@ -11,13 +10,14 @@
     color: $c-dark;
     @include space(height, m);
     border-radius: 0 0 5rem 5rem;
+    font-size: medium;
 }
-
 
 .Header__phrase {
     color: $c-dark;
     margin: 0;
 }
+
 .Header__title {
     color: $c-pink;
 }

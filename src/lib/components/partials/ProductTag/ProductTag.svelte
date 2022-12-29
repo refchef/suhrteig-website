@@ -1,6 +1,6 @@
 <script>
     export let tags;
-    console.log("ProductTags.svelte", tags)
+    // console.log("ProductTags.svelte", tags)
 </script>
 
 <style lang="scss" src="./ProductTag.scss"></style>

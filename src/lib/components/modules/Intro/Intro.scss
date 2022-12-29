@@ -2,66 +2,102 @@
 @import "mixins";
 
 .intro {
-    @include grid;
-    height: 100vh;
+    // @include grid;
+    // height: auto;
+    // height: 4;
+    position: relative;
     color: $c-light;
+    // border: 1px solid yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro__wrapper {
+    // height: 100%;
+    // border: 2px solid red;
+    width: 100%;
+    // display: flex;
+    // flex-flow: column;
+    // align-self: center;
+    // height:80vh;
+    // min-height: 100%;
+    // display: flex;
+    // flex-flow: column;
+}
+
+.intro__wrapper, .intro__text {
+    // flex: 0 1 auto;
+    // display: flex;
+	// flex-direction: column;
+}
+
+.intro__wrapper, .intro__links {
+    // display: flex;
+	// flex-direction: column;
 }
 
 .intro__text {
+    // flex: 1;
     // @include font-l;
     // font-size: 6rem;
-    text-align: center;
+    text-align: left;
     // border: 1px red solid;
-	grid-column: 3 / span 4;
-    display: grid;
+	// grid-column: 1 / span 8;
+    // display: grid;
     color: $c-light;
-    align-items: center;
+    // align-items: center;
     // font-size: xx-large;
-    @include space(padding-top, s);
-    @include space(padding-bottom, s);
+    // @include space(padding-top, s);
+    // @include space(padding-bottom, s);
 }
 
 .intro__text--big {
-    font-size: 7rem;
+    font-size: medium;
 }
 .intro__text--small {
     font-size: 2rem;
 }
 
 .intro__links {
-    @include font-m;
-    // border: 1px red solid;
-    grid-column: 2 / span 6;
-    color: $c-pink
-
+    // @include font-m;
+    // grid-column: 1 / span 8;
+    // height: 100%;
+    margin: rem(10);
+    color: $c-pink;
+    // @include space(margin-bottom, s);
+    
+    
 }
 
 .intro__links__list {
     @include flatlist;
+    font-size: rem(90);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    // border: 1px red solid;
+    height: 100%;
+    flex-direction: column;
+    // border: 1px solid green;
+
 }
 
 .intro__links__item {
-    // border: 1px yellow solid;
-}
-
-.intro__cta {
-    height: 7rem;
-    background-color: transparent;
+    background-color: $c-dark;
     width: auto;
-    display: inline-flex;
-    padding: 0 5rem 0 5rem;
+    padding: 5rem;
+    margin: rem(10);
     border: 1px $c-light solid;
-    border-radius: 50px;
+    border-radius: 400px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    color: $c-pink;
+    height: 100%;
 }
 
-.intro__cta:hover{
+.intro__links__item:hover{
     background-color: $c-light;
-    transition: 0.15s background-color linear;
+    color: $c-dark;
+    transition: 0.3s ease;
     cursor: pointer;
 
 }

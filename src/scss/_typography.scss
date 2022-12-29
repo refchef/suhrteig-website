@@ -14,6 +14,9 @@ a {
 strong, b, h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
+strong {
+	color: $c-pink;
+}
 
 p {
 	margin: 1.2em 0;

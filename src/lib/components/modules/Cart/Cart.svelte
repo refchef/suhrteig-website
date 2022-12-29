@@ -1,61 +1,93 @@
 <script>
-    import { addToCart } from "$lib/util/cart"  
-    console.log("Cart.svelte", $addToCart)
-  
+	import { addToCart } from "$lib/util/cart";
+	console.log("Products in Cart", $addToCart);
 
-    let productCounter = 0;
+	export let cart;
+	console.log("Cart.svelte", cart);
 
-    const upCount = () => {
-      productCounter += 1;
-    }
-    const downCount = () => {
-      productCounter -= 1;
-    }
+	// 	const totalPrice = $productPrice.reduce((total, current) => {
+	//     return total + current.price;
+	//   }, 0);
 
+	//   console.log("totalPrice", totalPrice)
+	let productCounter = 0;
 </script>
 
-<style lang="scss" src="./Cart.scss"></style>
-
 <section class="cart">
-  <p class="cart__title">Dein Warenkorb</p>
-  <ul class="cart__summary">
-    {#each $addToCart as product}
-      <li class="cart__item">
-        <button class="cart__button" type="button" on:click={upCount}>+</button>
-          <span class="cart__product__counter">
-            {productCounter}
-          </span>
-        <button class="cart__button" type="button" on:click={downCount}>–</button>
-        <span class="cart__productname">{product.productname}</span>
-      </li>
-    {/each}
-  </ul>
- 
+	<p class="cart__summary__title">Dein Warenkorb</p>
+	<p class="cart__form__title">Zusammenfassung</p>
+	<p class="cart__input__title">Kontaktangaben</p>
 
-  <form name="Bestellungen" method="POST" data-netlify="true">
-      <label class="cart__title" for="summary">Zusammenfassung</label>
-      <!-- <input type="hidden" id="summary" value=""> -->
+	<ul class="cart__summary">
+		{#if cart.length && productCounter === 0}
+			<p>ist zurzeit noch leer ...</p>
+		{:else}
+			<!-- {#each $addToCart as product} -->
+			{#each cart as product}
+				<li class="cart__item">
+					<button
+						class="button__cart"
+						type="button"
+						on:click={() => (productCounter += 1)}>+</button
+					>
+					<span class="cart__product__counter">
+						{productCounter}
+					</span>
+					<button
+						class="button__cart"
+						type="button"
+						on:click={() => (productCounter -= 1)}>–</button
+					>
+					<span class="cart__productname">{product.productname}</span>
+				</li>
+			{/each}
+		{/if}
+	</ul>
 
-      <p>Du bestellst 
-      <span>
-        {#each $addToCart as item}
-            <br>
-              {productCounter}x
-              {item.productname}
-        {/each}
-      </span>
-      für ein total von CHF 5.00</p>
+	<div class="cart__form">
+		{#if $addToCart.length === 0}
+			<p class="">
+				Sobald du köstliches Brot im Warenkorb hast, siehst du hier eine
+				Zusammenfassung.
+			</p>
+		{:else}
+			<div class="cart__form__summary">
+				<p>
+					Du bestellst
 
-      <label>Dein Name:
-        <input type="text" name="name" />
-      </label>
-      <label>Deine E-Mail:
-        <input type="email" name="email" />
-      </label>
-      <label>Bemerkungen:
-        <input type="text" name="bemerkungen" />
-      </label>
-      <button type="submit">Bestellen</button>
-  </form>
+					{#each $addToCart as item}
+						<span class="highlight">
+							<br />
+							{productCounter}x
+							{item.productname},
+						</span>
+					{/each}
+				</p>
+				Total
+				<br />
+				<span class="highlight">CHF 0</span>
+			</div>
+		{/if}
+	</div>
+	<div class="cart__form__input">
+		<form name="Bestellungen" method="POST" data-netlify="true">
+			<label class="cart__form__field">
+				<input type="text" required />
+				<span class="placeholder">Dein Name</span>
+			</label>
+			<label class="cart__form__field">
+				<input type="email" required />
+				<span class="placeholder">Deine E-Mail</span>
+			</label>
+			<label class="cart__form__field">
+				<input type="text" required />
+				<span class="placeholder">Adresse für Lieferung</span>
+			</label>
+			<button class="button__submit" type="submit"
+				>Bestellung abschicken</button
+			>
+		</form>
+	</div>
 </section>
-  
+
+<style lang="scss" src="./Cart.scss"></style>

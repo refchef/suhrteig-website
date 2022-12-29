@@ -1,0 +1,55 @@
+@import "variables";
+@import "mixins";
+
+// .news {
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+.news {
+    --duration: 20s; // default (component prop)
+    --gap: 2rem; // default (component prop)
+    background-color: $c-pink;
+    color: $c-dark;
+    line-height: 1.5;
+    width: 100%;
+    height: rem(30);
+    display: flex;
+    overflow: hidden;
+    gap: var(--gap);
+    position: relative;
+    bottom: 0;
+    z-index: 1000;
+    margin-top: rem(40);
+    margin-bottom: rem(100);
+}
+  
+.news__group {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--gap);
+    min-width: 100%;
+    animation: scroll var(--duration) linear infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation-play-state: paused;
+    }
+
+    .news--reverse & {
+        animation-direction: reverse;
+        animation-delay: calc(var(--duration) / -2);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
+  

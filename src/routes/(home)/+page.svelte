@@ -7,13 +7,14 @@
 	import ProductSlider from "$lib/components/modules/ProductSlider/ProductSlider.svelte"
 	import Cart from "$lib/components/modules/Cart/Cart.svelte";
 	import About from "$lib/components/modules/About/About.svelte";
+	import Shop from "$lib/components/modules/Shop/Shop.svelte";
 	// import Footer from "$lib/components/modules/Footer/Footer.svelte";
 	
 	export let data;
 	
 		
 	const homepage = data.homepage[0];
-	// console.log("homepage -->", homepage);
+	console.log("homepage -->", homepage);
 </script>
 
 
@@ -23,20 +24,27 @@
 	
 	
 	<!-- Intro.svelte -->
-	<Intro intro={homepage.intro}/>
+	<Intro intro={homepage.intro} news={homepage.news}/>
 	
 	<!-- News.svelte -->
-	<News/>
+	<News news={homepage.news}/>
 	
 	<!-- ProductSlider.svelte -->
-	<ProductSlider products={homepage._blocks[0]} />
+	<!-- <ProductSlider products={homepage._blocks[0]} /> -->
 	
+	<Shop products={homepage._blocks[0]} />
+	<!-- 
+		Shop.svelte
+			- ProductSlider
+				- Product
+				- ProductTag
+			- Cart
+	 -->
 	<!-- Cart.svelte -->
-	<Cart/>
+	<!-- <Cart/> -->
 
 	<!-- About.svelte -->
-	<p id="about">About Suhrteig: {@html homepage.about}</p>
-	<About/>
+	<About about={homepage.about}/>
 
 	<!-- Footer.svelte -->
 	<!-- <Footer links={homepage._blocks[1]}/> -->
