@@ -19,12 +19,11 @@
 	let productInCart = false;
 
 	const addProduct = () => {
-		// $addToCart = [...$addToCart, "name", "value"];
+		$addToCart = [...$addToCart, product];
 		// $addToCart = [...$addToCart, {productname}];
 		// $productPrice = [...$productPrice, {price}];
-		// console.log("Product Single -->", product.price)
-		cart = [...cart, product];
-		console.log("product added to cart", cart);
+		// cart = [...cart, product];
+		console.log("product added to cart", $addToCart);
 		productInCart = true;
 	};
 

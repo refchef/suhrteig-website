@@ -3,14 +3,15 @@
 	console.log("Products in Cart", $addToCart);
 
 	export let cart;
-	console.log("Cart.svelte", cart);
+	console.log("Cart.svelte", $addToCart);
 
 	// 	const totalPrice = $productPrice.reduce((total, current) => {
 	//     return total + current.price;
 	//   }, 0);
 
 	//   console.log("totalPrice", totalPrice)
-	let productCounter = 0;
+	let productCounter = Math.min(1);
+
 </script>
 
 <section class="cart">
@@ -19,11 +20,11 @@
 	<p class="cart__input__title">Kontaktangaben</p>
 
 	<ul class="cart__summary">
-		{#if cart.length && productCounter === 0}
+		{#if $addToCart?.length === 0}
 			<p>ist zurzeit noch leer ...</p>
 		{:else}
-			<!-- {#each $addToCart as product} -->
-			{#each cart as product}
+			{#each $addToCart as product}
+			<!-- {#each cart as product} -->
 				<li class="cart__item">
 					<button
 						class="button__cart"
@@ -38,7 +39,7 @@
 						type="button"
 						on:click={() => (productCounter -= 1)}>–</button
 					>
-					<span class="cart__productname">{product.productname}</span>
+					<span class="cart__productname">{product.productname} {product.amount}</span>
 				</li>
 			{/each}
 		{/if}
@@ -54,7 +55,6 @@
 			<div class="cart__form__summary">
 				<p>
 					Du bestellst
-
 					{#each $addToCart as item}
 						<span class="highlight">
 							<br />

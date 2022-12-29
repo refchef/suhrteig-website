@@ -5,11 +5,9 @@
     export let products = []
     // Store array?
     const cart = [];
-    console.log("Shop.svelte", cart);
+
+    $: console.log("Shop.svelte", cart);
 </script>
 
-<h1>This is the shop</h1>
 <ProductSlider {products} {cart}/>
-
-<h1>This is the cart</h1>
 <Cart {cart}/>
