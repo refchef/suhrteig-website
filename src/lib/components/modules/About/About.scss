@@ -1,0 +1,16 @@
+@import "variables";
+@import "mixins";
+
+.about {
+    color: $c-light;
+    background-color: $c-dark;
+    width: 100vw;
+}
+
+.about__wrapper {
+    width: 100%;
+    font-size: large;
+    line-height: 2;
+    padding: 20rem;
+
+}

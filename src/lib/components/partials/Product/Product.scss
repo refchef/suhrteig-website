@@ -1,33 +1,97 @@
 @import "variables";
 @import "mixins";
 
+
 .product {
-    border: 1px red solid;
-    @include component-gap(l);
-    display: grid;
-    grid-auto-flow: row;
+    // @include component-gap(l);
+    padding: 4rem 2rem 2rem 4rem;
 }
 
-.title {
-    
+.product_photo {
+    position: relative;
+    // &--soldOut:before {
+    //     content: '';
+    //     width: 100%;
+    //     height: 100%;
+    //     z-index: 1000;
+    //     background-color: blue;
+    // }
 }
 
+.product__button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.product__button__add {
+    cursor: pointer;
+    border: none;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: $c-pink;
+    color: $c-light;
+    box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.1);
+    &:hover {
+        background-color: $c-dark;
+    }
+    transition: background-color 0.5s $default-easing;
+}
+
+.product__button__remove {
+    cursor: pointer;
+    border: none;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: $c-dark;
+    color: $c-light;
+    box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.1);
+    // &:hover {
+    //     background-color: $c-dark;
+    // }
+    transition: background-color 0.5s $default-easing;
+
+}
+
+.product__button--default {
+    font-size: xx-large;
+}
+
+.product__button--soldOut {
+    font-size: small;
+    cursor: not-allowed;
+}
+
+.product__name {
+    color: $c-pink;
+    font-size: xx-large;
+    margin-bottom: 0;
+}
+.product__weight {
+    font-size: small;
+    color: $c-dark;
+}
+.product__price {
+    color: $c-dark;
+    font-size: xx-large;
+    margin-top: 0;
+}
+
+.product__description {
+    color: $c-dark;
+    font-size: small;
+}
 .product__item--wrapper {
-    border: 1px red solid;
-    display: inline-flex;
+    // border: 1px orange solid;
+    // display: inline-flex;
 }
 
 .product__item {
-    border: 1px red solid;
+    // border: 1px red solid;
 
 }
 
-.product__image {
-    border-radius: 25px;
-}
 
-.product__tag {
-    color: $c-pink;
-    height: 2rem;
-    border: 1px $c-pink solid;
-}
+

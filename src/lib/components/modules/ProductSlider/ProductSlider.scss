@@ -1,0 +1,8 @@
+@import "variables";
+@import "mixins";
+
+
+.product__slider {
+    background-color: $c-light;
+    border-radius: 3rem 3rem 0 0;
+}
