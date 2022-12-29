@@ -70,7 +70,7 @@
 		{/if}
 	</div>
 	<div class="cart__form__input">
-		<form name="Bestellungen" method="POST" data-netlify="true">
+		<form name="Bestellungen" method="POST" data-netlify="true" data-netlify-recaptcha="true">
 			<label class="cart__form__field">
 				<input type="text" required />
 				<span class="placeholder">Dein Name</span>
@@ -86,6 +86,7 @@
 			<button class="button__submit" type="submit"
 				>Bestellung abschicken</button
 			>
+			<div data-netlify-recaptcha="true"></div>
 		</form>
 	</div>
 </section>
