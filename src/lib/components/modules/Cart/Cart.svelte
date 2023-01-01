@@ -1,8 +1,9 @@
 <script>
 	import { addToCart } from "$lib/util/cart";
+	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
 	console.log("Products in Cart", $addToCart);
 
-	export let cart;
+	// export let cart;
 	console.log("Cart.svelte", $addToCart);
 
 	// 	const totalPrice = $productPrice.reduce((total, current) => {
@@ -10,42 +11,33 @@
 	//   }, 0);
 
 	//   console.log("totalPrice", totalPrice)
-	let productCounter = Math.min(1);
+	let counter;
+	$: console.log("Cart counter", counter);
+	// const countUp = () => {
+	// 	if (productCounter < 5) {
+	// 		productCounter += 1
+	// 	}
+	// }
 
 </script>
 
 <section class="cart">
-	<p class="cart__summary__title">Dein Warenkorb</p>
-	<p class="cart__form__title">Zusammenfassung</p>
-	<p class="cart__input__title">Kontaktangaben</p>
 
 	<ul class="cart__summary">
+		<p class="cart__summary__title">Dein Warenkorb</p>
 		{#if $addToCart?.length === 0}
 			<p>ist zurzeit noch leer ...</p>
 		{:else}
 			{#each $addToCart as product}
-			<!-- {#each cart as product} -->
 				<li class="cart__item">
-					<button
-						class="button__cart"
-						type="button"
-						on:click={() => (productCounter += 1)}>+</button
-					>
-					<span class="cart__product__counter">
-						{productCounter}
-					</span>
-					<button
-						class="button__cart"
-						type="button"
-						on:click={() => (productCounter -= 1)}>–</button
-					>
-					<span class="cart__productname">{product.productname} {product.amount}</span>
+					<ProductInCart {product} bind:productCounter={counter}/>
 				</li>
 			{/each}
 		{/if}
 	</ul>
 
 	<div class="cart__form">
+		<p class="cart__form__title">Zusammenfassung</p>
 		{#if $addToCart.length === 0}
 			<p class="">
 				Sobald du köstliches Brot im Warenkorb hast, siehst du hier eine
@@ -58,8 +50,8 @@
 					{#each $addToCart as item}
 						<span class="highlight">
 							<br />
-							{productCounter}x
-							{item.productname},
+							{counter}x
+							{item.productname}
 						</span>
 					{/each}
 				</p>
@@ -69,7 +61,9 @@
 			</div>
 		{/if}
 	</div>
+
 	<div class="cart__form__input">
+		<p class="cart__input__title">Kontaktangaben</p>
 		<form name="Bestellungen" method="POST" data-netlify="true" data-netlify-recaptcha="true">
 			<label class="cart__form__field">
 				<input type="text" required />

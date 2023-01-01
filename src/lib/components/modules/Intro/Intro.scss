@@ -66,8 +66,8 @@
     margin: rem(10);
     color: $c-pink;
     // @include space(margin-bottom, s);
-    
-    
+
+
 }
 
 .intro__links__list {
@@ -77,6 +77,9 @@
     height: 100%;
     flex-direction: column;
     // border: 1px solid green;
+	@include mobile {
+		font-size: rem(20);
+	}
 
 }
 

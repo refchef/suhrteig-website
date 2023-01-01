@@ -3,16 +3,23 @@
 
 .cart {
     @include grid;
-    background-color: $c-pink;
+    background: $c-pink;
     padding: 5rem;
     border-radius: 0 0 3rem 3rem;
     font-size: large;
+	@include mobile {
+
+	}
     // display: flex;
 }
 
 .cart__summary {
     @include flatlist;
     grid-column: 1 / span 2;
+	@include mobile {
+		grid-column: 1 / span 8;
+		margin: rem(25) 0;
+	}
     // border: 1px solid orange;
 }
 
@@ -26,12 +33,12 @@
 }
 
 .cart__summary__title {
-    grid-column: 1 / span 2;
+	// grid-column: 1 / span 2;
     // border: 1px solid red;
 }
 
 .cart__form__title {
-    grid-column: 3 / span 2;
+    // grid-column: 3 / span 2;
     // border: 1px solid darkcyan;
 }
 
@@ -47,6 +54,11 @@
 
 .cart__form {
     grid-column: 3 / span 4;
+	@include mobile {
+		grid-column: 1 / span 8;
+		margin: rem(25) 0;
+
+	}
     // border: 1px solid fuchsia;
 }
 
@@ -64,6 +76,9 @@
 .cart__form__input {
     grid-column: 7 / span 2;
     // border: 1px solid yellow;
+	@include mobile {
+		grid-column: 1 / span 8;
+	}
 }
 
 form {
@@ -93,14 +108,14 @@ form {
 .cart__form__field .placeholder {
     position: absolute;
     left: 30px;
-    top: 50%;  
+    top: 50%;
     transform: translateY(-50%);
-    width: calc(100% - 24px);  
+    width: calc(100% - 24px);
     color: $c-dark;
     color: #161a4358;
     overflow: hidden;
     padding: 5px;
-    transition: 
+    transition:
         top 0.2s ease,
         font-size 0.2s ease,
         color 0.2s ease;
@@ -123,31 +138,31 @@ form {
     border-bottom: 1px solid rgba(233, 233, 233, 0.5);
 }
 
-.cart__productname {
-    margin-left: 1rem;
-    font-size: large;
-}
+// .cart__productname {
+//     margin-left: 1rem;
+//     font-size: large;
+// }
 
-.cart__product__counter {
-    font-size: large;
-    width: 50px;
-    text-align: center;
-    padding: 0 1rem 0 1rem;
-}
+// .cart__product__counter {
+//     font-size: large;
+//     width: 50px;
+//     text-align: center;
+//     padding: 0 1rem 0 1rem;
+// }
 
-.button__cart {
-    @include blank-button;
-    cursor: pointer;
-    background-color: $c-dark;
-    font-size: large;
-    padding: 10px;
-    height: 35px;
-    width: 35px;
-    border-radius: 25px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
+// .button__cart {
+//     @include blank-button;
+//     cursor: pointer;
+//     background-color: $c-dark;
+//     font-size: large;
+//     padding: 10px;
+//     height: 35px;
+//     width: 35px;
+//     border-radius: 25px;
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+// }
 
 
 .button__submit {

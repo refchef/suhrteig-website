@@ -5,6 +5,12 @@ export const ratios = {
 	wide: "3:2"
 }
 
+export const breakpoints = {
+	'mobile': '(max-width: 760px)',
+	'tablet-portrait': '(max-width: 900px)',
+	'tablet': '(max-width: 1080px)'
+};
+
 export const ratioQuery = (ratio, w) => {
 	const params = new URLSearchParams();
 	params.set('w', w);
