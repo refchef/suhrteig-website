@@ -2,15 +2,20 @@
 @import "mixins";
 
 .about {
+	@include grid;
     color: $c-light;
-    background-color: $c-dark;
-    width: 100vw;
+    background: $c-dark;
 }
 
 .about__wrapper {
-    width: 100%;
+    grid-column: 3 / span 4;
     font-size: large;
     line-height: 2;
-    padding: 20rem;
+    padding: rem(200) 0;
+	@include mobile {
+		font-size: medium;
+		padding-top: rem(20) 0;
+		grid-column: 1 / span 8;
+	}
 
 }

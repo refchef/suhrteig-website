@@ -20,17 +20,14 @@
 
 	const addProduct = () => {
 		$addToCart = [...$addToCart, product];
-		// $addToCart = [...$addToCart, {productname}];
-		// $productPrice = [...$productPrice, {price}];
-		// cart = [...cart, product];
-		console.log("product added to cart", $addToCart);
+		console.log("product added", $addToCart);
 		productInCart = true;
 	};
 
 	const removeProduct = () => {
-		cart = cart.filter((t) => t !== product);
-		// $addToCart = $addToCart.filter((el) => el.productname !== productname);
-		console.log("product removed from cart", cart);
+		// cart = cart.filter((t) => t !== product);
+		$addToCart = $addToCart.filter((el) => el.productname !== productname);
+		console.log("product removed from cart");
 		productInCart = false;
 	};
 </script>

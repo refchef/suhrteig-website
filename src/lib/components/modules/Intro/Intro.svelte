@@ -36,9 +36,7 @@
 					<a href="#about">Über Suhrteig</a>
 				</li>
 				<li class="intro__links__item">
-					<a href="https://buttondown.email/suhrteig"
-						>Newstletter abonnieren</a
-					>
+					<a href="https://buttondown.email/suhrteig">Newstletter abonnieren</a>
 				</li>
 			</ul>
 		</div>

@@ -1,92 +1,101 @@
 <script>
+	import { onMount } from "svelte";
 	import { addToCart } from "$lib/util/cart";
-	console.log("Products in Cart", $addToCart);
+	import { slide } from "svelte/transition";
+	import { quintOut } from 'svelte/easing';
+	import messages from "$lib/util/messages";
+	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
 
-	export let cart;
-	console.log("Cart.svelte", $addToCart);
 
-	// 	const totalPrice = $productPrice.reduce((total, current) => {
-	//     return total + current.price;
-	//   }, 0);
+
+	const { cart } = messages.shop;
+	const { summary } = messages.shop;
+	const { contact } = messages.shop;
+
+	// const prices = Object.entries($addToCart)
+
+	console.log($addToCart);
+
+	let customerOrder;
+	const prices = [];
+	// onMount(() => {
+	// })
+	$: prices.push($addToCart.forEach(element => element.price));
+	// $: sum = $addToCart.forEach(element => console.log(element.price));
+	// $: console.log("prices", prices);
+
+	// THIS WORKS!
+	$: sum = prices.reduce((total, element) => total + element, 0);
 
 	//   console.log("totalPrice", totalPrice)
-	let productCounter = Math.min(1);
-
+	let counter;
 </script>
 
 <section class="cart">
-	<p class="cart__summary__title">Dein Warenkorb</p>
-	<p class="cart__form__title">Zusammenfassung</p>
-	<p class="cart__input__title">Kontaktangaben</p>
-
 	<ul class="cart__summary">
+		<p class="cart__summary__title">{cart.title}</p>
 		{#if $addToCart?.length === 0}
-			<p>ist zurzeit noch leer ...</p>
+			<p>{cart.description}</p>
 		{:else}
 			{#each $addToCart as product}
-			<!-- {#each cart as product} -->
-				<li class="cart__item">
-					<button
-						class="button__cart"
-						type="button"
-						on:click={() => (productCounter += 1)}>+</button
-					>
-					<span class="cart__product__counter">
-						{productCounter}
-					</span>
-					<button
-						class="button__cart"
-						type="button"
-						on:click={() => (productCounter -= 1)}>–</button
-					>
-					<span class="cart__productname">{product.productname} {product.amount}</span>
+				<li class="cart__item" transition:slide="{{duration: 250, easing: quintOut}}">
+					<ProductInCart {product} bind:productCounter={counter} />
 				</li>
 			{/each}
 		{/if}
 	</ul>
 
 	<div class="cart__form">
+		<p class="cart__form__title">{summary.title}</p>
 		{#if $addToCart.length === 0}
-			<p class="">
-				Sobald du köstliches Brot im Warenkorb hast, siehst du hier eine
-				Zusammenfassung.
-			</p>
+			<p class="">{summary.emptyCart}</p>
 		{:else}
 			<div class="cart__form__summary">
-				<p>
-					Du bestellst
+				<p bind:this={customerOrder}>
+					{summary.fullCart}
 					{#each $addToCart as item}
-						<span class="highlight">
+						<span class="highlight" transition:slide="{{duration: 250, easing: quintOut}}">
 							<br />
-							{productCounter}x
-							{item.productname},
+							{counter}x
+							{item.productname}
+
 						</span>
 					{/each}
+					<br />
+					<br />
+					{summary.total}
+					<br />
+					<!-- TODO: Calculate Total Price -->
+					<span class="highlight">CHF {sum}</span>
 				</p>
-				Total
-				<br />
-				<span class="highlight">CHF 0</span>
 			</div>
 		{/if}
 	</div>
+
 	<div class="cart__form__input">
-		<form name="Bestellungen" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+		<p class="cart__input__title">{contact.title}</p>
+		<form
+			name="Bestellungen"
+			method="POST"
+			data-netlify="true"
+			data-netlify-recaptcha="true"
+		>
 			<label class="cart__form__field">
 				<input type="text" required />
-				<span class="placeholder">Dein Name</span>
+				<span class="placeholder">{contact.nameInput}</span>
 			</label>
 			<label class="cart__form__field">
 				<input type="email" required />
-				<span class="placeholder">Deine E-Mail</span>
+				<span class="placeholder">{contact.mailInput}</span>
 			</label>
 			<label class="cart__form__field">
 				<input type="text" required />
-				<span class="placeholder">Adresse für Lieferung</span>
+				<span class="placeholder">{contact.adressInput}</span>
 			</label>
 			<button class="button__submit" type="submit"
-				>Bestellung abschicken</button
+				>{contact.button}</button
 			>
-			<div data-netlify-recaptcha="true"></div>
+			<div data-netlify-recaptcha="true" />
 		</form>
 	</div>
 </section>

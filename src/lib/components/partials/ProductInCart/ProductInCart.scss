@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixins";
+
+.button__cart {
+    @include blank-button;
+    cursor: pointer;
+    background-color: $c-dark;
+    font-size: large;
+    padding: 10px;
+    height: 35px;
+    width: 35px;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.--disabled {
+	opacity: 0.2;
+	cursor: default;
+}
+
+.cart__product__counter {
+    font-size: large;
+    width: 50px;
+    text-align: center;
+    padding: 0 1rem 0 1rem;
+}
+
+.cart__productname {
+    margin-left: 1rem;
+    font-size: large;
+}

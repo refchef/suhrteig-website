@@ -8,11 +8,11 @@
 	import Cart from "$lib/components/modules/Cart/Cart.svelte";
 	import About from "$lib/components/modules/About/About.svelte";
 	import Shop from "$lib/components/modules/Shop/Shop.svelte";
-	// import Footer from "$lib/components/modules/Footer/Footer.svelte";
-	
+	import Footer from "$lib/components/modules/Footer/Footer.svelte";
+
 	export let data;
-	
-		
+
+
 	const homepage = data.homepage[0];
 	console.log("homepage -->", homepage);
 </script>
@@ -20,20 +20,20 @@
 
 	<!-- Header.svelte -->
 	<Header title={homepage.title} tagline={homepage.tagline} status={homepage.status}/>
-	
-	
-	
+
+
+
 	<!-- Intro.svelte -->
 	<Intro intro={homepage.intro} news={homepage.news}/>
-	
+
 	<!-- News.svelte -->
 	<News news={homepage.news}/>
-	
+
 	<!-- ProductSlider.svelte -->
 	<!-- <ProductSlider products={homepage._blocks[0]} /> -->
-	
+
 	<Shop products={homepage._blocks[0]} />
-	<!-- 
+	<!--
 		Shop.svelte
 			- ProductSlider
 				- Product
@@ -47,7 +47,7 @@
 	<About about={homepage.about}/>
 
 	<!-- Footer.svelte -->
-	<!-- <Footer links={homepage._blocks[1]}/> -->
+	<Footer/>
 
 
 
