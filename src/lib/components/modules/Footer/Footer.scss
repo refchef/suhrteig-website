@@ -1,0 +1,41 @@
+@import "variables";
+@import "mixins";
+
+.footer {
+	@include space(height, m);
+	padding: 0 rem(40);
+	border-top: 1px solid $c-pink;
+	@include mobile {
+		height: 100%;
+		padding: rem(40);
+	}
+}
+.footer__items {
+	@include flatlist;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	@include mobile {
+		flex-direction: column;
+	}
+
+
+}
+.footer__item a{
+	color: $c-pink;
+	border-bottom: 1px solid transparent;
+	padding-bottom: rem(2);
+	transition: 0.2s ease-out;
+	@media (hover: hover) {
+		&:hover {
+			transition: 0.2s ease-in;
+			border-bottom: 1px solid $c-pink;
+		}
+	}
+	@include mobile {
+		margin: rem(10) 0;
+	}
+}

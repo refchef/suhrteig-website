@@ -20,10 +20,7 @@
 
 	const addProduct = () => {
 		$addToCart = [...$addToCart, product];
-		// $addToCart = [...$addToCart, {productname}];
-		// $productPrice = [...$productPrice, {price}];
-		// cart = [...cart, product];
-		console.log("product added to cart");
+		console.log("product added", $addToCart);
 		productInCart = true;
 	};
 
