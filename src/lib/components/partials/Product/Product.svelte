@@ -1,34 +1,36 @@
 <script>
-	import { addToCart } from "$lib/util/cart";
+	import { addToCart, productInCart } from "$lib/util/cart";
 	import Image from "$lib/components/partials/Image/Image.svelte";
 	import ProductTag from "$lib/components/partials/ProductTag/ProductTag.svelte";
 
 	export let product;
-	export let cart;
+
 	const {
+		id,
 		productphoto,
 		productname,
 		weight,
 		description,
 		price,
-		amount,
+		quantity,
+		maxquantity,
 		tags,
 		soldout,
 	} = product;
+
 	let splitTags = tags.split(",");
-	let productInCart = false;
+
 
 	const addProduct = () => {
 		$addToCart = [...$addToCart, product];
-		console.log("product added", $addToCart);
-		productInCart = true;
+		$productInCart = true;
+		console.log("product added to cart", $addToCart);
 	};
 
 	const removeProduct = () => {
-		// cart = cart.filter((t) => t !== product);
+		$productInCart = false;
 		$addToCart = $addToCart.filter((el) => el.productname !== productname);
-		console.log("product removed from cart");
-		productInCart = false;
+		console.log("product removed from cart", $addToCart);
 	};
 </script>
 
@@ -40,7 +42,7 @@
 					<Image {...productphoto} ratio={"4:5"} />
 					<div class="product__button">
 						<!-- AddButton.svelte -->
-						{#if !productInCart}
+						{#if !$productInCart}
 							<button
 								on:click={addProduct}
 								type="submit"

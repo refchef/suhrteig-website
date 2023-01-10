@@ -1,5 +1,8 @@
 <script>
 	import News from "../News/News.svelte";
+	import messages from "$lib/util/messages"
+
+	const { header } = messages;
 
 	export let intro;
     export let news;
@@ -29,14 +32,14 @@
 		</div>
 		<div class="intro__links">
 			<ul class="intro__links__list">
-				<li class="intro__links__item">
-					<a href="#bestellen">Jetzt bestellen</a>
+				<li class="intro__links__item" href="{header.orderButton.target}">
+					<a href="{header.orderButton.target}">{header.orderButton.title}</a>
 				</li>
 				<li class="intro__links__item">
-					<a href="#about">Über Suhrteig</a>
+					<a href="{header.aboutButton.target}">{header.aboutButton.title}</a>
 				</li>
-				<li class="intro__links__item">
-					<a href="https://buttondown.email/suhrteig">Newstletter abonnieren</a>
+				<li class="intro__links__item" href="{header.newsletterButton.target}">
+					<a href="{header.newsletterButton.target}">{header.newsletterButton.title}</a>
 				</li>
 			</ul>
 		</div>

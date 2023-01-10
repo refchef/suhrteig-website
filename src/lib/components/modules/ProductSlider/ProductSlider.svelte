@@ -6,7 +6,7 @@
 	import { onMount } from "svelte";
 
 	export let products = [];
-	export let cart;
+
 	const { fields } = products.props;
 
 	let slider;
@@ -30,7 +30,7 @@
 	<div bind:this={slider} class="keen-slider">
 		{#each fields as product}
 			<div class="keen-slider__slide">
-				<Product {cart} {product} />
+				<Product {product} />
 			</div>
 		{/each}
 	</div>

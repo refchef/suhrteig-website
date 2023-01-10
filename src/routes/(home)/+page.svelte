@@ -11,10 +11,8 @@
 	import Footer from "$lib/components/modules/Footer/Footer.svelte";
 
 	export let data;
-
-
 	const homepage = data.homepage[0];
-	console.log("homepage -->", homepage);
+
 </script>
 
 
