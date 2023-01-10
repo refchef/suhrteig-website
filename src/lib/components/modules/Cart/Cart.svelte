@@ -6,40 +6,32 @@
 	import messages from "$lib/util/messages";
 	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
 
-
-
 	const { cart } = messages.shop;
 	const { summary } = messages.shop;
 	const { contact } = messages.shop;
 
-	// const prices = Object.entries($addToCart)
-
 	console.log($addToCart);
 
+	// TODO: copy order to clipboard / form
 	let customerOrder;
-	const prices = [];
-	// onMount(() => {
-	// })
-	$: prices.push($addToCart.forEach(element => element.price));
-	// $: sum = $addToCart.forEach(element => console.log(element.price));
-	// $: console.log("prices", prices);
 
 	// THIS WORKS!
-	$: sum = prices.reduce((total, element) => total + element, 0);
+	$: total = $addToCart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
-	//   console.log("totalPrice", totalPrice)
-	let counter;
+	const checkOut = () => {
+		console.log((JSON.stringify($addToCart)))
+	}
 </script>
 
 <section class="cart">
 	<ul class="cart__summary">
 		<p class="cart__summary__title">{cart.title}</p>
 		{#if $addToCart?.length === 0}
-			<p>{cart.description}</p>
+			<div>{cart.description}</div>
 		{:else}
 			{#each $addToCart as product}
 				<li class="cart__item" transition:slide="{{duration: 250, easing: quintOut}}">
-					<ProductInCart {product} bind:productCounter={counter} />
+					<ProductInCart {product} />
 				</li>
 			{/each}
 		{/if}
@@ -56,8 +48,8 @@
 					{#each $addToCart as item}
 						<span class="highlight" transition:slide="{{duration: 250, easing: quintOut}}">
 							<br />
-							{counter}x
-							{item.productname}
+							{item.quantity}x
+							{item.productname} à CHF {item.quantity * item.price}
 
 						</span>
 					{/each}
@@ -65,20 +57,43 @@
 					<br />
 					{summary.total}
 					<br />
-					<!-- TODO: Calculate Total Price -->
-					<span class="highlight">CHF {sum}</span>
+					<span class="highlight">CHF {total}</span>
 				</p>
 			</div>
 		{/if}
 	</div>
 
+	<button on:click={checkOut}></button>
+
+	<form name="contact" method="POST" data-netlify="true">
+		<input type="hidden" name="form-name" value="contact">
+
+		<p>
+		  <label>Your Name: <input type="text" name="name" /></label>
+		</p>
+		<p>
+		  <label>Your Email: <input type="email" name="email" /></label>
+		</p>
+		<p>
+		  <label>Your Role: <select name="role[]" multiple>
+			<option value="leader">Leader</option>
+			<option value="follower">Follower</option>
+		  </select></label>
+		</p>
+		<p>
+		  <label>Message: <textarea name="message"></textarea></label>
+		</p>
+		<p>
+		  <button type="submit">Send</button>
+		</p>
+	</form>
+
 	<div class="cart__form__input">
 		<p class="cart__input__title">{contact.title}</p>
-		<form
+		<!-- <form
 			name="Bestellungen"
 			method="POST"
 			data-netlify="true"
-			data-netlify-recaptcha="true"
 		>
 			<label class="cart__form__field">
 				<input type="text" required />
@@ -92,11 +107,11 @@
 				<input type="text" required />
 				<span class="placeholder">{contact.adressInput}</span>
 			</label>
-			<button class="button__submit" type="submit"
+			<button class="button__submit"
 				>{contact.button}</button
 			>
 			<div data-netlify-recaptcha="true" />
-		</form>
+		</form> -->
 	</div>
 </section>
 

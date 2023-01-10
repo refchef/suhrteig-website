@@ -12,12 +12,14 @@ query {
 					... on HomepageBody1Product {
 						type
 						fields {
+							id
 							productname_txt: productname
 							description_txt: description
 							tags
 							weight
 							price
-							amount
+							quantity
+							maxquantity
 							productphoto_img: productphoto
 							soldout
 						}

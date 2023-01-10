@@ -2,7 +2,7 @@ import query from "$lib/graphql/query/getHomepage.graphql"
 import {prismicQuery} from "$lib/util/prismic.js";
 
 // WHY?
-export const ssr = false;
+// export const ssr = false;
 
 // /** @type {import('./$types').PageServerLoad} */
 // /** @type {import('./$types').PageLoad} */

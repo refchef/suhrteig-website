@@ -11,8 +11,8 @@ export default {
 			"target": "#about"
 		},
 		"newsletterButton": {
-			"title": "Newsletter abonnieren",
-			"url": "https://buttondown.email/suhrteig"
+			"title": "Newsletter",
+			"target": "https://buttondown.email/suhrteig"
 		}
 	},
 	"shop": {

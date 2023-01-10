@@ -2,12 +2,8 @@
 	import ProductSlider from "$lib/components/modules/ProductSlider/ProductSlider.svelte";
 	import Cart from "$lib/components/modules/Cart/Cart.svelte";
 
-    export let products = []
-    // Store array?
-    const cart = [];
-
-    $: console.log("Shop.svelte", cart);
+	export let products = []
 </script>
 
-<ProductSlider {products} {cart}/>
-<Cart {cart}/>
+<ProductSlider {products}/>
+<Cart/>

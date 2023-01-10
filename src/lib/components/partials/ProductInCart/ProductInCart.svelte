@@ -1,30 +1,49 @@
 <script>
-	export let product;
+	import { addToCart, productInCart } from "$lib/util/cart";
 
-	export let productCounter = 1;
+	export let product;
+	console.log(product);
+
 	let disabled = false;
 
-	const countUp = () => {
-		if (productCounter < product.amount) {
-			productCounter += 1
-			disabled = false;
-		} else if (productCounter === product.amount){
-			disabled = true;
+	const countUp = (product) => {
+		for(let item of $addToCart) {
+				if(item.id === product.id) {
+					if(product.quantity === product.maxquantity) {
+						console.log("reached max amount");
+					}
+					else {
+						product.quantity += 1
+						console.log(product.quantity);
+						$addToCart = $addToCart;
+					}
+						return;
+				}
+			}
+	}
+
+	const countDown = (product) => {
+		for(let item of $addToCart) {
+				if(item.id === product.id) {
+					if(product.quantity > 1 ) {
+						product.quantity -= 1
+						$addToCart = $addToCart
+					} else {
+						$addToCart = $addToCart.filter((cartItem) => cartItem != product)
+						$productInCart = false;
+					}
+					return;
+				}
 		}
 	}
 
-	const countDown = () => {
-		if (productCounter > 1) {
-			productCounter -= 1
-		}
-	}
 </script>
 
-<button class="button__cart" type="button" class:--disabled={disabled} on:click={countUp}>+</button>
+<button class="button__cart" type="button" class:--disabled={disabled} on:click={countUp(product)}>+</button>
 <span class="cart__product__counter">
-	{productCounter}
+	{product.quantity}
 </span>
-<button class="button__cart" type="button" on:click={countDown}>–</button>
-<span class="cart__productname">{product.productname} {product.amount}</span>
+<button class="button__cart" type="button" on:click={countDown(product)}>–</button>
+<span class="cart__productname">{product.productname}</span>
 
 <style src="./ProductInCart.scss"></style>
