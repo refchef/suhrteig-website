@@ -1,5 +1,5 @@
 <script>
-	import { addToCart, productInCart } from "$lib/util/cart";
+	import { cart } from "$lib/util/cart";
 
 	export let product;
 	console.log(product);
@@ -7,7 +7,7 @@
 	let disabled = false;
 
 	const countUp = (product) => {
-		for(let item of $addToCart) {
+		for(let item of $cart) {
 				if(item.id === product.id) {
 					if(product.quantity === product.maxquantity) {
 						console.log("reached max amount");
@@ -15,7 +15,7 @@
 					else {
 						product.quantity += 1
 						console.log(product.quantity);
-						$addToCart = $addToCart;
+						$cart = $cart;
 					}
 						return;
 				}
@@ -23,14 +23,15 @@
 	}
 
 	const countDown = (product) => {
-		for(let item of $addToCart) {
+		for(let item of $cart) {
 				if(item.id === product.id) {
 					if(product.quantity > 1 ) {
 						product.quantity -= 1
-						$addToCart = $addToCart
+						$cart = $cart
+						console.log(product.quantity);
 					} else {
-						$addToCart = $addToCart.filter((cartItem) => cartItem != product)
-						$productInCart = false;
+						$cart = $cart.filter((cartItem) => cartItem != product)
+						product.quantity = 0;
 					}
 					return;
 				}
