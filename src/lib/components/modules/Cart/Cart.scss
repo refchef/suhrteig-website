@@ -1,141 +1,155 @@
 @import "variables";
 @import "mixins";
 
-.cart {
-    @include grid;
-    background: $c-pink;
-    padding: 5rem;
-    border-radius: 0 0 3rem 3rem;
-    font-size: large;
+.Cart {
+	@include grid;
+	background: $c-pink;
+	padding: 5rem;
+	border-radius: 0 0 3rem 3rem;
+	font-size: large;
 	@include mobile {
 
 	}
-    // display: flex;
+	// display: flex;
 }
 
-.cart__summary {
-    @include flatlist;
-    grid-column: 1 / span 2;
+.Cart__products {
+	grid-column: 1 / span 2;
 	@include mobile {
 		grid-column: 1 / span 8;
 		margin: rem(25) 0;
 	}
-    // border: 1px solid orange;
-}
-
-.cart__summary__title,
-.cart__form__title,
-.cart__input__title {
-    color: $c-dark;
-    margin: 0;
-    margin-bottom: 2.5rem;
 
 }
 
-.cart__summary__title {
+.Cart__products--list {
+	@include flatlist;
+	// border: 1px solid orange;
+}
+
+.Cart__products--title,
+.Cart__summary--title,
+.Cart__contact--title {
+	color: $c-dark;
+	margin: 0;
+	margin-bottom: 2.5rem;
+
+}
+
+.Cart__products--title {
 	// grid-column: 1 / span 2;
-    // border: 1px solid red;
+	// border: 1px solid red;
 }
 
-.cart__form__title {
-    // grid-column: 3 / span 2;
-    // border: 1px solid darkcyan;
+.Cart__form__title {
+	// grid-column: 3 / span 2;
+	// border: 1px solid darkcyan;
 }
 
-.cart__input__title {
-    grid-column: 7 / span 2;
-    // border: 1px solid yellow;
+.Cart__contact--title {
+	grid-column: 7 / span 2;
+	// border: 1px solid yellow;
 
 }
 
-.highlight {
-    color: $c-dark;
+.Cart__summary--highlight {
+	color: $c-dark;
 }
 
-.cart__form {
-    grid-column: 3 / span 4;
+.Cart__summary {
+	grid-column: 3 / span 3;
 	@include mobile {
 		grid-column: 1 / span 8;
 		margin: rem(25) 0;
 
 	}
-    // border: 1px solid fuchsia;
+}
+
+.Cart__summary--list {
+	// width: 30%;
+	// border: 1px solid blue;
+}
+
+.Cart__summary--item {
+	display: flex;
+	justify-content: space-between;
+}
+
+.item--details {
+	// color: green;
+}
+.item--price {
+	color: $c-pink--light;
+}
+
+.Cart__summary--billing {
+	font-size: small;
 }
 
 
-.cart__form__wrapper {
-    // display: flex;
-}
-
-.cart__form__summary {
-    // width: 30%;
-    // border: 1px solid blue;
-}
-
-
-.cart__form__input {
-    grid-column: 7 / span 2;
-    // border: 1px solid yellow;
+.Cart__contact {
+	grid-column: 7 / span 2;
+	// border: 1px solid yellow;
 	@include mobile {
 		grid-column: 1 / span 8;
 	}
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 
-.cart__form__field {
-    position: relative;
-    font-size: 14px;
-    border-top: 20px;
-    margin-bottom: 2rem;
+.Cart__contact--label {
+	position: relative;
+	font-size: 14px;
+	border-top: 20px;
+	margin-bottom: 2rem;
 }
 
-.cart__form__field input {
-    appearance: none;
-    background: $c-pink;
-    padding: 20px;
-    border: 1px solid $c-dark;
-    border-radius: 50px;
-    width: 100%;
-    font-size: 14px;
-    outline: none;
+.Cart__contact--label input {
+	appearance: none;
+	background: $c-pink;
+	padding: 20px;
+	border: 1px solid $c-dark;
+	border-radius: 50px;
+	width: 100%;
+	font-size: 14px;
+	outline: none;
 }
 
-.cart__form__field .placeholder {
-    position: absolute;
-    left: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: calc(100% - 24px);
-    color: $c-dark;
-    color: #161a4358;
-    overflow: hidden;
-    padding: 5px;
-    transition:
-        top 0.2s ease,
-        font-size 0.2s ease,
-        color 0.2s ease;
+.Cart__contact--label .Cart__contact--placeholder {
+	position: absolute;
+	left: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: calc(100% - 24px);
+	color: $c-dark;
+	color: #161a4358;
+	overflow: hidden;
+	padding: 5px;
+	transition:
+		top 0.2s ease,
+		font-size 0.2s ease,
+		color 0.2s ease;
 }
-.cart__form__field input:valid + .placeholder,
-.cart__form__field input:focus + .placeholder {
-    top: 0;
-    font-size: 10px;
-    color: $c-dark;
-    background-color: $c-pink;
-    width: fit-content;
+.Cart__contact--label input:valid + .Cart__contact--placeholder,
+.Cart__contact--label input:focus + .Cart__contact--placeholder {
+	top: 0;
+	font-size: 10px;
+	color: $c-dark;
+	background-color: $c-pink;
+	width: fit-content;
 
   }
 
-.cart__item {
-    display: flex;
-    align-items: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(233, 233, 233, 0.5);
+.Cart__products--item {
+	display: flex;
+	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(233, 233, 233, 0.5);
 }
 
 // .cart__productname {
@@ -165,77 +179,17 @@ form {
 // }
 
 
-.button__submit {
-    @include blank-button;
-    background-color: $c-dark;
-    padding: 20px;
-    border: 1px solid $c-dark;
-    border-radius: 50px;
-    width: 100%;
-    font-size: large;
-    // font-weight: bold;
-    // font-size: 14px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+.Cart__contact--submit {
+	@include blank-button;
+	background-color: $c-dark;
+	padding: 20px;
+	border: 1px solid $c-dark;
+	border-radius: 50px;
+	width: 100%;
+	font-size: large;
+	// font-weight: bold;
+	// font-size: 14px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 }
-
-// .button-19 {
-//   appearance: button;
-//   background-color: #1899D6;
-//   border: solid transparent;
-//   border-radius: 16px;
-//   border-width: 0 0 4px;
-//   box-sizing: border-box;
-//   color: #FFFFFF;
-//   cursor: pointer;
-//   display: inline-block;
-//   font-family: din-round,sans-serif;
-//   font-size: 15px;
-//   font-weight: 700;
-//   letter-spacing: .8px;
-//   line-height: 20px;
-//   margin: 0;
-//   outline: none;
-//   overflow: visible;
-//   padding: 13px 16px;
-//   text-align: center;
-//   text-transform: uppercase;
-//   touch-action: manipulation;
-//   transform: translateZ(0);
-//   transition: filter .2s;
-//   user-select: none;
-//   -webkit-user-select: none;
-//   vertical-align: middle;
-//   white-space: nowrap;
-//   width: 100%;
-// }
-
-// .button-19:after {
-//   background-clip: padding-box;
-//   background-color: #1CB0F6;
-//   border: solid transparent;
-//   border-radius: 16px;
-//   border-width: 0 0 4px;
-//   bottom: -4px;
-//   content: "";
-//   left: 0;
-//   position: absolute;
-//   right: 0;
-//   top: 0;
-//   z-index: -1;
-// }
-
-// .button-19:main,
-// .button-19:focus {
-//   user-select: auto;
-// }
-
-// .button-19:hover:not(:disabled) {
-//   filter: brightness(1.1);
-//   -webkit-filter: brightness(1.1);
-// }
-
-// .button-19:disabled {
-//   cursor: auto;
-// }

@@ -16,7 +16,7 @@ export default {
 		}
 	},
 	"shop": {
-		"cart": {
+		"product": {
 			"title": "Dein Warenkorb ",
 			"description": "ist zurzeit noch leer ..."
 		},

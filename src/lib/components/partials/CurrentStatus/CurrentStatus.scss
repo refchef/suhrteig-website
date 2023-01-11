@@ -4,17 +4,19 @@
 .Current__status {
 	background: $c-light;
 	border-radius: rem(50);
-	padding: rem(20);
-	padding-left: rem(40);
+	padding: rem(5);
+	z-index: 200;
+	// padding-left: rem(40);
 	display: flex;
-    align-items: center;
+	align-items: center;
 	visibility: hidden;
 	position: fixed;
 	top: rem(20);
 	left: 50vw;
 	transform: translateX(-50%);
 	z-index: 1000;
-	box-shadow: 5px 5px 17px 7px rgba(150, 150, 150, 0.2)
+	width: max-content;
+	// box-shadow: 5px 5px 17px 7px rgba(150, 150, 150, 0.2)
 }
 
 .showStatus {
@@ -22,15 +24,15 @@
 }
 
 .status {
-    border: 1px solid $c-pink;
-    align-items: center;
-    border-radius: 5rem;
-    padding: 2rem;
-    display: inline-flex;
-    margin-left: 2rem;
-    height: 5rem;
-    position: relative;
-    &:before {
+	border: 1px solid $c-pink;
+	align-items: center;
+	border-radius: 5rem;
+	padding: 2rem;
+	display: inline-flex;
+	// margin-left: 2rem;
+	height: 5rem;
+	position: relative;
+	&:before {
 		content: '';
 		display: inline-block;
 		position: relative;
@@ -38,14 +40,14 @@
 		width: 24px;
 		height: 24px;
 		border-radius: 100px;
-        margin-right: 1rem;
+		margin-right: 1rem;
 		pointer-events: none;
-        animation: blinker 1.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+		animation: blinker 1.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 	}
 
-    @keyframes blinker {
-        50% {
-          opacity: 0;
-        }
-      }
+	@keyframes blinker {
+		50% {
+		  opacity: 0;
+		}
+	  }
 }
