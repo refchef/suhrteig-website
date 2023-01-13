@@ -85,8 +85,9 @@
 			name="Bestellungen"
 			method="POST"
 			data-netlify="true"
+			netlify-honeypot="bot-field"
 		>
-		<input type="hidden" name="form-name" value="netlify-form-example" />
+		<input type="hidden" name="form-name" value="netlify-form-example"/>
 			<label class="Cart__contact--label">
 				<input type="text" required />
 				<span class="Cart__contact--placeholder">{contact.nameInput}</span>

@@ -13,7 +13,13 @@ const config = {
 		postcss: true
 	}),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			crawl: true,
+			enabled: true,
+			force: true,
+			pages: ['*'],
+		},
 	}
 };
 
