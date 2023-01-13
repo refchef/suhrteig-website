@@ -10,8 +10,6 @@
 	import Shop from "$lib/components/modules/Shop/Shop.svelte";
 	import Footer from "$lib/components/modules/Footer/Footer.svelte";
 
-	// export const prerender = true;
-
 	export let data;
 	const homepage = data.homepage[0];
 
