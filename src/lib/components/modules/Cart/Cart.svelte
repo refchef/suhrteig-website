@@ -79,38 +79,24 @@
 
 	<!-- KONTAKTANGABEN -->
 
-	<!-- <form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-		<input type="hidden" name="form-name" value="netlify-form-example" />
 
-		<label for="name">Name</label>
-		<input name="name" id="name" required placeholder="Name" type="text" />
-
-		<label for="email">Email</label>
-		<input name="email" id="email" required placeholder="Email" type="email" />
-
-		<label for="message">Message</label>
-		<input name="message" id="message" required placeholder="Message" type="text" />
-
-		<input type="submit" value="Submit" />
-	</form> -->
 
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form name="Bestellungen" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/success">
-			<input type="hidden" name="form-name" value="Bestellungen"/>
+			<form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+			<input type="hidden" name="form-name" value="netlify-form-example" />
 
-			<label for="name" class="Cart__contact--label">{contact.nameInput}</label>
-			<input name="name" id="name" type="text" required/>
+			<label for="name">Name</label>
+			<input name="name" id="name" required placeholder="Name" type="text" />
 
-			<label for="email" class="Cart__contact--label">{contact.mailInput}</label>
-			<input name="email" id="email" type="email" required/>
+			<label for="email">Email</label>
+			<input name="email" id="email" required placeholder="Email" type="email" />
 
-			<label for="address" class="Cart__contact--label">{contact.addressInput}</label>
-			<input name="address" id="address" type="text" required/>
+			<label for="message">Message</label>
+			<input name="message" id="message" required placeholder="Message" type="text" />
 
-			<button class="Cart__contact--submit" type="submit">{contact.button}</button>
-			<!-- <input class="Cart__contact--submit" type="submit" value="Bestellung abschicken" /> -->
+			<input type="submit" value="Submit" />
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>
