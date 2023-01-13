@@ -82,12 +82,7 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form name="bestellungen" method="POST" data-netlify="true" action="/success" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
-			<p class="hidden">
-				<label>
-				  Do not fill this out if you are human: <input name="bot-field" />
-				</label>
-			  </p>
+		<form name="bestellungen" method="POST" data-netlify="true" action="/success">
 			<input type="hidden" name="form-name" value="bestellungen"/>
 			<label for="name" class="Cart__contact--label" >
 				<input name="name" type="text" required value="Name"/>
@@ -101,7 +96,6 @@
 				<input name="address" type="text" required value="Adresse"/>
 				<!-- <span class="Cart__contact--placeholder">{contact.addressInput}</span> -->
 			</label>
-			<div data-netlify-recaptcha="true"></div>
 			<!-- <button class="Cart__contact--submit" type="submit">{contact.button}</button> -->
 			<input class="Cart__contact--submit" type="submit" value="Bestellung abschicken" />
 		</form>
