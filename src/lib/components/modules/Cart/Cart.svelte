@@ -85,16 +85,16 @@
 		<form name="Bestellungen" method="POST" data-netlify="true" action="/success">
 			<input type="hidden" name="form-name" value="Bestellungen"/>
 			<label for="name" class="Cart__contact--label" >
-				<input name="name" type="text" required />
-				<span class="Cart__contact--placeholder">{contact.nameInput}</span>
+				<input name="name" type="text" required value="{contact.nameInput}"/>
+				<!-- <span class="Cart__contact--placeholder">{contact.nameInput}</span> -->
 			</label>
 			<label for="email" class="Cart__contact--label">
-				<input name="email" type="email" required />
-				<span class="Cart__contact--placeholder">{contact.mailInput}</span>
+				<input name="email" type="email" required value="{contact.mailInput}"/>
+				<!-- <span class="Cart__contact--placeholder">{contact.mailInput}</span> -->
 			</label>
 			<label for="address" class="Cart__contact--label">
-				<input name="address" type="text" required />
-				<span class="Cart__contact--placeholder">{contact.addressInput}</span>
+				<input name="address" type="text" required value="{contact.addressInput}"/>
+				<!-- <span class="Cart__contact--placeholder">{contact.addressInput}</span> -->
 			</label>
 			<!-- <button class="Cart__contact--submit" type="submit">{contact.button}</button> -->
 			<input class="Cart__contact--submit" type="submit" value="{contact.button}" />
