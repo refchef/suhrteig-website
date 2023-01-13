@@ -3,6 +3,7 @@ import {prismicQuery} from "$lib/util/prismic.js";
 
 // WHY?
 // export const ssr = false;
+export const prerender = true;
 
 // /** @type {import('./$types').PageServerLoad} */
 // /** @type {import('./$types').PageLoad} */

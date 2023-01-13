@@ -1,7 +1,3 @@
-<script context="module">
-	export const prerender = true;
-</script>
-
 <script>
 	/** @type {import('./$types').PageData} */
 	import Header from "$lib/components/modules/Header/Header.svelte";
