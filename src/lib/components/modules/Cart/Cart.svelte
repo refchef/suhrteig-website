@@ -100,17 +100,14 @@
 		<form name="Bestellungen" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/success">
 			<input type="hidden" name="form-name" value="Bestellungen"/>
 
-			<label for="name" class="Cart__contact--label"></label>
+			<label for="name" class="Cart__contact--label">{contact.nameInput}</label>
 			<input name="name" id="name" type="text" required/>
-			<span class="Cart__contact--placeholder">{contact.nameInput}</span>
 
-			<label for="email" class="Cart__contact--label"></label>
+			<label for="email" class="Cart__contact--label">{contact.mailInput}</label>
 			<input name="email" id="email" type="email" required/>
-			<span class="Cart__contact--placeholder">{contact.mailInput}</span>
 
-			<label for="address" class="Cart__contact--label"></label>
+			<label for="address" class="Cart__contact--label">{contact.addressInput}</label>
 			<input name="address" id="address" type="text" required/>
-			<span class="Cart__contact--placeholder">{contact.addressInput}</span>
 
 			<button class="Cart__contact--submit" type="submit">{contact.button}</button>
 			<!-- <input class="Cart__contact--submit" type="submit" value="Bestellung abschicken" /> -->
