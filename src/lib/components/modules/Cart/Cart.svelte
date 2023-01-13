@@ -86,7 +86,7 @@
 			method="POST"
 			data-netlify="true"
 			netlify-honeypot="bot-field"
-			action="/src/routes/success/+page.svelte"
+			action="/success"
 		>
 		<input type="hidden" name="form-name" value="netlify-form-example"/>
 			<label class="Cart__contact--label" >
