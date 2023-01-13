@@ -82,22 +82,27 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form name="Bestellungen" method="POST" data-netlify="true" action="/success">
-			<input type="hidden" name="form-name" value="Bestellungen"/>
+		<form name="bestellungen" method="POST" data-netlify="true" action="/success" netlify-honeypot="bot-field">
+			<p class="hidden">
+				<label>
+				  Do not fill this out if you are human: <input name="bot-field" />
+				</label>
+			  </p>
+			<input type="hidden" name="form-name" value="bestellungen"/>
 			<label for="name" class="Cart__contact--label" >
-				<input name="name" type="text" required value="{contact.nameInput}"/>
+				<input name="name" type="text" required value="Name"/>
 				<!-- <span class="Cart__contact--placeholder">{contact.nameInput}</span> -->
 			</label>
 			<label for="email" class="Cart__contact--label">
-				<input name="email" type="email" required value="{contact.mailInput}"/>
+				<input name="email" type="email" required value="Mail"/>
 				<!-- <span class="Cart__contact--placeholder">{contact.mailInput}</span> -->
 			</label>
 			<label for="address" class="Cart__contact--label">
-				<input name="address" type="text" required value="{contact.addressInput}"/>
+				<input name="address" type="text" required value="Adresse"/>
 				<!-- <span class="Cart__contact--placeholder">{contact.addressInput}</span> -->
 			</label>
 			<!-- <button class="Cart__contact--submit" type="submit">{contact.button}</button> -->
-			<input class="Cart__contact--submit" type="submit" value="{contact.button}" />
+			<input class="Cart__contact--submit" type="submit" value="Bestellung abschicken" />
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>
