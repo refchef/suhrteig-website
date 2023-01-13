@@ -89,15 +89,15 @@
 			action="/success"
 		>
 		<input type="hidden" name="form-name" value="netlify-form-example"/>
-			<label class="Cart__contact--label">
+			<label class="Cart__contact--label" name="name">
 				<input type="text" required />
 				<span class="Cart__contact--placeholder">{contact.nameInput}</span>
 			</label>
-			<label class="Cart__contact--label">
+			<label class="Cart__contact--label" name="email">
 				<input type="email" required />
 				<span class="Cart__contact--placeholder">{contact.mailInput}</span>
 			</label>
-			<label class="Cart__contact--label">
+			<label class="Cart__contact--label" name="contact">
 				<input type="text" required />
 				<span class="Cart__contact--placeholder">{contact.adressInput}</span>
 			</label>
