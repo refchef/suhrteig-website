@@ -43,13 +43,13 @@
 	<div class="Cart__summary">
 		<p class="Cart__summary--title">{summary.title}</p>
 		{#if $cart.length === 0}
-			<p class="">{summary.emptyCart}</p>
+			<div>{summary.emptyCart}</div>
 		{:else}
 			<div class="Cart__summary--list">
-				<div bind:this={customerOrder}>
+				<div bind:this={customerOrder} transition:slide="{{duration: 250, easing: quintOut}}">
 					{summary.fullCart}
 					{#each $cart as item}
-					<div class="Cart__summary--item" transition:slide="{{duration: 250, easing: quintOut}}">
+					<div class="Cart__summary--item">
 						<span class=" Cart__summary--highlight item--details" >
 							{#key item.quantity}
 								<span in:scale="{{duration: 1000}}">{item.quantity}x</span>
@@ -85,24 +85,25 @@
 			name="Bestellungen"
 			method="POST"
 			data-netlify="true"
+			netlify-honeypot="bot-field"
+			action="/success"
 		>
-		<input type="hidden" name="form-name" value="netlify-form-example" />
-			<label class="Cart__contact--label">
-				<input type="text" required />
+		<input type="hidden" name="form-name" value="netlify-form-example"/>
+			<label class="Cart__contact--label" >
+				<input type="text" name="name" required />
 				<span class="Cart__contact--placeholder">{contact.nameInput}</span>
 			</label>
-			<label class="Cart__contact--label">
-				<input type="email" required />
+			<label class="Cart__contact--label" >
+				<input type="email" name="email" required />
 				<span class="Cart__contact--placeholder">{contact.mailInput}</span>
 			</label>
-			<label class="Cart__contact--label">
-				<input type="text" required />
+			<label class="Cart__contact--label" >
+				<input type="text" name="contact" required />
 				<span class="Cart__contact--placeholder">{contact.adressInput}</span>
 			</label>
-			<button class="Cart__contact--submit"
+			<button class="Cart__contact--submit" type="submit"
 				>{contact.button}</button
 			>
-			<div data-netlify-recaptcha="true" />
 		</form>
 	</div>
 </section>
