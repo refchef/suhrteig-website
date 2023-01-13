@@ -79,26 +79,37 @@
 
 	<!-- KONTAKTANGABEN -->
 
+	<form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+		<input type="hidden" name="form-name" value="netlify-form-example" />
+		<label for="name">Name</label>
+		<input name="name" id="name" required placeholder="Name" type="text" />
+		<label for="email">Email</label>
+		<input name="email" id="email" required placeholder="Email" type="email" />
+		<label for="message">Message</label>
+		<input name="message" id="message" required placeholder="Message" type="text" />
+		<input type="submit" value="Submit" />
+	</form>
+
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form name="Bestellungen" method="POST" netlify action="/success">
+		<!-- <form name="Bestellungen" method="POST" netlify action="/success">
 			<input type="hidden" name="form-name" value="Bestellungen"/>
 			<label for="name" class="Cart__contact--label" >
 				<input name="name" type="text" required value="Name"/>
-				<!-- <span class="Cart__contact--placeholder">{contact.nameInput}</span> -->
+				<span class="Cart__contact--placeholder">{contact.nameInput}</span>
 			</label>
 			<label for="email" class="Cart__contact--label">
 				<input name="email" type="email" required value="Mail"/>
-				<!-- <span class="Cart__contact--placeholder">{contact.mailInput}</span> -->
+				<span class="Cart__contact--placeholder">{contact.mailInput}</span>
 			</label>
 			<label for="address" class="Cart__contact--label">
 				<input name="address" type="text" required value="Adresse"/>
-				<!-- <span class="Cart__contact--placeholder">{contact.addressInput}</span> -->
+				<span class="Cart__contact--placeholder">{contact.addressInput}</span>
 			</label>
-			<!-- <button class="Cart__contact--submit" type="submit">{contact.button}</button> -->
+			<button class="Cart__contact--submit" type="submit">{contact.button}</button>
 			<input class="Cart__contact--submit" type="submit" value="Bestellung abschicken" />
-		</form>
+		</form> -->
 		<!-- NETLIFY FORM END -->
 	</div>
 </section>
