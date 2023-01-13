@@ -86,19 +86,19 @@
 			method="POST"
 			data-netlify="true"
 			netlify-honeypot="bot-field"
-			action="/success"
+			action="/src/routes/success/+page.svelte"
 		>
 		<input type="hidden" name="form-name" value="netlify-form-example"/>
-			<label class="Cart__contact--label" name="name">
-				<input type="text" required />
+			<label class="Cart__contact--label" >
+				<input type="text" name="name" required />
 				<span class="Cart__contact--placeholder">{contact.nameInput}</span>
 			</label>
-			<label class="Cart__contact--label" name="email">
-				<input type="email" required />
+			<label class="Cart__contact--label" >
+				<input type="email" name="email" required />
 				<span class="Cart__contact--placeholder">{contact.mailInput}</span>
 			</label>
-			<label class="Cart__contact--label" name="contact">
-				<input type="text" required />
+			<label class="Cart__contact--label" >
+				<input type="text" name="contact" required />
 				<span class="Cart__contact--placeholder">{contact.adressInput}</span>
 			</label>
 			<button class="Cart__contact--submit" type="submit"
