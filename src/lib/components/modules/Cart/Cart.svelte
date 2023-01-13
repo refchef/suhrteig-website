@@ -81,13 +81,9 @@
 
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
-		<form
-			name="Bestellungen"
-			method="POST"
-			data-netlify="true"
-			action="/success"
-		>
-		<input type="hidden" name="form-name" value="netlify-form-example"/>
+		<!-- NETLIFY FORM START -->
+		<form name="Bestellungen" method="POST" data-netlify="true" action="/success">
+			<input type="hidden" name="form-name" value="Bestellungen"/>
 			<label class="Cart__contact--label" >
 				<input type="text" name="name" required />
 				<span class="Cart__contact--placeholder">{contact.nameInput}</span>
@@ -100,10 +96,9 @@
 				<input type="text" name="contact" required />
 				<span class="Cart__contact--placeholder">{contact.adressInput}</span>
 			</label>
-			<button class="Cart__contact--submit" type="submit"
-				>{contact.button}</button
-			>
+			<button class="Cart__contact--submit" name="button" type="submit">{contact.button}</button>
 		</form>
+		<!-- NETLIFY FORM END -->
 	</div>
 </section>
 
