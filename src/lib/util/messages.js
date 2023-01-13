@@ -30,7 +30,7 @@ export default {
 			"title": "Kontaktangaben",
 			"nameInput": "Dein Name",
 			"mailInput": "Deine E-Mail",
-			"adressInput": "Deine Adresse",
+			"addressInput": "Deine Adresse",
 			"button": "Bestellung abschicken"
 		}
 	},
