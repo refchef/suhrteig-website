@@ -43,13 +43,13 @@
 	<div class="Cart__summary">
 		<p class="Cart__summary--title">{summary.title}</p>
 		{#if $cart.length === 0}
-			<p class="">{summary.emptyCart}</p>
+			<div>{summary.emptyCart}</div>
 		{:else}
 			<div class="Cart__summary--list">
-				<div bind:this={customerOrder}>
+				<div bind:this={customerOrder} transition:slide="{{duration: 250, easing: quintOut}}">
 					{summary.fullCart}
 					{#each $cart as item}
-					<div class="Cart__summary--item" transition:slide="{{duration: 250, easing: quintOut}}">
+					<div class="Cart__summary--item">
 						<span class=" Cart__summary--highlight item--details" >
 							{#key item.quantity}
 								<span in:scale="{{duration: 1000}}">{item.quantity}x</span>
@@ -99,10 +99,9 @@
 				<input type="text" required />
 				<span class="Cart__contact--placeholder">{contact.adressInput}</span>
 			</label>
-			<button class="Cart__contact--submit"
+			<button class="Cart__contact--submit" type="submit"
 				>{contact.button}</button
 			>
-			<div data-netlify-recaptcha="true" />
 		</form>
 	</div>
 </section>
