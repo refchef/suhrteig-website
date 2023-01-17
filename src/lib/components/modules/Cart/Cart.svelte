@@ -19,7 +19,11 @@
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
 	const checkOut = () => {
-		console.log((JSON.stringify($cart)))
+		console.log(customerOrder.innerHTML)
+		// console.log((JSON.stringify($cart)))
+		// get products
+		// get price
+		// combine to one value
 	}
 </script>
 
@@ -78,25 +82,22 @@
 	<!-- <button on:click={checkOut}></button> -->
 
 	<!-- KONTAKTANGABEN -->
-
-
-
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-			<form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-			<input type="hidden" name="form-name" value="netlify-form-example" />
+		<form class="Cart__contact--form" name="Bestellungen" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+			<input type="hidden" name="form-name" value="Bestellungen" />
 
-			<label for="name">Name</label>
-			<input name="name" id="name" required placeholder="Name" type="text" />
+			<label class="Cart__contact--label" for="name"></label>
+			<input class="Cart__contact--input" name="name" id="name" required placeholder="Name" type="text" />
 
-			<label for="email">Email</label>
-			<input name="email" id="email" required placeholder="Email" type="email" />
+			<label for="email"></label>
+			<input class="Cart__contact--input"name="email" id="email" required placeholder="Email" type="email" />
 
-			<label for="message">Message</label>
-			<input name="message" id="message" required placeholder="Message" type="text" />
+			<label for="message"></label>
+			<input class="Cart__contact--input" name="message" id="message" required placeholder="Message" type="text" />
 
-			<input type="submit" value="Submit" />
+			<input class="Cart__contact--submit" type="submit" value="Submit" />
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>

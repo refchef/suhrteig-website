@@ -6,6 +6,14 @@
 	@return round($number * 100) * 0.01;
 }
 
+@mixin font-xl {
+	font-size: rem(28);
+
+	@include above-mobile {
+		font-size: rem(24);
+	}
+}
+
 @mixin font-l {
 	font-size: rem(18);
 

@@ -26,7 +26,7 @@
 		transition:fly="{{duration: 500, y: -100, opacity: 0.1, easing: quintOut}}"
 		>
 		<div class="status" >
-			{status}
+			Ich bin aktuell am {status}
 		</div>
 	</div>
 {/key}

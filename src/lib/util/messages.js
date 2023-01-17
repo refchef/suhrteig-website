@@ -7,12 +7,15 @@ export default {
 			"target": "#bestellen"
 		},
 		"aboutButton": {
-			"title": "Mehr erfahren",
+			"title": "→ Mehr erfahren",
 			"target": "#about"
 		},
 		"newsletterButton": {
-			"title": "Newsletter",
+			"title": "→ Für den Newsletter anmelden",
 			"target": "https://buttondown.email/suhrteig"
+		},
+		"description": {
+			"title": "Suhrteig ist eine nachbarschaftliche Mikro-Bäckerei im Herzen des St. Johann in Basel, Schweiz."
 		}
 	},
 	"shop": {
