@@ -1,50 +1,38 @@
 <script>
-	import News from "../News/News.svelte";
+	import Logo from "$lib/assets/svg/Logo.svg"
 	import messages from "$lib/util/messages"
 
 	const { header } = messages;
 
-	export let intro;
-    export let news;
-	// import { onMount } from "svelte";
-
-	// onMount(() => {
-	// 	console.log('the component has mounted');
-	// });
-
-	// let nodes = [
-	//     { type: "tel", label: "Call", link: `tel:${contacts[0]}` },
-	//     { type: "mail", label: "Mail", link: `mail:${contacts[1]}` },
-	//     { type: "insta", label: "Insta", link: contacts[2] }
-	// ]
 </script>
 
-<div class="intro">
-	<div class="intro__wrapper">
-		<div class="intro__text">
-			<!-- {@html intro} -->
-			<!-- <div class="intro__text--small">
-				Montag wird bestellt — Mittwoch wird gebacken und geliefert
-			</div> -->
-			<!-- <div class="intro__text--big">
-				Sauerteig- und Wildhefebrot in Basel gebacken.
-			</div> -->
+<div class="Intro">
+	<div class="Intro__wrapper">
+		<div class="Intro__logo">
+			<div class="Intro__logo--wrapper">
+				<div class="Logo">
+					<Logo/>
+				</div>
+				<div class="Intro__cta">
+					<a class="Intro__cta__button" href="{header.orderButton.target}">
+						{header.orderButton.title}
+					</a>
+				</div>
+			</div>
 		</div>
-		<div class="intro__links">
-			<ul class="intro__links__list">
-				<li class="intro__links__item" href="{header.orderButton.target}">
-					<a href="{header.orderButton.target}">{header.orderButton.title}</a>
-				</li>
-				<li class="intro__links__item">
-					<a href="{header.aboutButton.target}">{header.aboutButton.title}</a>
-				</li>
-				<li class="intro__links__item" href="{header.newsletterButton.target}">
-					<a href="{header.newsletterButton.target}">{header.newsletterButton.title}</a>
-				</li>
-			</ul>
+		<div class="Intro__links">
+			<a class="Intro__links--item" href="{header.aboutButton.target}">
+				{header.aboutButton.title}
+			</a>
+			<a class="Intro__links--item" href="{header.newsletterButton.target}">
+				{header.newsletterButton.title}
+			</a>
 		</div>
 	</div>
-    <!-- <News {news}/> -->
+	<div class="Intro__description">
+		{header.description.title}
+
+	</div>
 </div>
 
 <style lang="scss" src="./Intro.scss"></style>

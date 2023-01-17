@@ -19,7 +19,11 @@
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
 	const checkOut = () => {
-		console.log((JSON.stringify($cart)))
+		console.log(customerOrder.innerHTML)
+		// console.log((JSON.stringify($cart)))
+		// get products
+		// get price
+		// combine to one value
 	}
 </script>
 
@@ -78,33 +82,24 @@
 	<!-- <button on:click={checkOut}></button> -->
 
 	<!-- KONTAKTANGABEN -->
-
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
-		<form
-			name="Bestellungen"
-			method="POST"
-			data-netlify="true"
-			netlify-honeypot="bot-field"
-			action="/success"
-		>
-		<input type="hidden" name="form-name" value="netlify-form-example"/>
-			<label class="Cart__contact--label" >
-				<input type="text" name="name" required />
-				<span class="Cart__contact--placeholder">{contact.nameInput}</span>
-			</label>
-			<label class="Cart__contact--label" >
-				<input type="email" name="email" required />
-				<span class="Cart__contact--placeholder">{contact.mailInput}</span>
-			</label>
-			<label class="Cart__contact--label" >
-				<input type="text" name="contact" required />
-				<span class="Cart__contact--placeholder">{contact.adressInput}</span>
-			</label>
-			<button class="Cart__contact--submit" type="submit"
-				>{contact.button}</button
-			>
+		<!-- NETLIFY FORM START -->
+		<form class="Cart__contact--form" name="Bestellungen" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+			<input type="hidden" name="form-name" value="Bestellungen" />
+
+			<label class="Cart__contact--label" for="name"></label>
+			<input class="Cart__contact--input" name="name" id="name" required placeholder="Name" type="text" />
+
+			<label for="email"></label>
+			<input class="Cart__contact--input"name="email" id="email" required placeholder="Email" type="email" />
+
+			<label for="message"></label>
+			<input class="Cart__contact--input" name="message" id="message" required placeholder="Message" type="text" />
+
+			<input class="Cart__contact--submit" type="submit" value="Submit" />
 		</form>
+		<!-- NETLIFY FORM END -->
 	</div>
 </section>
 

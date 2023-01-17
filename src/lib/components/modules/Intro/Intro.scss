@@ -1,107 +1,127 @@
 @import "variables";
 @import "mixins";
 
-.intro {
-    // @include grid;
-    // height: auto;
-    // height: 4;
-    position: relative;
-    color: $c-light;
-    // border: 1px solid yellow;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.intro__wrapper {
-    // height: 100%;
-    // border: 2px solid red;
-    width: 100%;
-    // display: flex;
-    // flex-flow: column;
-    // align-self: center;
-    // height:80vh;
-    // min-height: 100%;
-    // display: flex;
-    // flex-flow: column;
-}
-
-.intro__wrapper, .intro__text {
-    // flex: 0 1 auto;
-    // display: flex;
-	// flex-direction: column;
-}
-
-.intro__wrapper, .intro__links {
-    // display: flex;
-	// flex-direction: column;
-}
-
-.intro__text {
-    // flex: 1;
-    // @include font-l;
-    // font-size: 6rem;
-    text-align: left;
-    // border: 1px red solid;
-	// grid-column: 1 / span 8;
-    // display: grid;
-    color: $c-light;
-    // align-items: center;
-    // font-size: xx-large;
-    // @include space(padding-top, s);
-    // @include space(padding-bottom, s);
-}
-
-.intro__text--big {
-    font-size: medium;
-}
-.intro__text--small {
-    font-size: 2rem;
-}
-
-.intro__links {
-    // @include font-m;
-    // grid-column: 1 / span 8;
-    // height: 100%;
-    margin: rem(10);
-    color: $c-pink;
-    // @include space(margin-bottom, s);
+.Intro {
+	// @include grid;
+	display: flex;
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	color: $c-dark;
+	// justify-content: flex-start;
+	align-items: center;
+	justify-content: center;
+	gap: rem(80);
+	padding: rem(20) rem(40) rem(0) rem(40);
+	padding-top: rem(80);
+	// background-image: url("../../src/lib/assets/svg/Background.svg");
 
 
 }
 
-.intro__links__list {
-    @include flatlist;
-    font-size: rem(90);
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    // border: 1px solid green;
-	@include mobile {
-		font-size: rem(20);
+
+.Intro__wrapper {
+	// border: 1px solid yellowgreen;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction:column;
+	height: 100%;
+	min-width: 25%;
+	max-width: 35%;
+}
+
+.Intro__logo {
+	width: 100%;
+	transition: $hover-speed ease;
+	@media (hover: hover) {
+		&:hover {
+			transition: $hover-speed ease;
+			scale: 1.05;
+		}
 	}
-
 }
 
-.intro__links__item {
-    background-color: $c-dark;
-    width: auto;
-    padding: 5rem;
-    margin: rem(10);
-    border: 1px $c-light solid;
-    border-radius: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $c-pink;
-    height: 100%;
+.Intro__logo--wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background: $c-light;
+	padding: rem(80) rem(20) rem(20) rem(20);
+	border-radius: rem(50);
 }
 
-.intro__links__item:hover{
-    background-color: $c-light;
-    color: $c-dark;
-    transition: 0.3s ease;
-    cursor: pointer;
-
+.Logo {
+	margin-bottom: rem(80);
+	transition: $hover-speed ease;
+	@media (hover: hover) {
+		&:hover {
+			transition: $hover-speed ease;
+			scale: 1.05;
+		}
+	}
 }
 
+.Intro__cta {
+	width: 100%;
+}
+
+.Intro__cta__button {
+	background-color: $c-dark;
+	flex: 0 0 auto;
+	width: auto;
+	padding: 5rem;
+	border-radius: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $c-pink;
+	height: rem(50);
+	transition: $hover-speed ease;
+	font-size: rem(20);
+	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
+
+	@include font-m;
+	@media (hover: hover) {
+		&:hover {
+			background-color: $c-pink;
+			color: $c-dark;
+			transition: $hover-speed ease;
+			cursor: pointer;
+			@include font-l;
+		// font-size: rem(22);
+		}
+	}
+}
+
+.Intro__links {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	// @include font-m;
+	// height: 100%;
+	margin-top: rem(50);
+	// color: $c-pink;
+	// @include space(margin-bottom, s);
+}
+
+.Intro__links--item {
+	@include font-s;
+	color: $c-light;
+	border-bottom: 1px solid transparent;
+	transition: $hover-speed ease-out;
+	@media (hover: hover) {
+		&:hover {
+			transition: 0.2s ease-in;
+			border-bottom: 1px solid $c-pink--light;
+		}
+	}
+}
+
+.Intro__description {
+	text-align: center;
+	max-width: 45ch;
+	@include font-xl;
+	color: $c-pink;
+}

@@ -19,7 +19,7 @@ html {
 
 html,
 body {
-	height: auto;
+	height: 100%;
 	width: 100%;
 	min-height: 100%;
 	padding: 0;
@@ -29,7 +29,8 @@ body {
 body {
 	@include text-normal;
 	color: $c_light;
-	background: $c_dark;
+	// background: $c_dark;
+	background-image: url("../../src/lib/assets/svg/Background.svg");
 	-webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
 	counter-reset: teaser-element;
 }

@@ -96,20 +96,17 @@
 	}
 }
 
-form {
+.Cart__contact--form {
 	display: flex;
 	flex-direction: column;
+	// border: 1px solid red;
 }
 
 
 .Cart__contact--label {
-	position: relative;
-	font-size: 14px;
-	border-top: 20px;
-	margin-bottom: 2rem;
 }
 
-.Cart__contact--label input {
+.Cart__contact--input {
 	appearance: none;
 	background: $c-pink;
 	padding: 20px;
@@ -118,23 +115,35 @@ form {
 	width: 100%;
 	font-size: 14px;
 	outline: none;
+	margin-bottom: rem(10);
+	&::placeholder {
+		color: $c-dark;
+	}
+	&:focus {
+		&::placeholder {
+			visibility: hidden;
+		}
+	}
 }
 
-.Cart__contact--label .Cart__contact--placeholder {
-	position: absolute;
-	left: 30px;
-	top: 50%;
-	transform: translateY(-50%);
-	width: calc(100% - 24px);
-	color: $c-dark;
-	color: #161a4358;
-	overflow: hidden;
-	padding: 5px;
-	transition:
-		top 0.2s ease,
-		font-size 0.2s ease,
-		color 0.2s ease;
-}
+// input {
+// }
+
+// .Cart__contact--label .Cart__contact--placeholder {
+// 	position: absolute;
+// 	left: 30px;
+// 	top: 50%;
+// 	transform: translateY(-50%);
+// 	width: calc(100% - 24px);
+// 	color: $c-dark;
+// 	color: #161a4358;
+// 	overflow: hidden;
+// 	padding: 5px;
+// 	transition:
+// 		top 0.2s ease,
+// 		font-size 0.2s ease,
+// 		color 0.2s ease;
+// }
 .Cart__contact--label input:valid + .Cart__contact--placeholder,
 .Cart__contact--label input:focus + .Cart__contact--placeholder {
 	top: 0;
@@ -152,33 +161,6 @@ form {
 	padding-bottom: 1rem;
 	border-bottom: 1px solid rgba(233, 233, 233, 0.5);
 }
-
-// .cart__productname {
-//     margin-left: 1rem;
-//     font-size: large;
-// }
-
-// .cart__product__counter {
-//     font-size: large;
-//     width: 50px;
-//     text-align: center;
-//     padding: 0 1rem 0 1rem;
-// }
-
-// .button__cart {
-//     @include blank-button;
-//     cursor: pointer;
-//     background-color: $c-dark;
-//     font-size: large;
-//     padding: 10px;
-//     height: 35px;
-//     width: 35px;
-//     border-radius: 25px;
-//     display: inline-flex;
-//     align-items: center;
-//     justify-content: center;
-// }
-
 
 .Cart__contact--submit {
 	@include blank-button;
