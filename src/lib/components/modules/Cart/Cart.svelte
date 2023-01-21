@@ -2,7 +2,6 @@
 	import { onMount } from "svelte";
 	import { cart } from "$lib/util/cart";
 	import { fade, fly, slide, blur, scale } from "svelte/transition";
-	import { flip } from 'svelte/animate'
 	import { quintOut } from 'svelte/easing';
 	import messages from "$lib/util/messages";
 	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
@@ -11,20 +10,19 @@
 	const { summary } = messages.shop;
 	const { contact } = messages.shop;
 
-	console.log($cart);
-
-	// TODO: copy order to clipboard / form
 	let customerOrder;
+	let confirmOrder = false;
+	let order = "";
 
-	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-	const checkOut = () => {
-		console.log(customerOrder.innerHTML)
-		// console.log((JSON.stringify($cart)))
-		// get products
-		// get price
-		// combine to one value
+	$: if (confirmOrder === true) {
+		console.log("order confirmed", customerOrder.innerText)
+		order = customerOrder.innerText
 	}
+
+	$: order;
+
 </script>
 
 <section class="Cart">
@@ -49,14 +47,14 @@
 		{#if $cart.length === 0}
 			<div>{summary.emptyCart}</div>
 		{:else}
-			<div class="Cart__summary--list">
-				<div bind:this={customerOrder} transition:slide="{{duration: 250, easing: quintOut}}">
+			<div class="Cart__summary--list" bind:this={customerOrder}>
+				<div transition:slide="{{duration: 250, easing: quintOut}}">
 					{summary.fullCart}
 					{#each $cart as item}
-					<div class="Cart__summary--item">
+					<div class="Cart__summary--item" >
 						<span class=" Cart__summary--highlight item--details" >
 							{#key item.quantity}
-								<span in:scale="{{duration: 1000}}">{item.quantity}x</span>
+								<span in:fade="{{duration: 300}}">{item.quantity}x</span>
 							{/key}
 							{item.productname}
 						</span>
@@ -79,14 +77,15 @@
 		{/if}
 	</div>
 
-	<!-- <button on:click={checkOut}></button> -->
-
 	<!-- KONTAKTANGABEN -->
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
 		<form class="Cart__contact--form" name="Bestellungen" method="POST" netlify-honeypot="bot-field" data-netlify="true">
 			<input type="hidden" name="form-name" value="Bestellungen" />
+
+			<!-- Insert customerOrder here -->
+			<input type="hidden" bind:value={order}>
 
 			<label class="Cart__contact--label" for="name"></label>
 			<input class="Cart__contact--input" name="name" id="name" required placeholder="Name" type="text" />
@@ -98,6 +97,10 @@
 			<input class="Cart__contact--input" name="message" id="message" required placeholder="Message" type="text" />
 
 			<input class="Cart__contact--submit" type="submit" value="Submit" />
+			<label class="Cart__contact--checkbox-text" for="confirm">
+				<input class="Cart__contact--checkbox" type="checkbox" name="confirm" required bind:checked={confirmOrder}>
+				Ich bestätige meine Bestellung.
+			</label>
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>
