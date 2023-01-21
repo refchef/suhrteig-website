@@ -85,7 +85,7 @@
 			<input type="hidden" name="form-name" value="Bestellungen" />
 
 			<!-- Insert customerOrder here -->
-			<input type="hidden" bind:value={order}>
+			<input type="hidden" name="order" bind:value={order}>
 
 			<label class="Cart__contact--label" for="name"></label>
 			<input class="Cart__contact--input" name="name" id="name" required placeholder="Name" type="text" />
