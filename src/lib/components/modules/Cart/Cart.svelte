@@ -5,6 +5,12 @@
 	import { quintOut } from 'svelte/easing';
 	import messages from "$lib/util/messages";
 	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
+	import dayjs from "dayjs";
+	import isoWeek from 'dayjs/plugin/isoWeek.js';
+	dayjs.extend(isoWeek)
+
+	let currentWeek = dayjs().isoWeek()
+	console.log(currentWeek);
 
 	const { product } = messages.shop;
 	const { summary } = messages.shop;
@@ -77,8 +83,8 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" name="Bestellungen" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-			<input type="hidden" name="form-name" value="Bestellungen" />
+		<form class="Cart__contact--form" name="Bestellungen-{currentWeek}" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+			<input type="hidden" name="form-name" value="Bestellungen-{currentWeek}" />
 
 			<label class="Cart__contact--label" for="name"></label>
 			<input class="Cart__contact--input" name="name" required placeholder="Name und Vorname" type="text" />
