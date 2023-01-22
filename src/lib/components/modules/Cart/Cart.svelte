@@ -54,24 +54,20 @@
 					<div class="Cart__summary--item" >
 						<span class=" Cart__summary--highlight item--details" >
 							{#key item.quantity}
-								<span in:fade="{{duration: 300}}">{item.quantity}x</span>
+								<span>{item.quantity}x</span>
 							{/key}
 							{item.productname}
 						</span>
 						<span class="Cart__summary--highlight item--price">
-							CHF {item.quantity * item.price}
+							für CHF {item.quantity * item.price}
 						</span>
 					</div>
 					{/each}
-					<br />
 					<br />
 					{summary.total}
 					<br />
 					<strong class="Cart__summary--highlight">CHF {total}</strong>
 					<br />
-					<span class="Cart__summary--billing">
-						Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos
-					</span>
 				</div>
 			</div>
 		{/if}
@@ -84,19 +80,23 @@
 		<form class="Cart__contact--form" name="Bestellungen" method="POST" netlify-honeypot="bot-field" data-netlify="true">
 			<input type="hidden" name="form-name" value="Bestellungen" />
 
+			<label class="Cart__contact--label" for="name"></label>
+			<input class="Cart__contact--input" name="name" required placeholder="Name und Vorname" type="text" />
+
+			<label for="email"></label>
+			<input class="Cart__contact--input" name="email" required placeholder="E-Mail oder Telefon" type="email" />
+
+			<label for="message"></label>
+			<input class="Cart__contact--input" name="address" required placeholder="Adresse" type="text" />
+
 			<!-- Insert customerOrder here -->
 			<input type="hidden" name="order" bind:value={order}>
 
-			<label class="Cart__contact--label" for="name"></label>
-			<input class="Cart__contact--input" name="name" id="name" required placeholder="Name" type="text" />
+			<input class="Cart__contact--submit" type="submit" value="💌  Bestellung abschicken" />
 
-			<label for="email"></label>
-			<input class="Cart__contact--input"name="email" id="email" required placeholder="Email" type="email" />
-
-			<label for="message"></label>
-			<input class="Cart__contact--input" name="message" id="message" required placeholder="Message" type="text" />
-
-			<input class="Cart__contact--submit" type="submit" value="Submit" />
+			<span class="Cart__summary--billing">
+				Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos.  Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos.
+			</span>
 			<label class="Cart__contact--checkbox-text" for="confirm">
 				<input class="Cart__contact--checkbox" type="checkbox" name="confirm" required bind:checked={confirmOrder}>
 				Ich bestätige meine Bestellung.

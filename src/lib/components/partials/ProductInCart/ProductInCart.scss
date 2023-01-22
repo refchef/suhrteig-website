@@ -14,6 +14,16 @@
 	align-items: center;
 	justify-content: center;
 	flex: 0 0 auto;
+	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
+	transition: $hover-speed ease;
+	@media (hover: hover) {
+		&:hover {
+			transition: $hover-speed ease;
+			background: $c-light;
+			color: $c-dark;
+			border: 1px solid transparent;
+		}
+	}
 }
 
 .--disabled {

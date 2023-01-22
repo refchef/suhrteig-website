@@ -5,7 +5,8 @@
 	// @include grid;
 	display: flex;
 	position: relative;
-	height: 100vh;
+	// height: 100vh;
+	min-height: 100vh;
 	width: 100vw;
 	color: $c-dark;
 	// justify-content: flex-start;
@@ -14,7 +15,12 @@
 	gap: rem(80);
 	padding: rem(20) rem(40) rem(0) rem(40);
 	padding-top: rem(80);
-	// background-image: url("../../src/lib/assets/svg/Background.svg");
+	@include mobile {
+		flex-direction:column-reverse;
+		min-height: max-content;
+		padding-top: rem(200);
+		padding-bottom: rem(200);
+	}
 
 
 }
@@ -29,11 +35,19 @@
 	height: 100%;
 	min-width: 25%;
 	max-width: 35%;
+	@include mobile {
+		border: 1px solid red;
+		min-width: 100%;
+	}
 }
 
 .Intro__logo {
 	width: 100%;
 	transition: $hover-speed ease;
+	@include mobile {
+		border: 1px solid blue;
+		flex-direction: column;
+	}
 	@media (hover: hover) {
 		&:hover {
 			transition: $hover-speed ease;
@@ -46,9 +60,12 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	min-width: rem(300);
 	background: $c-light;
 	padding: rem(80) rem(20) rem(20) rem(20);
 	border-radius: rem(50);
+	@include mobile {
+	}
 }
 
 .Logo {
@@ -69,6 +86,7 @@
 .Intro__cta__button {
 	background-color: $c-dark;
 	flex: 0 0 auto;
+	text-align: center;
 	width: auto;
 	padding: 5rem;
 	border-radius: 400px;

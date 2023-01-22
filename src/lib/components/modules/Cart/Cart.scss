@@ -13,6 +13,10 @@
 	// display: flex;
 }
 
+input {
+	font-family: ABC Gravity;
+}
+
 .Cart__products {
 	grid-column: 1 / span 2;
 	@include mobile {
@@ -85,7 +89,8 @@
 
 .Cart__summary--billing {
 	font-size: small;
-	color: $c-pink--light;
+	color: $c-light;
+	margin-top: rem(20);
 }
 
 
@@ -111,20 +116,23 @@
 .Cart__contact--input {
 	appearance: none;
 	background: $c-pink;
+	color: $c-dark;
 	padding: 20px;
-	border: 1px solid $c-dark;
+	border: 2px solid $c-pink--light;
 	border-radius: 50px;
 	width: 100%;
 	font-size: 14px;
 	outline: none;
 	margin-bottom: rem(10);
+	transition: border $hover-speed ease-in;
 	&::placeholder {
-		color: $c-dark;
+		color: $c-light;
 	}
 	&:focus {
 		&::placeholder {
 			visibility: hidden;
 		}
+		border: 2px solid $c-light;
 	}
 }
 
@@ -143,7 +151,7 @@
 	align-items: center;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	border-bottom: 1px solid rgba(233, 233, 233, 0.5);
+	border-bottom: 1px solid $c-pink--light;
 }
 .Cart__contact--checkbox-text {
 	font-size: small;
@@ -160,7 +168,10 @@
 
 .Cart__contact--submit {
 	@include blank-button;
-	background-color: $c-dark;
+	background: $c-dark;
+	color: $c-pink;
+	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
+
 	padding: 20px;
 	border: 1px solid $c-dark;
 	border-radius: 50px;
@@ -171,4 +182,14 @@
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	transition: $hover-speed ease;
+	@media (hover: hover) {
+		&:hover {
+			transition: $hover-speed ease;
+			background: $c-light;
+			color: $c-dark;
+			border: 1px solid transparent;
+		}
+	}
+
 }

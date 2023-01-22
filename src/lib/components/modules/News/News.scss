@@ -2,20 +2,20 @@
 @import "mixins";
 
 .News {
-	--duration: 20s; // default (component prop)
+	--duration: 5s; // default (component prop)
 	--gap: 2rem; // default (component prop)
-	background-color: $c-pink;
-	color: $c-dark;
+	background-color: $c-dark;
+	color: $c-pink;
 	line-height: 1.5;
 	width: 100%;
 	height: rem(30);
 	display: flex;
 	overflow: hidden;
 	gap: var(--gap);
-	position: fixed;
-	bottom: 0;
+	// position: fixed;
+	// top: 0;
 	z-index: 100;
-	margin-top: rem(40);
+	// margin-top: rem(40);
 	// margin-bottom: rem(100);
 }
 
