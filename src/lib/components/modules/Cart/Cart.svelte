@@ -2,29 +2,32 @@
 	import { onMount } from "svelte";
 	import { cart } from "$lib/util/cart";
 	import { fade, fly, slide, blur, scale } from "svelte/transition";
-	import { flip } from 'svelte/animate'
 	import { quintOut } from 'svelte/easing';
 	import messages from "$lib/util/messages";
 	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
+	import dayjs from "dayjs";
+	import isoWeek from 'dayjs/plugin/isoWeek.js';
+	dayjs.extend(isoWeek)
+
 
 	const { product } = messages.shop;
 	const { summary } = messages.shop;
 	const { contact } = messages.shop;
 
-	console.log($cart);
-
-	// TODO: copy order to clipboard / form
+	let currentWeek = dayjs().isoWeek()
 	let customerOrder;
+	let confirmOrder = false;
+	let order = "";
 
-	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-	const checkOut = () => {
-		console.log(customerOrder.innerHTML)
-		// console.log((JSON.stringify($cart)))
-		// get products
-		// get price
-		// combine to one value
+	$: if (confirmOrder === true) {
+		console.log("order confirmed", customerOrder.innerText)
+		order = customerOrder.innerText
 	}
+
+	$: order;
+
 </script>
 
 <section class="Cart">
@@ -49,37 +52,31 @@
 		{#if $cart.length === 0}
 			<div>{summary.emptyCart}</div>
 		{:else}
-			<div class="Cart__summary--list">
-				<div bind:this={customerOrder} transition:slide="{{duration: 250, easing: quintOut}}">
-					{summary.fullCart}
+			<div class="Cart__summary--list" bind:this={customerOrder}>
+				<div transition:slide="{{duration: 250, easing: quintOut}}">
+					<!-- TODO: Create CartSummary.svelte partial -->
 					{#each $cart as item}
-					<div class="Cart__summary--item">
+					<div class="Cart__summary--item" >
 						<span class=" Cart__summary--highlight item--details" >
 							{#key item.quantity}
-								<span in:scale="{{duration: 1000}}">{item.quantity}x</span>
+								<span>{item.quantity}x</span>
 							{/key}
 							{item.productname}
 						</span>
 						<span class="Cart__summary--highlight item--price">
-							CHF {item.quantity * item.price}
+							für CHF {item.quantity * item.price}
 						</span>
 					</div>
 					{/each}
-					<br />
 					<br />
 					{summary.total}
 					<br />
 					<strong class="Cart__summary--highlight">CHF {total}</strong>
 					<br />
-					<span class="Cart__summary--billing">
-						Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos
-					</span>
 				</div>
 			</div>
 		{/if}
 	</div>
-
-	<!-- <button on:click={checkOut}></button> -->
 
 	<!-- KONTAKTANGABEN -->
 	<div class="Cart__contact">
@@ -89,15 +86,28 @@
 			<input type="hidden" name="form-name" value="Bestellungen" />
 
 			<label class="Cart__contact--label" for="name"></label>
-			<input class="Cart__contact--input" name="name" id="name" required placeholder="Name" type="text" />
+			<input class="Cart__contact--input" name="name" required placeholder="Name und Vorname" type="text"/>
 
 			<label for="email"></label>
-			<input class="Cart__contact--input"name="email" id="email" required placeholder="Email" type="email" />
+			<input class="Cart__contact--input" name="email" required placeholder="E-Mail oder Telefon" type="email" />
 
 			<label for="message"></label>
-			<input class="Cart__contact--input" name="message" id="message" required placeholder="Message" type="text" />
+			<input class="Cart__contact--input" name="address" required placeholder="Adresse" type="text" />
 
-			<input class="Cart__contact--submit" type="submit" value="Submit" />
+			<!-- Insert customerOrder here -->
+			<input type="hidden" name="order-KW{currentWeek}" bind:value={order}>
+
+			<input class="Cart__contact--submit" type="submit" value="💌  Bestellung abschicken" />
+
+			<span class="Cart__summary--billing">
+				<!-- TODO: Text should come from Prismic -->
+				Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos.
+			</span>
+			<label class="Cart__contact--checkbox-text" for="confirm">
+				<input class="Cart__contact--checkbox" type="checkbox" name="confirm" required bind:checked={confirmOrder}>
+				<!-- TODO: Text should come from Prismic -->
+				Ich bestätige meine Bestellung.
+			</label>
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>

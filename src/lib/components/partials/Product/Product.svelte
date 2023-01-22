@@ -2,6 +2,7 @@
 	import { cart } from "$lib/util/cart";
 	import Image from "$lib/components/partials/Image/Image.svelte";
 	import ProductTag from "$lib/components/partials/ProductTag/ProductTag.svelte";
+	import { fade, slide } from "svelte/transition";
 
 	export let product;
 
@@ -18,20 +19,18 @@
 		soldout,
 	} = product;
 
-	// $: console.log("check quantity", quantity);
-
 	let splitTags = tags.split(",");
 
 	const addProduct = () => {
 		product.quantity += 1;
 		$cart = [...$cart, product];
+		console.log("product", $cart);
 	};
 
 	const removeProduct = () => {
 		product.quantity = 0;
 		$cart = $cart.filter((el) => el.productname !== productname);
 	};
-
 </script>
 
 <article class="product">
@@ -39,19 +38,25 @@
 		<div class="product__item">
 			<div class="product_photo">
 				{#if !soldout}
-				<div style:opacity={product.quantity > 0 ? "0.3" : "1"}>
-					<Image {...productphoto} ratio={"4:5"} />
-				</div>
+					{#if product.quantity === 0}
+						<div style:opacity={1}>
+							<Image {...productphoto} ratio={"4:5"} />
+						</div>
+					{:else}
+						<div style:opacity={0.3}>
+							<Image {...productphoto} ratio={"4:5"} />
+						</div>
+					{/if}
 					<div class="product__button">
-						<!-- AddButton.svelte -->
 						{#if product.quantity > 0}
-						<button
-						on:click={removeProduct}
-						class="product__button__remove"
-						>
-						<p class="product__button--default">–</p>
-					</button>
-					<div class="cart__message">im Warenkorb</div>
+							<!-- AddButton.svelte -->
+							<button
+								on:click={removeProduct}
+								class="product__button__remove"
+							>
+								<p class="product__button--default">–</p>
+							</button>
+							<div class="cart__message">im Warenkorb</div>
 						{:else if product.quantity === 0}
 							<button
 								on:click={addProduct}
@@ -62,7 +67,10 @@
 						{/if}
 					</div>
 				{:else}
-					<div class:--soldOut={soldout} style:opacity={soldout ? "0.3" : "1"}>
+					<div
+						class:--soldOut={soldout}
+						style:opacity={soldout ? "0.3" : "1"}
+					>
 						<Image {...productphoto} ratio={"4:5"} />
 					</div>
 					<div class="product__button">

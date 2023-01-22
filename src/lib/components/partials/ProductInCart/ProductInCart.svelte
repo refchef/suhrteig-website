@@ -2,7 +2,6 @@
 	import { cart } from "$lib/util/cart";
 
 	export let product;
-	console.log(product);
 
 	let disabled = false;
 
@@ -10,6 +9,7 @@
 		for(let item of $cart) {
 				if(item.id === product.id) {
 					if(product.quantity === product.maxquantity) {
+						// Do something
 						console.log("reached max amount");
 					}
 					else {
@@ -41,9 +41,9 @@
 </script>
 
 <button class="button__cart" type="button" class:--disabled={disabled} on:click={countUp(product)}>+</button>
-<span class="cart__product__counter">
-	{product.quantity}
-</span>
+	<span class="cart__product__counter">
+		{product.quantity}
+	</span>
 <button class="button__cart" type="button" on:click={countDown(product)}>–</button>
 <span class="cart__productname">{product.productname}</span>
 

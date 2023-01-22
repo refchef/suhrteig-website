@@ -23,11 +23,8 @@
 			<span>{@html news}</span>
 			<span aria-hidden="true">{@html news}</span>
 			<span aria-hidden="true">{@html news}</span>
-			<span aria-hidden="true">{@html news}</span>
-			<span aria-hidden="true">{@html news}</span>
 		</div>
 		<div aria-hidden="true" class="news__group">
-			<span>{@html news}</span>
 			<span>{@html news}</span>
 			<span>{@html news}</span>
 			<span>{@html news}</span>

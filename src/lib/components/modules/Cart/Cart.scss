@@ -13,6 +13,10 @@
 	// display: flex;
 }
 
+input {
+	font-family: ABC Gravity;
+}
+
 .Cart__products {
 	grid-column: 1 / span 2;
 	@include mobile {
@@ -72,7 +76,7 @@
 
 .Cart__summary--item {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 
 .item--details {
@@ -80,16 +84,18 @@
 }
 .item--price {
 	color: $c-pink--light;
+	padding-left: rem(10);
 }
 
 .Cart__summary--billing {
 	font-size: small;
-	color: $c-pink--light;
+	color: $c-light;
+	margin-top: rem(20);
 }
 
 
 .Cart__contact {
-	grid-column: 7 / span 2;
+	grid-column: 6 / span 3;
 	// border: 1px solid yellow;
 	@include mobile {
 		grid-column: 1 / span 8;
@@ -99,6 +105,7 @@
 .Cart__contact--form {
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 	// border: 1px solid red;
 }
 
@@ -109,41 +116,26 @@
 .Cart__contact--input {
 	appearance: none;
 	background: $c-pink;
+	color: $c-dark;
 	padding: 20px;
-	border: 1px solid $c-dark;
+	border: 2px solid $c-pink--light;
 	border-radius: 50px;
 	width: 100%;
 	font-size: 14px;
 	outline: none;
 	margin-bottom: rem(10);
+	transition: border $hover-speed ease-in;
 	&::placeholder {
-		color: $c-dark;
+		color: $c-light;
 	}
 	&:focus {
 		&::placeholder {
 			visibility: hidden;
 		}
+		border: 2px solid $c-light;
 	}
 }
 
-// input {
-// }
-
-// .Cart__contact--label .Cart__contact--placeholder {
-// 	position: absolute;
-// 	left: 30px;
-// 	top: 50%;
-// 	transform: translateY(-50%);
-// 	width: calc(100% - 24px);
-// 	color: $c-dark;
-// 	color: #161a4358;
-// 	overflow: hidden;
-// 	padding: 5px;
-// 	transition:
-// 		top 0.2s ease,
-// 		font-size 0.2s ease,
-// 		color 0.2s ease;
-// }
 .Cart__contact--label input:valid + .Cart__contact--placeholder,
 .Cart__contact--label input:focus + .Cart__contact--placeholder {
 	top: 0;
@@ -159,12 +151,27 @@
 	align-items: center;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	border-bottom: 1px solid rgba(233, 233, 233, 0.5);
+	border-bottom: 1px solid $c-pink--light;
+}
+.Cart__contact--checkbox-text {
+	font-size: small;
+	padding: 20px 20px 20px 0;
+	width: 100%;
+	font-size: 14px;
+	outline: none;
+	margin-bottom: rem(10);
+}
+
+.Cart__contact--checkbox input {
+	// appearance: none;
 }
 
 .Cart__contact--submit {
 	@include blank-button;
-	background-color: $c-dark;
+	background: $c-dark;
+	color: $c-pink;
+	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
+
 	padding: 20px;
 	border: 1px solid $c-dark;
 	border-radius: 50px;
@@ -175,4 +182,14 @@
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	transition: $hover-speed ease;
+	@media (hover: hover) {
+		&:hover {
+			transition: $hover-speed ease;
+			background: $c-light;
+			color: $c-dark;
+			border: 1px solid transparent;
+		}
+	}
+
 }
