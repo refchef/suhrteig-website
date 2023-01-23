@@ -95,7 +95,7 @@
 			<input class="Cart__contact--input" name="address" required placeholder="Adresse" type="text" />
 
 			<!-- Insert customerOrder here -->
-			<input type="hidden" name="order" value={customerOrder}>
+			<input type="hidden" name="order" value={order}>
 			<input type="hidden" name="kw" value={currentWeek}>
 
 			<input class="Cart__contact--submit" type="submit" value="💌  Bestellung abschicken" />
@@ -105,7 +105,7 @@
 				Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos.
 			</span>
 			<label class="Cart__contact--checkbox-text" for="confirm">
-				<input class="Cart__contact--checkbox" type="checkbox" name="confirm" required bind:checked={confirmOrder}>
+				<input class="Cart__contact--checkbox" type="checkbox" name="confirm" value="" required bind:checked={confirmOrder}>
 				<!-- TODO: Text should come from Prismic -->
 				Ich bestätige meine Bestellung.
 			</label>
