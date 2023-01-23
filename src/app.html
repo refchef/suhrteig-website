@@ -10,5 +10,19 @@
 	</head>
 	<body>
 		<div>%sveltekit.body%</div>
+		<form style="display: none" name="Bestellungen" method="POST" data-netlify="true">
+
+			<input name="name" required placeholder="Name und Vorname" type="text"/>
+
+			<input name="email" required placeholder="E-Mail oder Telefon" type="email" />
+
+			<input name="address" required placeholder="Adresse" type="text" />
+
+			<!-- Insert customerOrder here -->
+			<input type="hidden" name="order" value="">
+			<input type="hidden" name="kw" value="">
+
+			<input type="checkbox" name="confirm" required >
+		</form>
 	</body>
 </html>

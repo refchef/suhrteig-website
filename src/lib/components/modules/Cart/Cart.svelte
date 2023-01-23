@@ -82,7 +82,7 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" name="Bestellungen" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+		<form class="Cart__contact--form" method="POST" netlify-honeypot="bot-field" data-netlify="true">
 			<input type="hidden" name="form-name" value="Bestellungen" />
 
 			<label class="Cart__contact--label" for="name"></label>
@@ -95,7 +95,8 @@
 			<input class="Cart__contact--input" name="address" required placeholder="Adresse" type="text" />
 
 			<!-- Insert customerOrder here -->
-			<input type="hidden" name="order-KW{currentWeek}" bind:value={order}>
+			<input type="hidden" name="order" value={order}>
+			<input type="hidden" name="kw" value={currentWeek}>
 
 			<input class="Cart__contact--submit" type="submit" value="💌  Bestellung abschicken" />
 
