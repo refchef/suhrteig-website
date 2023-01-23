@@ -1,10 +1,6 @@
 import query from "$lib/graphql/query/getHomepage.graphql"
 import {prismicQuery} from "$lib/util/prismic.js";
 
-// WHY?
-export const ssr = true;
-export const prerender = false;
-
 // /** @type {import('./$types').PageServerLoad} */
 // /** @type {import('./$types').PageLoad} */
 export async function load({ parent, fetch }) {

@@ -82,8 +82,8 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-			<input type="hidden" name="form-name" value="Bestellungen" />
+		<form class="Cart__contact--form" name="bestellungen" method="POST" data-netlify="true">
+			<input type="hidden" name="form-name" value="bestellungen" />
 
 			<label class="Cart__contact--label" for="name"></label>
 			<input class="Cart__contact--input" name="name" required placeholder="Name und Vorname" type="text"/>
