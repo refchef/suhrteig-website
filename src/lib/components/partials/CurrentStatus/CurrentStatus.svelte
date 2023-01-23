@@ -5,17 +5,17 @@
 
 	export let status;
 
-	let showStatus = false;
-	onMount(() => {
-		window.onscroll = function() {
-			let scrollLimit = 200;
-			if (window.scrollY >= scrollLimit) {
-				showStatus = true;
-			} else if (window.scrollY <= scrollLimit) {
-				showStatus = false;
-			}
-		};
-	})
+	let showStatus = true;
+	// onMount(() => {
+	// 	window.onscroll = function() {
+	// 		let scrollLimit = 200;
+	// 		if (window.scrollY >= scrollLimit) {
+	// 			showStatus = true;
+	// 		} else if (window.scrollY <= scrollLimit) {
+	// 			showStatus = false;
+	// 		}
+	// 	};
+	// })
 
 </script>
 

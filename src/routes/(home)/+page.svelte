@@ -9,6 +9,7 @@
 	import About from "$lib/components/modules/About/About.svelte";
 	import Shop from "$lib/components/modules/Shop/Shop.svelte";
 	import Footer from "$lib/components/modules/Footer/Footer.svelte";
+	import CurrentStatus from "$lib/components/partials/CurrentStatus/CurrentStatus.svelte";
 
 	export let data;
 	const homepage = data.homepage[0];
@@ -17,12 +18,11 @@
 
 
 	<!-- Header.svelte -->
-	<Header title={homepage.title} tagline={homepage.tagline} status={homepage.status}/>
+	<!-- <Header title={homepage.title} tagline={homepage.tagline} status={homepage.status}/> -->
 
-
-
+	<CurrentStatus status={homepage.status}/>
 	<!-- Intro.svelte -->
-	<Intro intro={homepage.intro} news={homepage.news}/>
+	<!-- <Intro intro={homepage.intro} news={homepage.news}/> -->
 
 	<!-- News.svelte -->
 	<!-- <News news={homepage.news}/> -->
@@ -30,7 +30,7 @@
 	<!-- ProductSlider.svelte -->
 	<!-- <ProductSlider products={homepage._blocks[0]} /> -->
 
-	<Shop news={homepage.news} products={homepage._blocks[0]} />
+	<!-- <Shop news={homepage.news} products={homepage._blocks[0]} /> -->
 	<!--
 		Shop.svelte
 			- ProductSlider
@@ -42,10 +42,7 @@
 	<!-- <Cart/> -->
 
 	<!-- About.svelte -->
-	<About about={homepage.about}/>
+	<!-- <About about={homepage.about}/> -->
 
 	<!-- Footer.svelte -->
-	<Footer/>
-
-
-
+	<!-- <Footer/> -->

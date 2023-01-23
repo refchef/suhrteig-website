@@ -6,17 +6,26 @@
 	border-radius: rem(50);
 	padding: rem(5);
 	z-index: 200;
+	color: $c-dark;
 	// padding-left: rem(40);
 	display: flex;
 	align-items: center;
 	visibility: hidden;
 	position: fixed;
-	top: rem(20);
-	right: rem(40);
-	// transform: translateX(-50%);
+	top: 45%;
+	left: 50%;
+	transform: translateX(-50%);
 	z-index: 1000;
 	width: max-content;
+	transition: $hover-speed ease;
 	// box-shadow: 5px 5px 17px 7px rgba(150, 150, 150, 0.2)
+	@media (hover: hover) {
+		&:hover {
+			transition: $hover-speed ease;
+			background: $c-dark;
+			color: $c-light;
+		}
+	}
 }
 
 .showStatus {
@@ -32,6 +41,7 @@
 	// margin-left: 2rem;
 	height: 5rem;
 	position: relative;
+	transition: $hover-speed ease;
 	&:before {
 		content: '';
 		display: inline-block;
@@ -47,7 +57,13 @@
 
 	@keyframes blinker {
 		50% {
-		  opacity: 0;
+			opacity: 0;
 		}
-	  }
+	}
+	@media (hover: hover) {
+		&:hover {
+			transition: $hover-speed ease;
+			border: 1px solid $c-light;
+		}
+	}
 }
