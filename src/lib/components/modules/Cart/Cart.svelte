@@ -95,7 +95,7 @@
 			<input class="Cart__contact--input" name="address" required placeholder="Adresse" type="text" />
 
 			<!-- Insert customerOrder here -->
-			<input type="hidden" name="order" value={order}>
+			<input type="hidden" name="order" value={customerOrder}>
 			<input type="hidden" name="kw" value={currentWeek}>
 
 			<input class="Cart__contact--submit" type="submit" value="💌  Bestellung abschicken" />
