@@ -82,7 +82,7 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" name="bestellungen" method="POST" data-netlify="true">
+		<form class="Cart__contact--form" name="bestellungen" method="POST" data-netlify="true" on:submit|preventDefault action="/success">
 			<input type="hidden" name="form-name" value="bestellungen" />
 
 			<!-- NAME -->
