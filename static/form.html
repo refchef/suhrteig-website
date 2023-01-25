@@ -8,17 +8,20 @@
 </head>
 <body>
 	<form hidden name="bestellungen" data-netlify="true">
-
+		<!-- NAME -->
 		<input name="name" required placeholder="Name und Vorname" type="text"/>
 
+		<!-- EMAIL -->
 		<input name="email" required placeholder="E-Mail oder Telefon" type="email" />
 
+		<!-- ADDRESS -->
 		<input name="address" required placeholder="Adresse" type="text" />
 
-		<!-- Insert customerOrder here -->
-		<input type="hidden" name="order" value="">
+		<!-- CUSTOMER ORDER -->
+		<input name="order" type="hidden" value="">
 
-		<input type="checkbox" name="confirm" required value="">
+		<!-- CONFIRM -->
+		<input name="confirm" type="checkbox" required value="">
 	</form>
 </body>
 </html>

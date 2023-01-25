@@ -82,21 +82,23 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" name="bestellungen" method="POST" data-netlify="true" action="/success">
+		<form class="Cart__contact--form" name="bestellungen" method="POST" data-netlify="true">
 			<input type="hidden" name="form-name" value="bestellungen" />
 
-			<label class="Cart__contact--label" for="name"></label>
-			<input class="Cart__contact--input" name="name" required placeholder="Name und Vorname" type="text"/>
+			<!-- NAME -->
+			<label for="name" class="Cart__contact--label"></label>
+			<input name="name" class="Cart__contact--input" required placeholder="Name und Vorname" type="text"/>
 
+			<!-- EMAIL -->
 			<label for="email"></label>
-			<input class="Cart__contact--input" name="email" required placeholder="E-Mail oder Telefon" type="email" />
+			<input name="email" class="Cart__contact--input" required placeholder="E-Mail" type="email" />
 
-			<label for="message"></label>
-			<input class="Cart__contact--input" name="address" required placeholder="Adresse" type="text" />
+			<!-- ADDRESS -->
+			<label for="address"></label>
+			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text" />
 
-			<!-- Insert customerOrder here -->
-			<input type="hidden" name="order" value={order}>
-			<!-- <input type="hidden" name="kw" value={currentWeek}> -->
+			<!-- CUSTOMER ORDER -->
+			<input name="order" value={order} type="hidden">
 
 			<input class="Cart__contact--submit" type="submit" value="💌  Bestellung abschicken" />
 
@@ -104,11 +106,11 @@
 				<!-- TODO: Text should come from Prismic -->
 				Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos.
 			</span>
-			<label class="Cart__contact--checkbox-text" for="confirm">
-				<input class="Cart__contact--checkbox" type="checkbox" name="confirm" value="" required bind:checked={confirmOrder}>
-				<!-- TODO: Text should come from Prismic -->
-				Ich bestätige meine Bestellung.
-			</label>
+
+			<!-- CONFIRM -->
+			<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="confirm" required bind:checked={confirmOrder}>
+			<label for="confirm" class="Cart__contact--checkbox-text"> Ich bestätige meine Bestellung.</label>
+
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>
