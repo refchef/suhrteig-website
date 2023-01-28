@@ -2,7 +2,7 @@
 @import "mixins";
 
 .News {
-	--duration: 5s; // default (component prop)
+	--duration: 50s; // default (component prop)
 	--gap: 2rem; // default (component prop)
 	background-color: $c-dark;
 	color: $c-pink;

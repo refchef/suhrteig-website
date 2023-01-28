@@ -81,7 +81,7 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" name="bestellungen" method="post">
+		<form class="Cart__contact--form" name="bestellungen" method="post" action="/success">
 			<input type="hidden" name="form-name" value="bestellungen" />
 
 			<!-- NAME -->
