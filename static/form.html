@@ -9,19 +9,19 @@
 <body>
 	<form hidden name="Bestellungen" data-netlify="true">
 		<!-- NAME -->
-		<input name="name" type="text"/>
+		<input name="name" required placeholder="Name und Vorname" type="text"/>
 
 		<!-- EMAIL -->
-		<input name="email" type="email"/>
+		<input name="email" required placeholder="E-Mail" type="email"/>
 
 		<!-- ADDRESS -->
-		<input name="address" type="text"/>
+		<input name="address" required placeholder="Adresse" type="text"/>
 
 		<!-- CUSTOMER ORDER -->
-		<input name="order" type="hidden">
+		<input name="order" type="hidden" value="">
 
 		<!-- CONFIRM -->
-		<input name="confirm" type="checkbox">
+		<input name="confirm" type="checkbox" value="confirm" required>
 	</form>
 </body>
 </html>

@@ -81,8 +81,8 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" name="Bestellungen" data-netlify="true" netlify method="POST">
-			<input hidden name="form-name" value="Bestellungen" />
+		<form class="Cart__contact--form" name="Bestellungen" method="POST">
+			<input type="hidden" name="form-name" value="Bestellungen" />
 
 			<!-- NAME -->
 			<label for="name" class="Cart__contact--label"></label>
@@ -99,7 +99,7 @@
 			<!-- CUSTOMER ORDER -->
 			<input name="order" value="{order}" type="hidden">
 
-			<input class="Cart__contact--submit" type="submit" value="Bestellung abschicken">
+			<button class="Cart__contact--submit" type="submit">Bestellung abschicken</button>
 
 			<span class="Cart__summary--billing">
 				<!-- TODO: Text should come from Prismic -->
