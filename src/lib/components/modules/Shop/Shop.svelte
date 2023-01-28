@@ -5,8 +5,9 @@
 
 	export let products = []
 	export let news;
+	export let billing;
 </script>
 
 <ProductSlider {products}/>
 <News {news}/>
-<Cart/>
+<Cart {billing}/>

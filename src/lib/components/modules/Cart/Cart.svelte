@@ -9,23 +9,27 @@
 	import isoWeek from 'dayjs/plugin/isoWeek.js';
 	dayjs.extend(isoWeek)
 
+	export let billing;
+
 	const { product } = messages.shop;
 	const { summary } = messages.shop;
 	const { contact } = messages.shop;
 
-	let currentWeek = dayjs().isoWeek()
-	let customerOrder;
+	// let currentWeek = dayjs().isoWeek()
 	let confirmOrder = false;
+	let customerOrder, orderTotal;
 	let order = "";
+	let totalPrice = null;
 
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
 	$: if (confirmOrder === true) {
-		console.log("order confirmed", customerOrder.innerText)
 		order = customerOrder.innerText
+		totalPrice = orderTotal.innerText
+		console.log("order:", order, "total:", totalPrice)
 	}
 
-	$: order;
+	$: order, totalPrice;
 
 </script>
 
@@ -51,26 +55,26 @@
 		{#if $cart.length === 0}
 			<div>{summary.emptyCart}</div>
 		{:else}
-			<div class="Cart__summary--list" bind:this={customerOrder}>
+			<div class="Cart__summary--list">
 				<div transition:slide="{{duration: 250, easing: quintOut}}">
 					<!-- TODO: Create CartSummary.svelte partial -->
 					{#each $cart as item}
-					<div class="Cart__summary--item" >
-						<span class=" Cart__summary--highlight item--details" >
-							{#key item.quantity}
-								<span>{item.quantity}x</span>
-							{/key}
-							{item.productname}
-						</span>
-						<span class="Cart__summary--highlight item--price">
-							für CHF {item.quantity * item.price}
-						</span>
-					</div>
+						<div class="Cart__summary--item" bind:this={customerOrder}>
+							<span class=" Cart__summary--highlight item--details" >
+								{#key item.quantity}
+									<span>{item.quantity}x</span>
+								{/key}
+								{item.productname}
+							</span>
+							<span class="Cart__summary--highlight item--price">
+								für CHF {item.quantity * item.price}
+							</span>
+						</div>
 					{/each}
 					<br />
 					{summary.total}
 					<br />
-					<strong class="Cart__summary--highlight">CHF {total}</strong>
+					<div class="Cart__summary--highlight" bind:this={orderTotal}>CHF {total}</div>
 					<br />
 				</div>
 			</div>
@@ -84,32 +88,23 @@
 		<form class="Cart__contact--form" name="bestellungen" method="post" action="/success">
 			<input type="hidden" name="form-name" value="bestellungen" />
 
-			<!-- NAME -->
 			<label for="name" class="Cart__contact--label"></label>
 			<input name="name" class="Cart__contact--input" required placeholder="Name und Vorname" type="text"/>
 
-			<!-- EMAIL -->
 			<label for="email"></label>
-			<input name="email" class="Cart__contact--input" required placeholder="E-Mail" type="email" />
+			<input name="email" class="Cart__contact--input" required placeholder="E-Mail" type="email"/>
 
-			<!-- ADDRESS -->
 			<label for="address"></label>
-			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text" />
+			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text"/>
 
-			<!-- CUSTOMER ORDER -->
 			<input name="order" value="{order}" type="hidden">
+			<input name="total" value="{totalPrice}" type="hidden">
 
-			<button class="Cart__contact--submit" type="submit">Bestellung abschicken</button>
+			<input class="Cart__contact--submit" type="submit" value="{contact.button}">
+			<span class="Cart__summary--billing">{@html billing}</span>
 
-			<span class="Cart__summary--billing">
-				<!-- TODO: Text should come from Prismic -->
-				Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos. Hier steht, wie du die Rechnung bezahlen kannst und andere wichtige Infos.
-			</span>
-
-			<!-- CONFIRM -->
-			<label for="confirm" class="Cart__contact--checkbox-text"> Ich bestätige meine Bestellung.</label>
+			<label for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</label>
 			<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="confirm" required bind:checked={confirmOrder}>
-
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>

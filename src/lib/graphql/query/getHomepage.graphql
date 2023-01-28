@@ -8,6 +8,7 @@ query {
 				intro_html: intro
 				news_html: news
 				about_html: about
+				billing_html: rechnung_details
 				_blocks: body1 {
 					... on HomepageBody1Product {
 						type

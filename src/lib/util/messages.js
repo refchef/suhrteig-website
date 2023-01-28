@@ -34,7 +34,8 @@ export default {
 			"nameInput": "Dein Name",
 			"mailInput": "Deine E-Mail",
 			"addressInput": "Deine Adresse",
-			"button": "Bestellung abschicken"
+			"button": "Bestellung abschicken",
+			"confirm": "Ich bestätige meine Bestellung."
 		}
 	},
 	"footer": {

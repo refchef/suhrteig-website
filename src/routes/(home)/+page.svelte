@@ -30,7 +30,7 @@
 	<!-- ProductSlider.svelte -->
 	<!-- <ProductSlider products={homepage._blocks[0]} /> -->
 
-	<Shop news={homepage.news} products={homepage._blocks[0]} />
+	<Shop news={homepage.news} billing={homepage.billing} products={homepage._blocks[0]} />
 	<!--
 		Shop.svelte
 			- ProductSlider
