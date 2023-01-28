@@ -9,6 +9,7 @@
 	import isoWeek from 'dayjs/plugin/isoWeek.js';
 	dayjs.extend(isoWeek)
 
+	export const prerender = true;
 
 	const { product } = messages.shop;
 	const { summary } = messages.shop;
@@ -100,7 +101,7 @@
 			<!-- CUSTOMER ORDER -->
 			<input name="order" value={order} type="hidden">
 
-			<input class="Cart__contact--submit" type="submit" value="💌  Bestellung abschicken" />
+			<button class="Cart__contact--submit" type="submit">💌  Bestellung abschicken</button>
 
 			<span class="Cart__summary--billing">
 				<!-- TODO: Text should come from Prismic -->
