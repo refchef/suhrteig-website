@@ -9,8 +9,6 @@
 	import isoWeek from 'dayjs/plugin/isoWeek.js';
 	dayjs.extend(isoWeek)
 
-	export const prerender = true;
-
 	const { product } = messages.shop;
 	const { summary } = messages.shop;
 	const { contact } = messages.shop;
@@ -83,8 +81,8 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" name="Bestellungen" method="POST" action="/success">
-			<input type="hidden" name="form-name" value="Bestellungen" />
+		<form class="Cart__contact--form" netlify name="Bestellungen" method="POST">
+			<input hidden name="form-name" value="Bestellungen" />
 
 			<!-- NAME -->
 			<label for="name" class="Cart__contact--label"></label>
@@ -99,9 +97,9 @@
 			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text" />
 
 			<!-- CUSTOMER ORDER -->
-			<input name="order" value={order} type="hidden">
+			<input name="order" value="laugen test" type="hidden">
 
-			<button class="Cart__contact--submit" type="submit">💌  Bestellung abschicken</button>
+			<input class="Cart__contact--submit" type="submit" value="Bestellung abschicken">
 
 			<span class="Cart__summary--billing">
 				<!-- TODO: Text should come from Prismic -->

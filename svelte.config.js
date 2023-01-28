@@ -13,13 +13,13 @@ const config = {
 		postcss: true
 	}),
 	kit: {
-		adapter: adapter(),
-		prerender: {
-			crawl: true,
-			enabled: true,
-			onError: 'continue',
-			entries: ['*'],
-		},
+		adapter: adapter()
+		// prerender: {
+		// 	crawl: true,
+		// 	enabled: true,
+		// 	onError: 'continue',
+		// 	entries: ['*'],
+		// },
 	}
 };
 
