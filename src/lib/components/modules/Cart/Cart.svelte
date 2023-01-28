@@ -81,7 +81,7 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" netlify name="Bestellungen" method="POST">
+		<form class="Cart__contact--form" name="Bestellungen" data-netlify="true" netlify method="POST">
 			<input hidden name="form-name" value="Bestellungen" />
 
 			<!-- NAME -->
@@ -97,7 +97,7 @@
 			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text" />
 
 			<!-- CUSTOMER ORDER -->
-			<input name="order" value="laugen test" type="hidden">
+			<input name="order" value="{order}" type="hidden">
 
 			<input class="Cart__contact--submit" type="submit" value="Bestellung abschicken">
 
@@ -107,8 +107,8 @@
 			</span>
 
 			<!-- CONFIRM -->
-			<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="confirm" required bind:checked={confirmOrder}>
 			<label for="confirm" class="Cart__contact--checkbox-text"> Ich bestätige meine Bestellung.</label>
+			<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="confirm" required bind:checked={confirmOrder}>
 
 		</form>
 		<!-- NETLIFY FORM END -->

@@ -7,15 +7,15 @@
 	<title>Document</title>
 </head>
 <body>
-	<form hidden name="Bestellungen" data-netlify="true" netlify-honeypot="bot-field">
+	<form type="hidden" name="Bestellungen" data-netlify="true" netlify netlify-honeypot="bot-field">
 		<!-- NAME -->
-		<input name="name" required placeholder="Name und Vorname" type="text"/>
+		<input name="name" required value="name" type="text"/>
 
 		<!-- EMAIL -->
-		<input name="email" required placeholder="E-Mail oder Telefon" type="email" />
+		<input name="email" required type="email" value="email"/>
 
 		<!-- ADDRESS -->
-		<input name="address" required placeholder="Adresse" type="text" />
+		<input name="address" required value="address" type="text" />
 
 		<!-- CUSTOMER ORDER -->
 		<input name="order" type="hidden" value="">
