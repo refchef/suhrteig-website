@@ -1,12 +1,13 @@
 <script>
-	import { onMount } from "svelte";
 	import { cart } from "$lib/util/cart";
-	import { fade, fly, slide, blur, scale } from "svelte/transition";
-	import { quintOut } from 'svelte/easing';
-	import messages from "$lib/util/messages";
 	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
+	import messages from "$lib/util/messages";
 	import dayjs from "dayjs";
 	import isoWeek from 'dayjs/plugin/isoWeek.js';
+	import { slide } from "svelte/transition";
+	import { quintOut } from 'svelte/easing';
+	import CartSummary from "$lib/components/partials/CartSummary/CartSummary.svelte";
+
 	dayjs.extend(isoWeek)
 
 	export let billing;
@@ -15,26 +16,26 @@
 	const { summary } = messages.shop;
 	const { contact } = messages.shop;
 
-	// let currentWeek = dayjs().isoWeek()
 	let confirmOrder = false;
-	let customerOrder, orderTotal;
-	let order = "";
-	let totalPrice = null;
+	let orderTotalItems;
+	let orderTotalPrice;
+	let finalOrder = "";
+	let finalPrice = null;
 
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
 	$: if (confirmOrder === true) {
-		order = customerOrder.innerText
-		totalPrice = orderTotal.innerText
-		console.log("order:", order, "total:", totalPrice)
+		// finalOrder = orderTotalItems.innerText
+		finalPrice = orderTotalPrice.innerText
+		console.log('final order', finalOrder, finalPrice);
 	}
 
-	$: order, totalPrice;
+	$: finalOrder, finalPrice;
 
 </script>
 
 <section class="Cart">
-	<!-- WARENKORB -->
+	<!-- CART -->
 	<div class="Cart__products">
 		<ul class="Cart__products--list">
 			<p class="Cart__products--title">{product.title}</p>
@@ -49,7 +50,7 @@
 			{/if}
 		</ul>
 	</div>
-	<!-- ZUSAMMENFASSUNG -->
+	<!-- SUMMARY -->
 	<div class="Cart__summary">
 		<p class="Cart__summary--title">{summary.title}</p>
 		{#if $cart.length === 0}
@@ -57,24 +58,13 @@
 		{:else}
 			<div class="Cart__summary--list">
 				<div transition:slide="{{duration: 250, easing: quintOut}}">
-					<!-- TODO: Create CartSummary.svelte partial -->
 					{#each $cart as item}
-						<div class="Cart__summary--item" bind:this={customerOrder}>
-							<span class=" Cart__summary--highlight item--details" >
-								{#key item.quantity}
-									<span>{item.quantity}x</span>
-								{/key}
-								{item.productname}
-							</span>
-							<span class="Cart__summary--highlight item--price">
-								für CHF {item.quantity * item.price}
-							</span>
-						</div>
+						<CartSummary {item} {finalOrder} {confirmOrder} bind:this={orderTotalItems}/>
 					{/each}
 					<br />
 					{summary.total}
 					<br />
-					<div class="Cart__summary--highlight" bind:this={orderTotal}>CHF {total}</div>
+					<div class="Cart__summary--highlight" bind:this={orderTotalPrice}>CHF {total}</div>
 					<br />
 				</div>
 			</div>
@@ -97,8 +87,8 @@
 			<label for="address"></label>
 			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text"/>
 
-			<input name="order" value="{order}" type="hidden">
-			<input name="total" value="{totalPrice}" type="hidden">
+			<input name="order" value="{finalOrder}" type="hidden">
+			<input name="total" value="{finalPrice}" type="hidden">
 
 			<input class="Cart__contact--submit" type="submit" value="{contact.button}">
 			<span class="Cart__summary--billing">{@html billing}</span>

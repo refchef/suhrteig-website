@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+.Cart__summary--item {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.Cart__summary--highlight {
+	color: $c-dark;
+}
+
+.item--details {
+	// color: green;
+}
+.item--price {
+	color: $c-pink--light;
+	padding-left: rem(10);
+}

@@ -15,37 +15,20 @@
 
 </script>
 
+<!-- Header.svelte -->
+<Header title={homepage.title} tagline={homepage.tagline} status={homepage.status}/>
 
-	<!-- Header.svelte -->
-	<Header title={homepage.title} tagline={homepage.tagline} status={homepage.status}/>
+<!-- Intro.svelte -->
+<Intro intro={homepage.intro} news={homepage.news}/>
 
+<!-- Shop.svelte -->
+<Shop news={homepage.news} billing={homepage.billing} products={homepage._blocks[0]} />
 
+<!-- About.svelte -->
+<About about={homepage.about}/>
 
-	<!-- Intro.svelte -->
-	<Intro intro={homepage.intro} news={homepage.news}/>
-
-	<!-- News.svelte -->
-	<!-- <News news={homepage.news}/> -->
-
-	<!-- ProductSlider.svelte -->
-	<!-- <ProductSlider products={homepage._blocks[0]} /> -->
-
-	<Shop news={homepage.news} billing={homepage.billing} products={homepage._blocks[0]} />
-	<!--
-		Shop.svelte
-			- ProductSlider
-				- Product
-				- ProductTag
-			- Cart
-	 -->
-	<!-- Cart.svelte -->
-	<!-- <Cart/> -->
-
-	<!-- About.svelte -->
-	<About about={homepage.about}/>
-
-	<!-- Footer.svelte -->
-	<Footer/>
+<!-- Footer.svelte -->
+<Footer/>
 
 
 

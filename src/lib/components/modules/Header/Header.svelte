@@ -21,8 +21,8 @@
 				{status}
 			</div>
 		</div>
-		<span class="onScrollStatus">
+		<!-- <span class="onScrollStatus">
 			<CurrentStatus {status}/>
-		</span>
+		</span> -->
 	</div>
 </header>
