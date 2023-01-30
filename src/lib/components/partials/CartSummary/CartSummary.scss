@@ -4,6 +4,7 @@
 .Cart__summary--item {
 	display: flex;
 	justify-content: flex-start;
+	align-items: center;
 }
 
 .Cart__summary--highlight {
@@ -16,4 +17,5 @@
 .item--price {
 	color: $c-pink--light;
 	padding-left: rem(10);
+	font-size: 8pt;
 }

@@ -1,0 +1,10 @@
+@import "variables";
+@import "mixins";
+
+
+.Cart__summary--highlight {
+	color: $c-dark;
+	border-top: 1px solid $c-dark;
+	margin-top: rem(20);
+	padding-top: rem(20);
+}

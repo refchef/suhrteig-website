@@ -51,8 +51,12 @@ export default {
 			"title": "brot@suhrteig.ch",
 			"url": "mailto:mail@refael.ch"
 		},
+		"thanks": {
+			"title": "Font by Dinamo®",
+			"url": "https://abcdinamo.com/typefaces/gravity"
+		},
 		"imprint": {
-			"title": "Design + Development: refael.ch",
+			"title": "Design + Development by Refael",
 			"url": "https://www.refael.ch"
 		}
 	}

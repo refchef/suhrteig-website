@@ -61,7 +61,7 @@ input {
 }
 
 .Cart__summary {
-	grid-column: 3 / span 3;
+	grid-column: 4 / span 2;
 	@include mobile {
 		grid-column: 1 / span 8;
 		margin: rem(25) 0;
@@ -149,6 +149,7 @@ input {
 .Cart__products--item {
 	display: flex;
 	align-items: center;
+	// justify-content: space-between;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid $c-pink--light;

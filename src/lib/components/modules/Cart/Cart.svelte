@@ -7,6 +7,7 @@
 	import { slide } from "svelte/transition";
 	import { quintOut } from 'svelte/easing';
 	import CartSummary from "$lib/components/partials/CartSummary/CartSummary.svelte";
+	import TotalPrice from "$lib/components/partials/TotalPrice/TotalPrice.svelte";
 
 	dayjs.extend(isoWeek)
 
@@ -25,8 +26,8 @@
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
 	$: if (confirmOrder === true) {
-		// finalOrder = orderTotalItems.innerText
-		finalPrice = orderTotalPrice.innerText
+		finalOrder = orderTotalItems.innerText;
+		finalPrice = orderTotalPrice.innerText;
 		console.log('final order', finalOrder, finalPrice);
 	}
 
@@ -58,14 +59,14 @@
 		{:else}
 			<div class="Cart__summary--list">
 				<div transition:slide="{{duration: 250, easing: quintOut}}">
-					{#each $cart as item}
-						<CartSummary {item} {finalOrder} {confirmOrder} bind:this={orderTotalItems}/>
-					{/each}
-					<br />
-					{summary.total}
-					<br />
-					<div class="Cart__summary--highlight" bind:this={orderTotalPrice}>CHF {total}</div>
-					<br />
+					<div class="cart__summary--wrapper" bind:this={orderTotalItems}>
+						{#each $cart as item}
+							<CartSummary {item}/>
+						{/each}
+					</div>
+					<div class="cart__summary--wrapper" bind:this={orderTotalPrice}>
+						<TotalPrice totalMessage={summary.total} {total}/>
+					</div>
 				</div>
 			</div>
 		{/if}
