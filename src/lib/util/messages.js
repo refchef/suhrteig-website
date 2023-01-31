@@ -35,7 +35,8 @@ export default {
 			"mailInput": "Deine E-Mail",
 			"addressInput": "Deine Adresse",
 			"button": "Bestellung abschicken",
-			"confirm": "Ich bestätige meine Bestellung."
+			"confirm": "Ich bestätige meine Bestellung.",
+			"collect": "Ich möchte meine Bestellung selber abholen."
 		}
 	},
 	"footer": {

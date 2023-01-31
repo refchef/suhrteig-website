@@ -40,11 +40,11 @@
 
 </script>
 
+<span class="cart__productname">{product.productname}</span>
 <button class="button__cart" type="button" class:--disabled={disabled} on:click={countUp(product)}>+</button>
 	<span class="cart__product__counter">
 		{product.quantity}
 	</span>
 <button class="button__cart" type="button" on:click={countDown(product)}>–</button>
-<span class="cart__productname">{product.productname}</span>
 
 <style src="./ProductInCart.scss"></style>

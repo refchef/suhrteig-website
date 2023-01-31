@@ -3,8 +3,12 @@
 
 
 .Cart__summary--highlight {
-	color: $c-dark;
-	border-top: 1px solid $c-dark;
-	margin-top: rem(20);
-	padding-top: rem(20);
+	color: $c-light;
+	margin-top: rem(10);
+	display: flex;
+	// padding-top: rem(20);
+}
+
+.price {
+	margin-left: auto;
 }

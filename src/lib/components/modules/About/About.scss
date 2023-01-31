@@ -2,20 +2,29 @@
 @import "mixins";
 
 .about {
-	@include grid;
+	// @include grid;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	color: $c-light;
 	// background: $c-dark;
+	margin: rem(200) 0;
+	gap: rem(200);
+
 }
 
 .about__wrapper {
-	grid-column: 3 / span 4;
+	max-width: 80%;
 	font-size: large;
 	line-height: 2;
-	padding: rem(200) 0;
 	@include mobile {
 		font-size: medium;
 		padding-top: rem(20) 0;
-		grid-column: 1 / span 8;
 	}
+}
 
+.about__image {
+	min-width: 50%;
+	max-width: 80%;
 }

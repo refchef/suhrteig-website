@@ -61,7 +61,7 @@ input {
 }
 
 .Cart__summary {
-	grid-column: 4 / span 2;
+	grid-column: 3 / span 3;
 	@include mobile {
 		grid-column: 1 / span 8;
 		margin: rem(25) 0;
@@ -90,7 +90,8 @@ input {
 .Cart__summary--billing {
 	font-size: small;
 	color: $c-light;
-	margin-top: rem(20);
+	margin-top: auto;
+	justify-self: baseline;
 }
 
 
@@ -150,17 +151,23 @@ input {
 	display: flex;
 	align-items: center;
 	// justify-content: space-between;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding: 1rem 0;
 	border-bottom: 1px solid $c-pink--light;
+}
+
+.Cart__contact--checkbox {
+	display: flex;
+	align-items: center;
+	justify-items: flex-start;
 }
 .Cart__contact--checkbox-text {
 	font-size: small;
-	padding: 20px 20px 20px 0;
+	padding: 10px 0;
 	width: 100%;
 	font-size: 14px;
 	outline: none;
-	margin-bottom: rem(10);
+	margin-left: rem(5)
+	// margin-bottom: rem(10);
 }
 
 .Cart__contact--checkbox input {

@@ -1,15 +1,19 @@
 <script>
 	import { cart } from "$lib/util/cart";
+	import { slide } from "svelte/transition";
+	import { quintOut } from 'svelte/easing';
 	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
+	import CartSummary from "$lib/components/partials/CartSummary/CartSummary.svelte";
+	import TotalPrice from "$lib/components/partials/TotalPrice/TotalPrice.svelte";
 	import messages from "$lib/util/messages";
 	import dayjs from "dayjs";
 	import isoWeek from 'dayjs/plugin/isoWeek.js';
-	import { slide } from "svelte/transition";
-	import { quintOut } from 'svelte/easing';
-	import CartSummary from "$lib/components/partials/CartSummary/CartSummary.svelte";
-	import TotalPrice from "$lib/components/partials/TotalPrice/TotalPrice.svelte";
 
 	dayjs.extend(isoWeek)
+
+	let kw;
+	kw = dayjs().isoWeek;
+	console.log('woche',kw);
 
 	export let billing;
 
@@ -68,6 +72,8 @@
 						<TotalPrice totalMessage={summary.total} {total}/>
 					</div>
 				</div>
+				<div class="Cart__summary--billing">{@html billing}</div>
+
 			</div>
 		{/if}
 	</div>
@@ -88,14 +94,23 @@
 			<label for="address"></label>
 			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text"/>
 
-			<input name="order" value="{finalOrder}" type="hidden">
+			<input name="order-{kw}" value="{finalOrder}" type="hidden">
 			<input name="total" value="{finalPrice}" type="hidden">
 
-			<input class="Cart__contact--submit" type="submit" value="{contact.button}">
-			<span class="Cart__summary--billing">{@html billing}</span>
+			<label for="note"></label>
+			<input name="note" class="Cart__contact--input" placeholder="Anmerkungen" type="text"/>
 
-			<label for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</label>
-			<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="confirm" required bind:checked={confirmOrder}>
+			<span class="Cart__contact--checkbox">
+				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="confirm" required bind:checked={confirmOrder}>
+				<label for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</label>
+			</span>
+
+			<span class="Cart__contact--checkbox">
+				<input name="collect" class="Cart__contact--checkbox" type="checkbox" value="collext">
+				<label for="collect" class="Cart__contact--checkbox-text">{contact.collect}</label>
+			</span>
+
+			<input class="Cart__contact--submit" type="submit" value="{contact.button}">
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>

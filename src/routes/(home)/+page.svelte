@@ -25,7 +25,7 @@
 <Shop news={homepage.news} billing={homepage.billing} products={homepage._blocks[0]} />
 
 <!-- About.svelte -->
-<About about={homepage.about}/>
+<About about={homepage.about} radius={homepage.radius}/>
 
 <!-- Footer.svelte -->
 <Footer/>

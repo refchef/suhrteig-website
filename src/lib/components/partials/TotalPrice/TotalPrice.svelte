@@ -4,7 +4,7 @@
 </script>
 
 <div class="Cart__summary--highlight">
-	{totalMessage} CHF {total}
+	{totalMessage} <span class="price">CHF {total}</span>
 </div>
 
 <style src="./TotalPrice.scss"></style>

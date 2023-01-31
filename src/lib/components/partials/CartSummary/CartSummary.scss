@@ -5,6 +5,10 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	min-height: rem(35);
+	padding: 1rem 0;
+	border-bottom: 1px solid $c-pink--light;
+
 }
 
 .Cart__summary--highlight {
@@ -15,7 +19,8 @@
 	// color: green;
 }
 .item--price {
-	color: $c-pink--light;
+	color: $c-light;
 	padding-left: rem(10);
 	font-size: 8pt;
+	margin-left: auto;
 }
