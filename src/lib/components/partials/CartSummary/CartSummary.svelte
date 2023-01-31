@@ -1,13 +1,17 @@
 <script>
+	import { scale } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+
 	export let item;
-	// export let orderTotalItems;
 </script>
 
 
 <div class="Cart__summary--item">
-	<span class=" Cart__summary--highlight item--details" >
+	<span class="Cart__summary--highlight item--details" >
 		{#key item.quantity}
-			<span>{item.quantity}x</span>
+			<span class="item--amount" style="display: inline-block" in:scale={{ duration: 1000, easing: quintOut}}>
+				{item.quantity}x
+			</span>
 		{/key}
 		{item.productname}
 	</span>

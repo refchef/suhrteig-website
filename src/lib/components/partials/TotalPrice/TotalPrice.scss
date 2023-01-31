@@ -4,11 +4,15 @@
 
 .Cart__summary--highlight {
 	color: $c-light;
-	margin-top: rem(10);
+	padding: rem(10) 0;
+	margin-bottom: rem(20);
 	display: flex;
+	border-bottom: 1px solid $c-pink--light;
+
 	// padding-top: rem(20);
 }
 
 .price {
 	margin-left: auto;
+	color: $c-dark;
 }

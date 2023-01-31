@@ -3,30 +3,39 @@
 
 
 .product__tags {
-    // background-color: blue;
-    // border: 1px solid grey;
-    margin-top: 4rem;
+	// background-color: blue;
+	// border: 1px solid grey;
+	margin-top: 4rem;
 }
 .product__tag {
-    color: $c-dark;
-    letter-spacing: .1rem;
-    width: fit-content;
-    padding: .5rem 1rem .5rem 1rem;
-    display: inline-flex;
-    border: 1px $c-pink solid;
-    align-items: center;
-    font-size: 10px;
-    border-radius: 50px;
-    justify-content: center;
-    flex-direction: row;
+	// background: $c-dark;
+	color: $c-dark;
+	letter-spacing: .1rem;
+	width: fit-content;
+	padding: .5rem 1rem .5rem 1rem;
+	display: inline-flex;
+	border: 1px $c-pink--light solid;
+	align-items: center;
+	font-size: 10px;
+	border-radius: 50px;
+	justify-content: center;
+	flex-direction: row;
+	transition: $hover-speed;
 	@include mobile {
 		display: flex;
 		flex-direction: column;
 	}
+	@media (hover: hover) {
+		&:hover {
+			transition: $hover-speed ease-in-out;
+			background: $c-pink--light;
+			border: 1px solid $c-pink;
+		}
+	}
 }
 
 p:not(:first-child) {
-    margin-left: .5rem;
+	margin-left: .5rem;
 	@include mobile {
 		margin-left: 0;
 	}

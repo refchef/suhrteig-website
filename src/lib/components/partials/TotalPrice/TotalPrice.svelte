@@ -3,7 +3,7 @@
 	export let total;
 </script>
 
-<div class="Cart__summary--highlight">
+<div class="Cart__summary--highlight" >
 	{totalMessage} <span class="price">CHF {total}</span>
 </div>
 

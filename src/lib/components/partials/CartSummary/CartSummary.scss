@@ -15,12 +15,12 @@
 	color: $c-dark;
 }
 
-.item--details {
-	// color: green;
+.item--amount {
+	color: $c-light;
+	padding-right: rem(10);
 }
 .item--price {
 	color: $c-light;
-	padding-left: rem(10);
 	font-size: 8pt;
 	margin-left: auto;
 }

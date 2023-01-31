@@ -48,7 +48,7 @@
 					<div>{product.description}</div>
 				{:else}
 				{#each $cart as product}
-					<li class="Cart__products--item" transition:slide="{{duration: 250, easing: quintOut}}">
+					<li class="Cart__products--item" transition:slide="{{duration: 1000, easing: quintOut}}">
 						<ProductInCart {product} />
 					</li>
 				{/each}
@@ -61,19 +61,18 @@
 		{#if $cart.length === 0}
 			<div>{summary.emptyCart}</div>
 		{:else}
-			<div class="Cart__summary--list">
-				<div transition:slide="{{duration: 250, easing: quintOut}}">
-					<div class="cart__summary--wrapper" bind:this={orderTotalItems}>
-						{#each $cart as item}
+			<div class="Cart__summary--list" >
+				<div class="cart__summary--wrapper" bind:this={orderTotalItems}>
+					{#each $cart as item}
+						<div transition:slide="{{duration: 1000, easing: quintOut}}">
 							<CartSummary {item}/>
-						{/each}
-					</div>
-					<div class="cart__summary--wrapper" bind:this={orderTotalPrice}>
-						<TotalPrice totalMessage={summary.total} {total}/>
-					</div>
+						</div>
+					{/each}
+				</div>
+				<div class="cart__summary--wrapper" bind:this={orderTotalPrice}>
+					<TotalPrice totalMessage={summary.total} {total}/>
 				</div>
 				<div class="Cart__summary--billing">{@html billing}</div>
-
 			</div>
 		{/if}
 	</div>
