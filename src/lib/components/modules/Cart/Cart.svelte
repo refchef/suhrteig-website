@@ -96,7 +96,7 @@
 			<label for="address"></label>
 			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text"/>
 
-			<input name="order-{kw}" value="{finalOrder}" type="hidden">
+			<input name="order" value="{finalOrder}" type="hidden">
 			<input name="total" value="{finalPrice}" type="hidden">
 
 			<label for="note"></label>
