@@ -27,14 +27,17 @@
 	let finalOrder = "";
 	let finalPrice = null;
 
+	// Calculate total price
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
+	// Linked to checkbox confirm
 	$: if (confirmOrder === true) {
 		finalOrder = orderTotalItems.innerText;
 		finalPrice = orderTotalPrice.innerText;
-		console.log('final order', finalOrder, finalPrice);
+		console.log(finalOrder, finalPrice);
 	}
 
+	// Sends order to input field
 	$: finalOrder, finalPrice;
 
 </script>
@@ -100,12 +103,12 @@
 			<input name="note" class="Cart__contact--input" placeholder="Anmerkungen" type="text"/>
 
 			<span class="Cart__contact--checkbox">
-				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="confirm" required bind:checked={confirmOrder}>
+				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="Yes" required bind:checked={confirmOrder}>
 				<label for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</label>
 			</span>
 
 			<span class="Cart__contact--checkbox">
-				<input name="collect" class="Cart__contact--checkbox" type="checkbox" value="collext">
+				<input name="collect" class="Cart__contact--checkbox" type="checkbox" value="Yes">
 				<label for="collect" class="Cart__contact--checkbox-text">{contact.collect}</label>
 			</span>
 

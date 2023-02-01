@@ -3,7 +3,6 @@
 
 	export let about;
 	export let radius;
-	console.log('radius',radius);
 
 </script>
 
