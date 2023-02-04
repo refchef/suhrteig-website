@@ -8,13 +8,13 @@
 
 <style lang="scss" src="./About.scss"></style>
 
-<section class="about">
+<section class="about" id="about">
 	<div class="about__wrapper">
-		<p id="about">{@html about}</p>
-	</div>
-	<div class="about__image">
-		<Image {...radius} ratio={"4:5"}/>
-		<small>{radius.alt}</small>
+		<p class="about__text">{@html about}</p>
+		<div class="about__image">
+			<Image {...radius} ratio={"4:5"}/>
+			<small>{radius.alt}</small>
+		</div>
 	</div>
 
 </section>

@@ -14,7 +14,7 @@
 		const breakpoints = {};
 		breakpoints[bps.mobile] = {
 			slides: {
-				perView: 1.25,
+				perView: 1.15,
 			}
 		}
 		slider = new KeenSlider(slider, {

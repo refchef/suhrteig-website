@@ -1,10 +1,12 @@
 @import "variables/base";
 
 @font-face {
-	font-family: "ABC Gravity";
-	src: url('$lib/assets/fonts/ABCGravity-Normal-Trial.woff2') format('woff2'),
-		 url('$lib/assets/fonts/ABCGravity-Normal-Trial.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+	font-family: "Gravity";
+	src: url('$lib/assets/fonts/ABCGravityUprightVariable.ttf') format('truetype-variations');
+		//  url('$lib/assets/fonts/ABCGravity-Normal.woff') format('woff'),
+		//  url('$lib/assets/fonts/ABCGravity-Normal.woff2') format('woff2'),;
+	font-weight: 100 900;
+	// font-style: normal;
+	font-stretch: 50% 150%;
 	font-display: block;
 }

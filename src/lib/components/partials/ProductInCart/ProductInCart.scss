@@ -4,7 +4,7 @@
 .button__cart {
 	@include blank-button;
 	cursor: pointer;
-	background-color: $c-dark;
+	background-color: $mindnight-blue;
 	font-size: large;
 	padding: 10px;
 	height: 35px;
@@ -19,8 +19,8 @@
 	@media (hover: hover) {
 		&:hover {
 			transition: $hover-speed ease;
-			background: $c-light;
-			color: $c-dark;
+			background: $flour-white;
+			color: $mindnight-blue;
 			border: 1px solid transparent;
 		}
 	}
@@ -41,5 +41,5 @@
 .cart__productname {
 	margin-right: auto;
 	font-size: large;
-	color: $c-dark;
+	color: $mindnight-blue;
 }

@@ -1,21 +1,20 @@
 export default {
 	"header": {
-		"tagline": "Suhrteig produziert bewusst langsames, nachhaltiges und smackhaftes Brot.",
-		"status": "Aktuell bin ich am",
+		"preStatus": "Suhrteig ist",
 		"orderButton": {
-			"title": "Jetzt bestellen",
+			"title": "Jetzt bestellen!",
 			"target": "#bestellen"
 		},
 		"aboutButton": {
-			"title": "→ Mehr erfahren",
+			"title": "Mehr erfahren",
 			"target": "#about"
 		},
 		"newsletterButton": {
-			"title": "→ Für den Newsletter anmelden",
+			"title": "Für den Newsletter anmelden",
 			"target": "https://buttondown.email/suhrteig"
 		},
 		"description": {
-			"title": "Suhrteig ist eine nachbarschaftliche Mikro-Bäckerei im Herzen des St. Johann in Basel, Schweiz."
+			"title": "Suhrteig ist eine nachbarschaftliche Mikro-Bäckerei im Herzen des St. Johann in Basel und produziert bewusst langsames, nachhaltiges und smackhaftes Brot."
 		}
 	},
 	"shop": {

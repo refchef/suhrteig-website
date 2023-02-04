@@ -3,21 +3,42 @@
 
 .about {
 	// @include grid;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: $c-light;
-	// background: $c-dark;
+	// background: $mindnight-blue;
 	margin: rem(200) 0;
-	gap: rem(200);
+	// gap: rem(200);
+	@include mobile {
+		margin: 0;
+		max-width: 90%;
+		padding: rem(20);
+	}
 
 }
 
+.about__text {
+	color: $flour-white;
+	font-stretch: 75%;
+	@include font-features;
+	font-size: rem(45);
+	line-height: rem(60);
+	max-width: 55ch;
+	// max-width: 80%;
+	@include mobile {
+		max-width: 100ch;
+		font-size: rem(20);
+		line-height: rem(25);
+		// margin: rem(40) 0;
+	}
+}
+
 .about__wrapper {
-	max-width: 80%;
-	font-size: large;
-	line-height: 2;
+
+	// font-size: large;
+	// line-height: 2;
 	@include mobile {
 		font-size: medium;
 		padding-top: rem(20) 0;

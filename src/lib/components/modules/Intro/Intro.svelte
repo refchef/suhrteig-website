@@ -3,12 +3,30 @@
 	import messages from "$lib/util/messages"
 
 	const { header } = messages;
+	export let intro;
+	console.log('intro',intro);
 
 </script>
 
 <div class="Intro">
 	<div class="Intro__wrapper">
-		<div class="Intro__logo">
+		<div class="Intro__description">
+			{@html intro}
+		</div>
+		<div class="Intro__cta">
+			<div class="Intro__cta--wrapper">
+				<a class="Intro__cta__button first" href="{header.orderButton.target}">
+					{header.orderButton.title}
+				</a>
+				<a class="Intro__cta__button" href="{header.orderButton.target}">
+					{header.aboutButton.title}
+				</a>
+				<a class="Intro__cta__button" href="{header.orderButton.target}">
+					{header.newsletterButton.title}
+				</a>
+			</div>
+		</div>
+		<!-- <div class="Intro__logo">
 			<div class="Intro__logo--wrapper">
 				<div class="Logo">
 					<Logo/>
@@ -27,12 +45,9 @@
 			<a class="Intro__links--item" href="{header.newsletterButton.target}">
 				{header.newsletterButton.title}
 			</a>
-		</div>
+		</div> -->
 	</div>
-	<div class="Intro__description">
-		{header.description.title}
 
-	</div>
 </div>
 
 <style lang="scss" src="./Intro.scss"></style>

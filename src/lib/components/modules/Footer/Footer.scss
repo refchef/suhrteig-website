@@ -4,7 +4,7 @@
 .footer {
 	@include space(height, m);
 	padding: 0 rem(40);
-	border-top: 1px solid $c-pink;
+	border-top: 1px solid $hot-pink;
 	@include mobile {
 		height: 100%;
 		padding: rem(40);
@@ -25,14 +25,14 @@
 
 }
 .footer__item a{
-	color: $c-pink;
+	color: $hot-pink;
 	border-bottom: 1px solid transparent;
 	padding-bottom: rem(2);
 	transition: $hover-speed ease-out;
 	@media (hover: hover) {
 		&:hover {
 			transition: $hover-speed ease-in;
-			border-bottom: 1px solid $c-pink;
+			border-bottom: 1px solid $hot-pink;
 		}
 	}
 	@include mobile {

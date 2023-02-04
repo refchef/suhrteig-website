@@ -42,13 +42,13 @@
 
 </script>
 
-<section class="Cart">
+<section class="Cart" id="cart">
 	<!-- CART -->
 	<div class="Cart__products">
 		<ul class="Cart__products--list">
 			<p class="Cart__products--title">{product.title}</p>
 				{#if $cart?.length === 0}
-					<div>{product.description}</div>
+					<div class="Cart__products--description">{product.description}</div>
 				{:else}
 				{#each $cart as product}
 					<li class="Cart__products--item" transition:slide="{{duration: 1000, easing: quintOut}}">
@@ -62,7 +62,7 @@
 	<div class="Cart__summary">
 		<p class="Cart__summary--title">{summary.title}</p>
 		{#if $cart.length === 0}
-			<div>{summary.emptyCart}</div>
+			<div class="Cart__products--description">{summary.emptyCart}</div>
 		{:else}
 			<div class="Cart__summary--list" >
 				<div class="cart__summary--wrapper" bind:this={orderTotalItems}>
@@ -102,15 +102,17 @@
 			<label for="note"></label>
 			<input name="note" class="Cart__contact--input" placeholder="Anmerkungen" type="text"/>
 
-			<span class="Cart__contact--checkbox">
+			<label class="Cart__contact--checkbox--wrapper">
 				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="Yes" required bind:checked={confirmOrder}>
-				<label for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</label>
-			</span>
+				<span for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</span>
+				<span class="checkmark"></span>
+			</label>
 
-			<span class="Cart__contact--checkbox">
+			<label class="Cart__contact--checkbox--wrapper">
 				<input name="collect" class="Cart__contact--checkbox" type="checkbox" value="Yes">
-				<label for="collect" class="Cart__contact--checkbox-text">{contact.collect}</label>
-			</span>
+				<span for="collect" class="Cart__contact--checkbox-text">{contact.collect}</span>
+				<span class="checkmark"></span>
+			</label>
 
 			<input class="Cart__contact--submit" type="submit" value="{contact.button}">
 		</form>

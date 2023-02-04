@@ -7,20 +7,20 @@
 	align-items: center;
 	min-height: rem(35);
 	padding: 1rem 0;
-	border-bottom: 1px solid $c-pink--light;
+	border-bottom: 1px solid $passion-pink;
 
 }
 
 .Cart__summary--highlight {
-	color: $c-dark;
+	color: $mindnight-blue;
 }
 
 .item--amount {
-	color: $c-light;
+	color: $flour-white;
 	padding-right: rem(10);
 }
 .item--price {
-	color: $c-light;
+	color: $flour-white;
 	font-size: 8pt;
 	margin-left: auto;
 }

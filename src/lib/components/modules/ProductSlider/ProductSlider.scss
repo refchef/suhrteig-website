@@ -3,6 +3,17 @@
 
 
 .product__slider {
-	background-color: $c-light;
+	background-color: $flour-white;
 	border-radius: 3rem 3rem 0 0;
+	// padding-left: rem(20);
+	// padding-right: rem(20) ;
+}
+
+.keen-slider {
+	.keen-slider__slide:last-of-type {
+		padding: 0;
+		padding-right: rem(20);
+		// background-color: red;
+	}
+
 }

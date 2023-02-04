@@ -2,26 +2,27 @@
 @import "mixins";
 
 .product {
-	// @include component-gap(l);
+
 	cursor: grab;
-	padding: 4rem 2rem 2rem 4rem;
+	// padding: 4rem 2rem 2rem 4rem;
+	padding: rem(20) 0 rem(40) rem(20);
 	&:active {
 		cursor: grabbing;
 	}
 	@include mobile {
-		padding: 4rem 1rem 1rem 4rem;
+		padding: rem(10) rem(5) rem(5) rem(10);
+	}
+	&:last-of-type {
 	}
 }
+// .product:last-of-type {
+// 	padding-right: rem(20);
+// 	background-color: red;
+
+// }
 
 .product_photo {
 	position: relative;
-	// &--soldOut:before {
-	//     content: '';
-	//     width: 100%;
-	//     height: 100%;
-	//     z-index: 1000;
-	//     background-color: blue;
-	// }
 }
 
 .product__button {
@@ -34,7 +35,7 @@
 	.cart__message {
 		margin-left: rem(10);
 		text-align: right;
-		color: $c-dark;
+		color: $mindnight-blue;
 		right:10px;
 
 	}
@@ -46,8 +47,8 @@
 	height: 60px;
 	width: 60px;
 	border-radius: 50%;
-	background-color: $c-pink;
-	color: $c-light;
+	background-color: $hot-pink;
+	color: $flour-white;
 	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
 
 	transition: scale $hover-speed $default-easing;
@@ -56,8 +57,8 @@
 		&:hover {
 			scale: 1.1;
 			transition: $hover-speed ease;
-			background: $c-light;
-			color: $c-dark;
+			background: $flour-white;
+			color: $mindnight-blue;
 			border: 1px solid transparent;
 		}
 	}
@@ -68,11 +69,11 @@
 .product__button__remove {
 	cursor: pointer;
 	border: none;
-	height: 60px;
-	width: 60px;
+	height: rem(60);
+	width: rem(60);
 	border-radius: 50%;
-	background: $c-dark;
-	color: $c-light;
+	background: $mindnight-blue;
+	color: $flour-white;
 	box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -82,27 +83,27 @@
 
 .product__button--soldOut {
 	font-size: 8pt;
-	font-family: ABC Gravity;
+	font-family: Gravity;
 	cursor: not-allowed;
 }
 
 .product__name {
-	color: $c-pink;
+	color: $hot-pink;
 	font-size: xx-large;
 	margin-bottom: 0;
 }
 .product__weight {
 	font-size: small;
-	color: $c-dark;
+	color: $mindnight-blue;
 }
 .product__price {
-	color: $c-dark;
+	color: $mindnight-blue;
 	font-size: xx-large;
 	margin-top: 0;
 }
 
 .product__description {
-	color: $c-dark;
+	color: $mindnight-blue;
 	font-size: small;
 }
 .product__item--wrapper {
