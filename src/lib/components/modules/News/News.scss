@@ -2,9 +2,9 @@
 @import "mixins";
 
 .News {
-	--duration: 50s; // default (component prop)
-	--gap: 2rem; // default (component prop)
-	background-color: $mindnight-blue;
+	--duration: 20s; // default (component prop)
+	--gap: 0rem; // default (component prop)
+	background: $passion-pink;
 	color: $hot-pink;
 	line-height: 1.5;
 	width: 100%;
@@ -12,11 +12,20 @@
 	display: flex;
 	overflow: hidden;
 	gap: var(--gap);
-	// position: fixed;
-	// top: 0;
 	z-index: 100;
-	// margin-top: rem(40);
-	// margin-bottom: rem(100);
+	font-variation-settings: "wdth" 100;
+	transition: $hover-speed all ease;
+	font-size: rem(12);
+
+	&:hover {
+		background: $flour-white;
+		// color: midnightblue;
+		// height: rem(60);
+		// transition: $hover-speed all ease;
+		// font-variation-settings: "wdth" 150;
+
+	}
+
 }
 
 .News__group {
@@ -26,6 +35,7 @@
 	justify-content: space-around;
 	gap: var(--gap);
 	min-width: 100%;
+	// animation: stretch 1s linear alternate-reverse;
 	animation: scroll var(--duration) linear infinite;
 
 	@media (prefers-reduced-motion: reduce) {
@@ -35,6 +45,7 @@
 	.News--reverse & {
 		animation-direction: reverse;
 		animation-delay: calc(var(--duration) / -2);
+
 	}
 }
 
@@ -46,3 +57,10 @@
 		transform: translateX(calc(-100% - var(--gap)));
 	}
 }
+
+// @keyframes stretch {
+// 	0% {
+// 	}
+// 	100% {
+// 	}
+// }

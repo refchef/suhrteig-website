@@ -4,7 +4,8 @@
 .button__cart {
 	@include blank-button;
 	cursor: pointer;
-	background-color: $mindnight-blue;
+	color: $flour-white;
+	background-color: $midnight-blue;
 	font-size: large;
 	padding: 10px;
 	height: 35px;
@@ -20,7 +21,7 @@
 		&:hover {
 			transition: $hover-speed ease;
 			background: $flour-white;
-			color: $mindnight-blue;
+			color: $midnight-blue;
 			border: 1px solid transparent;
 		}
 	}
@@ -32,6 +33,7 @@
 }
 
 .cart__product__counter {
+	color: $flour-white;
 	font-size: large;
 	width: 50px;
 	text-align: center;
@@ -41,5 +43,5 @@
 .cart__productname {
 	margin-right: auto;
 	font-size: large;
-	color: $mindnight-blue;
+	color: $midnight-blue;
 }

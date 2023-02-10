@@ -28,8 +28,8 @@ body {
 
 body {
 	@include text-normal;
-	color: $flour-white;
-	background: $mindnight-blue;
+	// color: $flour-white;
+	background: $midnight-blue;
 	// background-image: url("../../src/lib/assets/svg/Background.svg");
 	-webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
 	counter-reset: teaser-element;

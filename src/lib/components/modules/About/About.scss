@@ -8,13 +8,15 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	// background: $mindnight-blue;
+	// background: $midnight-blue;
 	margin: rem(200) 0;
+	padding: rem(50);
+
 	// gap: rem(200);
 	@include mobile {
 		margin: 0;
-		max-width: 90%;
-		padding: rem(20);
+		// max-width: 0%;
+		padding: rem(50);
 	}
 
 }
@@ -48,4 +50,8 @@
 .about__image {
 	min-width: 50%;
 	max-width: 80%;
+	@include mobile {
+		max-width: 100%;
+
+	}
 }

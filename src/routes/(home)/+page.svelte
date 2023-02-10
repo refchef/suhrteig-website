@@ -12,9 +12,9 @@
 
 </script>
 
-<Header title={homepage.title} tagline={homepage.tagline} status={homepage.status}/>
+<Header title={homepage.title} news={homepage.news} tagline={homepage.tagline} status={homepage.status}/>
 <Intro intro={homepage.intro}/>
-<Shop news={homepage.news} billing={homepage.billing} products={homepage._blocks[0]} />
+<Shop billing={homepage.billing} products={homepage._blocks[0]} />
 <MobileCart/>
 <About about={homepage.about} radius={homepage.radius}/>
 <Footer/>

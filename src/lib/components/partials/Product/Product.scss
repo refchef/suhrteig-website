@@ -35,7 +35,7 @@
 	.cart__message {
 		margin-left: rem(10);
 		text-align: right;
-		color: $mindnight-blue;
+		color: $midnight-blue;
 		right:10px;
 
 	}
@@ -58,7 +58,7 @@
 			scale: 1.1;
 			transition: $hover-speed ease;
 			background: $flour-white;
-			color: $mindnight-blue;
+			color: $midnight-blue;
 			border: 1px solid transparent;
 		}
 	}
@@ -72,7 +72,7 @@
 	height: rem(60);
 	width: rem(60);
 	border-radius: 50%;
-	background: $mindnight-blue;
+	background: $midnight-blue;
 	color: $flour-white;
 	box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.1);
 }
@@ -94,16 +94,16 @@
 }
 .product__weight {
 	font-size: small;
-	color: $mindnight-blue;
+	color: $midnight-blue;
 }
 .product__price {
-	color: $mindnight-blue;
+	color: $midnight-blue;
 	font-size: xx-large;
 	margin-top: 0;
 }
 
 .product__description {
-	color: $mindnight-blue;
+	color: $midnight-blue;
 	font-size: small;
 }
 .product__item--wrapper {

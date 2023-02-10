@@ -18,10 +18,10 @@
 				<a class="Intro__cta__button first" href="{header.orderButton.target}">
 					{header.orderButton.title}
 				</a>
-				<a class="Intro__cta__button" href="{header.orderButton.target}">
+				<a class="Intro__cta__button" href="{header.aboutButton.target}">
 					{header.aboutButton.title}
 				</a>
-				<a class="Intro__cta__button" href="{header.orderButton.target}">
+				<a class="Intro__cta__button" target="blank" href="{header.newsletterButton.target}">
 					{header.newsletterButton.title}
 				</a>
 			</div>

@@ -1,18 +1,57 @@
 @import "variables";
 @import "mixins";
 
-.footer {
-	@include space(height, m);
-	padding: 0 rem(40);
-	border-top: 1px solid $hot-pink;
+.Footer {
+	// @include space(height, m);
+	// padding: 0;
+	// border-top: 1px solid $hot-pink;
 	@include mobile {
 		height: 100%;
-		padding: rem(40);
+		padding-top: rem(40);
 	}
 }
-.footer__items {
+
+.Footer__logo--wrapper {
+	position: relative;
+	background: $flour-white;
+	border-radius: rem(20) rem(20) 0 0;
+	padding: rem(80) 0;
+	// margin: rem(40) 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+// .Footer__logo__sign {
+// 	position: absolute;
+// 	top: rem(100);
+// 	right: rem(150);
+
+// 	color: $hot-pink;
+// }
+
+.Footer__logo {
+	margin-bottom: rem(40);
+}
+
+.Footer__greetings {
+	// margin-top: rem(40);
+	// padding: rem(40);
+	text-align: center;
+	text-transform: uppercase;
+	@include font-features;
+	color: $hot-pink;
+	font-size: 14pt;
+	line-height: 20pt;
+	font-variation-settings: "wdth" 150;
+
+}
+
+.Footer__items {
 	@include flatlist;
-	height: 100%;
+	@include space(height, m);
+	padding: 0 rem(40);
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -20,11 +59,18 @@
 	flex-wrap: wrap;
 	@include mobile {
 		flex-direction: column;
+		text-align: center;
+		height: max-content;
+		padding: rem(40) 0;
+		background: $passion-pink;
+		border-radius: 0 0 3rem 3rem;
+
+
 	}
 
 
 }
-.footer__item a{
+.Footer__item a{
 	color: $hot-pink;
 	border-bottom: 1px solid transparent;
 	padding-bottom: rem(2);
@@ -37,5 +83,6 @@
 	}
 	@include mobile {
 		margin: rem(10) 0;
+
 	}
 }

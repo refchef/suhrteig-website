@@ -4,10 +4,11 @@
 .Cart {
 	@include grid;
 	background: $hot-pink;
-	padding: 5rem;
+	padding: rem(50);
 	border-radius: 0 0 3rem 3rem;
 	font-size: large;
 	@include mobile {
+		padding: rem(50);
 
 	}
 
@@ -52,7 +53,7 @@
 }
 
 .Cart__products--description {
-	color: $mindnight-blue;
+	color: $midnight-blue;
 }
 
 .Cart__form__title {
@@ -67,7 +68,7 @@
 }
 
 .Cart__summary--highlight {
-	color: $mindnight-blue;
+	color: $midnight-blue;
 }
 
 .Cart__summary {
@@ -129,7 +130,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	// border: 1px solid red;
 }
 
 input {
@@ -144,7 +144,7 @@ input {
 .Cart__contact--input {
 	appearance: none;
 	background: $hot-pink;
-	color: $mindnight-blue;
+	color: $midnight-blue;
 	padding: 20px;
 	border: 2px solid $passion-pink;
 	border-radius: 50px;
@@ -168,7 +168,7 @@ input {
 .Cart__contact--label input:focus + .Cart__contact--placeholder {
 	top: 0;
 	font-size: 10px;
-	color: $mindnight-blue;
+	color: $midnight-blue;
 	background-color: $hot-pink;
 	width: fit-content;
 
@@ -182,76 +182,6 @@ input {
 	border-bottom: 1px solid $passion-pink;
 }
 
-.Cart__contact--checkbox--wrapper input {
-	@include blank-checkbox;
-}
-
-
-.Cart__contact--checkbox--wrapper {
-	position: relative;
-	display: block;
-	align-items: center;
-	justify-items: flex-start;
-	cursor: pointer;
-}
-
-/* Custom checkbox */
-.checkmark {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 25px;
-	width: 25px;
-	border: 1px solid $mindnight-blue;
-	border-radius: 15px;
-	background-color: $flour-white;
-}
-
-/* Add background color on hover */
-.Cart__contact--checkbox--wrapper:hover input ~ .checkmark {
-		background-color: $passion-pink;
-		// &::after {
-		// 	content: "";
-		// 	width: 15px;
-		// 	height: 15px;
-		// 	position: absolute;
-		// 	background: blue;
-		// 	display: flex;
-		// 	border-radius: 10px;
-		// 	align-content: center;
-		// 	justify-content: center;
-		// }
-  }
-
-/* Add a background when checked */
-.Cart__contact--checkbox--wrapper input:checked ~ .checkmark {
-	background-color: $mindnight-blue;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.Cart__contact--checkbox--wrapper:after {
-	content: "";
-	position: absolute;
-	display: none;
-}
-
-/* Show the checkmark when checked */
-.Cart__contact--checkbox--wrapper input:checked ~ .checkmark:after {
-	display: block;
-}
-
-/* Style the checkmark/indicator */
-.Cart__contact--checkbox--wrapper .checkmark:after {
-	// left: 9px;
-	// top: 5px;
-	width: 5px;
-	height: 5px;
-	background: green;
-	// border-width: 0 3px 3px 0;
-	// -webkit-transform: rotate(45deg);
-	// -ms-transform: rotate(45deg);
-	// transform: rotate(45deg);
-}
 
 .Cart__contact--checkbox-text {
 	font-size: small;
@@ -267,11 +197,12 @@ input {
 
 .Cart__contact--submit {
 	@include blank-button;
-	background: $mindnight-blue;
-	color: $hot-pink;
+	background: $midnight-blue;
+	color: $flour-white;
+	margin-top: rem(20);
 	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
 	padding: 20px;
-	border: 1px solid $mindnight-blue;
+	border: 1px solid $midnight-blue;
 	border-radius: 50px;
 	width: 100%;
 	font-size: large;
@@ -283,7 +214,7 @@ input {
 		&:hover {
 			transition: $hover-speed ease;
 			background: $flour-white;
-			color: $mindnight-blue;
+			color: $midnight-blue;
 			border: 1px solid transparent;
 		}
 	}

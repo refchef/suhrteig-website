@@ -39,25 +39,28 @@ export default {
 		}
 	},
 	"footer": {
-		"instagram": {
-			"title": "Instagram",
-			"url": "https://www.instagram.com/suhrteig/"
-		},
-		"newsletter": {
-			"title": "Newsletter",
-			"url": "https://buttondown.email/suhrteig"
-		},
-		"email": {
-			"title": "brot@suhrteig.ch",
-			"url": "mailto:mail@refael.ch"
-		},
-		"thanks": {
-			"title": "Font by Dinamo®",
-			"url": "https://abcdinamo.com/typefaces/gravity"
-		},
-		"imprint": {
-			"title": "Design + Development by Refael",
-			"url": "https://www.refael.ch"
+		"greetings": "From Basel </br> with Love",
+		"contact": {
+			"instagram": {
+				"title": "Instagram",
+				"url": "https://www.instagram.com/suhrteig/"
+			},
+			"newsletter": {
+				"title": "Newsletter",
+				"url": "https://buttondown.email/suhrteig"
+			},
+			"email": {
+				"title": "E-Mail",
+				"url": "mailto:suhrteig@gmail.com"
+			},
+			"thanks": {
+				"title": "Font by Dinamo®",
+				"url": "https://abcdinamo.com"
+			},
+			"imprint": {
+				"title": "Design + Development by Refael Blatt",
+				"url": "https://www.refael.ch"
+			},
 		}
 	}
 }
