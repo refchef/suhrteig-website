@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@notionhq/client": "^2.2.3",
 		"@poppanator/sveltekit-svg": "^0.2.3",
 		"@prismicio/client": "^6.1.1",
 		"@prismicio/helpers": "^2.1.1",
