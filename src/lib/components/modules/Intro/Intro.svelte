@@ -11,6 +11,7 @@
 <div class="Intro">
 	<div class="Intro__wrapper">
 		<div class="Intro__description">
+			Trying Notion submissions
 			{@html intro}
 		</div>
 		<div class="Intro__cta">
