@@ -3,18 +3,15 @@
 
 	export let about;
 	export let radius;
-
+	console.log('radius',radius.alt);
 </script>
 
-<style lang="scss" src="./About.scss"></style>
-
 <section class="about" id="about">
-	<div class="about__wrapper">
-		<p class="about__text">{@html about}</p>
-		<div class="about__image">
-			<Image {...radius} ratio={"4:5"}/>
-			<small>{radius.alt}</small>
-		</div>
+	<p class="about__text">{@html about}</p>
+	<div class="about__image">
+		<Image {...radius} ratio={"1:1"} />
+		<p class="image__caption">{radius.alt}</p>
 	</div>
-
 </section>
+
+<style lang="scss" src="./About.scss"></style>

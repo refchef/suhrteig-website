@@ -25,9 +25,9 @@
 	color: $flour-white;
 	font-stretch: 75%;
 	@include font-features;
-	font-size: rem(45);
-	line-height: rem(60);
-	max-width: 55ch;
+	font-size: rem(25);
+	line-height: rem(40);
+	max-width: 65ch;
 	// max-width: 80%;
 	@include mobile {
 		max-width: 100ch;
@@ -37,21 +37,16 @@
 	}
 }
 
-.about__wrapper {
-
-	// font-size: large;
-	// line-height: 2;
-	@include mobile {
-		font-size: medium;
-		padding-top: rem(20) 0;
-	}
-}
-
 .about__image {
+	margin-top: rem(80);
 	min-width: 50%;
 	max-width: 80%;
 	@include mobile {
 		max-width: 100%;
 
 	}
+}
+
+.image__caption {
+	color: $flour-white;
 }

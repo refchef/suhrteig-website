@@ -3,8 +3,8 @@
 
 .News {
 	--duration: 20s; // default (component prop)
-	--gap: 0rem; // default (component prop)
-	background: $passion-pink;
+	--gap: 5rem; // default (component prop)
+	background: $flour-white;
 	color: $hot-pink;
 	line-height: 1.5;
 	width: 100%;
@@ -18,8 +18,8 @@
 	font-size: rem(12);
 
 	&:hover {
-		background: $flour-white;
-		// color: midnightblue;
+		background: $midnight-blue;
+		color: $flour-white;
 		// height: rem(60);
 		// transition: $hover-speed all ease;
 		// font-variation-settings: "wdth" 150;
