@@ -12,7 +12,7 @@ exports.handler = async function (event) {
 				title: [
 					{
 						text: {
-							content: form.name,
+							content: form.name
 						},
 					},
 				],
@@ -21,10 +21,22 @@ exports.handler = async function (event) {
 				email: form.email,
 			},
 			Address: {
-				rich_text: form.address,
+				rich_text: [
+					{
+						text: {
+							content: form.address
+						},
+					},
+				],
 			},
 			Order: {
-				rich_text: form.order,
+				rich_text: [
+					{
+					  text: {
+						content: form.order
+					  },
+					},
+				  ],
 			},
 			Price: {
 				number: {
@@ -33,12 +45,20 @@ exports.handler = async function (event) {
 				},
 			},
 			Note: {
-				rich_text: form.note,
+				rich_text: [
+					{
+						text: {
+							content: form.note
+						},
+					},
+				],
 			},
 			Confirm: {
+				type: checkbox,
 				checkbox: form.confirm
 			},
 			Collect: {
+				type: checkbox,
 				checkbox: form.collect
 			}
 		},
