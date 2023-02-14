@@ -21,37 +21,19 @@ exports.handler = async function (event) {
 				email: form.email,
 			},
 			Address: {
-				title: [
-					{
-						text: {
-							content: form.address,
-						},
-					},
-				],
+				rich_text: form.address,
 			},
 			Order: {
-				title: [
-					{
-						text: {
-							content: form.order,
-						},
-					},
-				],
+				rich_text: form.order,
 			},
 			Price: {
 				number: {
 					format: franc,
-					content: form.price
+					number: form.price
 				},
 			},
 			Note: {
-				title: [
-					{
-						text: {
-							content: form.note,
-						},
-					},
-				],
+				rich_text: form.note,
 			},
 			Confirm: {
 				checkbox: form.confirm
