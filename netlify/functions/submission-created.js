@@ -39,10 +39,7 @@ exports.handler = async function (event) {
 				  ],
 			},
 			Price: {
-				number: {
-					format: franc,
-					number: form.price
-				},
+				number: form.price
 			},
 			Note: {
 				rich_text: [
@@ -54,11 +51,9 @@ exports.handler = async function (event) {
 				],
 			},
 			Confirm: {
-				type: checkbox,
 				checkbox: form.confirm
 			},
 			Collect: {
-				type: checkbox,
 				checkbox: form.collect
 			}
 		},
