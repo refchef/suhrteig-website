@@ -103,13 +103,13 @@
 			<input name="note" class="Cart__contact--input" placeholder="Anmerkungen" type="text"/>
 
 			<label class="Cart__contact--checkbox--wrapper">
-				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="Yes" required bind:checked={confirmOrder}>
+				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="true" required bind:checked={confirmOrder}>
 				<span for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</span>
 				<span class="checkmark"></span>
 			</label>
 
 			<label class="Cart__contact--checkbox--wrapper">
-				<input name="collect" class="Cart__contact--checkbox" type="checkbox" value="Yes">
+				<input name="collect" class="Cart__contact--checkbox" type="checkbox" value="true">
 				<span for="collect" class="Cart__contact--checkbox-text">{contact.collect}</span>
 				<span class="checkmark"></span>
 			</label>
