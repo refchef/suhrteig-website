@@ -53,13 +53,13 @@ export default {
 				"title": "E-Mail",
 				"url": "mailto:suhrteig@gmail.com"
 			},
-			"thanks": {
-				"title": "Font by Dinamo®",
-				"url": "https://abcdinamo.com"
-			},
 			"imprint": {
 				"title": "Design + Development by Refael Blatt",
 				"url": "https://www.refael.ch"
+			},
+			"thanks": {
+				"title": "Font by Dinamo®",
+				"url": "https://abcdinamo.com"
 			},
 		}
 	}

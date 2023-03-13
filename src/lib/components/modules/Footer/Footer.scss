@@ -72,13 +72,19 @@
 }
 .Footer__item a{
 	color: $hot-pink;
-	border-bottom: 1px solid transparent;
-	padding-bottom: rem(2);
-	transition: $hover-speed ease-out;
+	// border-bottom: 1px solid transparent;
+	// padding-bottom: rem(2);
+	transition: $hover-speed ease;
+	font-variation-settings: "wdth" 100;
+
 	@media (hover: hover) {
 		&:hover {
-			transition: $hover-speed ease-in;
-			border-bottom: 1px solid $hot-pink;
+			color: $flour-white;
+
+			transition: $hover-speed ease;
+			// border-bottom: 1px solid $hot-pink;
+			font-variation-settings: "wdth" 150;
+
 		}
 	}
 	@include mobile {
