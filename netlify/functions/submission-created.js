@@ -5,7 +5,7 @@ exports.handler = async function (event) {
 	const form = JSON.parse(event.body).payload.data;
 	const new_row = {
 		parent: {
-			database_id: process.env.DATABASE_ID,
+			database_id: process.env.DATABASE_ID
 		},
 		properties: {
 			Name: {
@@ -53,10 +53,10 @@ exports.handler = async function (event) {
 				]
 			},
 			Confirm: {
-				checkbox: true
+				checkbox: form.confirm
 			},
 			Collect: {
-				checkbox: true
+				checkbox: form.collect
 			}
 		}
 	};
