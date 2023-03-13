@@ -6,14 +6,14 @@
 	import CartSummary from "$lib/components/partials/CartSummary/CartSummary.svelte";
 	import TotalPrice from "$lib/components/partials/TotalPrice/TotalPrice.svelte";
 	import messages from "$lib/util/messages";
-	import dayjs from "dayjs";
-	import isoWeek from 'dayjs/plugin/isoWeek.js';
+	// import dayjs from "dayjs";
+	// import isoWeek from 'dayjs/plugin/isoWeek.js';
 
-	dayjs.extend(isoWeek)
+	// dayjs.extend(isoWeek)
 
-	let kw;
-	kw = dayjs().isoWeek;
-	console.log('woche',kw);
+	// let kw;
+	// kw = dayjs().isoWeek;
+	// console.log('woche',kw);
 
 	export let billing;
 
@@ -84,7 +84,8 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
-		<form class="Cart__contact--form" name="bestellungen" method="post" action="/success">
+		<!-- <form class="Cart__contact--form" name="bestellungen" method="POST" action="/success"> -->
+		<form class="Cart__contact--form" name="bestellungen" method="POST">
 			<input type="hidden" name="form-name" value="bestellungen" />
 
 			<label for="name" class="Cart__contact--label"></label>

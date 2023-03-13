@@ -4,7 +4,6 @@
 
 	const { header } = messages;
 	export let intro;
-	console.log('intro',intro);
 
 </script>
 

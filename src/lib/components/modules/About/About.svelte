@@ -3,7 +3,7 @@
 
 	export let about;
 	export let radius;
-	console.log('radius',radius.alt);
+
 </script>
 
 <section class="about" id="about">

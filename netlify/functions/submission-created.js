@@ -13,52 +13,52 @@ exports.handler = async function (event) {
 					{
 						text: {
 							content: form.name
-						},
-					},
-				],
+						}
+					}
+				]
 			},
 			Email: {
-				email: form.email,
+				email: form.email
 			},
-			// Address: {
-			// 	rich_text: [
-			// 		{
-			// 			text: {
-			// 				content: form.address
-			// 			},
-			// 		},
-			// 	],
-			// },
-			// Order: {
-			// 	rich_text: [
-			// 		{
-			// 			type: text,
-			// 			text: {
-			// 				content: form.order
-			// 			},
-			// 		},
-			// 	],
-			// },
-			// Price: {
-			// 	number: form.price
-			// },
-			// Note: {
-			// 	rich_text: [
-			// 		{
-			// 			text: {
-			// 				type: text,
-			// 				content: form.note
-			// 			},
-			// 		},
-			// 	],
-			// },
+			Address: {
+				rich_text: [
+					{
+						text: {
+							content: form.address
+						}
+					}
+				]
+			},
+			Order: {
+				rich_text: [
+					{
+						type: text,
+						text: {
+							content: form.order
+						}
+					}
+				]
+			},
+			Price: {
+				number: 42
+			},
+			Note: {
+				rich_text: [
+					{
+						type: text,
+						text: {
+							content: form.note
+						}
+					}
+				]
+			},
 			Confirm: {
-				checkbox: form.confirm
+				checkbox: true
 			},
 			Collect: {
-				checkbox: form.collect
+				checkbox: true
 			}
-		},
+		}
 	};
 	await notion.pages.create(new_row);
 	return {
