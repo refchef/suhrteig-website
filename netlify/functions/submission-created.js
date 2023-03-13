@@ -40,7 +40,7 @@ exports.handler = async function (event) {
 				]
 			},
 			Price: {
-				number: 42
+				number: form.total
 			},
 			Note: {
 				rich_text: [
@@ -61,7 +61,4 @@ exports.handler = async function (event) {
 		}
 	};
 	await notion.pages.create(new_row);
-	return {
-		statusCode: 200,
-	};
 };
