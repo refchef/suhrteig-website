@@ -1,4 +1,4 @@
-import { Client } from ("@notionhq/client");
+import { Client } from '@notionhq/client'
 
 exports.handler = async function (event) {
 	const form = JSON.parse(event.body).payload.data;
