@@ -6,8 +6,6 @@
 	import CartSummary from "$lib/components/partials/CartSummary/CartSummary.svelte";
 	import TotalPrice from "$lib/components/partials/TotalPrice/TotalPrice.svelte";
 	import messages from "$lib/util/messages";
-	// import { env } from "$lib/util/env";
-	import {PUBLIC_DATABASE_ID, PUBLIC_NOTION_TOKEN} from "$env/static/public";
 
 	export let billing;
 
@@ -35,84 +33,85 @@
 	$: finalOrder, finalPrice;
 
 	// Send order to Notion
-	async function handleSubmit(event) {
-		const form = new FormData(event.target);
+	// async function handleSubmit(event) {
+	// 	const form = new FormData(event.target);
 
-		const requestBody = {
-			"properties": {
-				"Name": {
-					"title": [
-						{
-							"text": {
-								"content": form.get("name")
-							},
-						},
-					],
-				},
-				"Email": {
-					"email": form.get("email"),
-				},
-				"Address": {
-					"rich_text": [
-						{
-							"text": {
-								"content": form.get("address")
-							},
-						},
-					],
-				},
-				"Order": {
-					"rich_text": [
-						{
-							"text": {
-								"content": form.get("order")
-							},
-						},
-					],
-				},
-				"Price": {
-					"number": form.get("total")
-				},
-				"Note": {
-					"rich_text": [
-						{
-							"text": {
-								"content": form.get("note")
-							},
-						},
-					],
-				},
-				"Confirm": {
-					"checkbox": form.get("confirm")
-				},
-				"Collect": {
-					"checkbox": form.get("collect")
-				},
-			}
-		};
+	// 	const requestBody = {
+	// 		"properties": {
+	// 			"Name": {
+	// 				"title": [
+	// 					{
+	// 						"text": {
+	// 							"content": form.get("name")
+	// 						},
+	// 					},
+	// 				],
+	// 			},
+	// 			"Email": {
+	// 				"email": form.get("email"),
+	// 			},
+	// 			"Address": {
+	// 				"rich_text": [
+	// 					{
+	// 						"text": {
+	// 							"content": form.get("address")
+	// 						},
+	// 					},
+	// 				],
+	// 			},
+	// 			"Order": {
+	// 				"rich_text": [
+	// 					{
+	// 						"text": {
+	// 							"content": form.get("order")
+	// 						},
+	// 					},
+	// 				],
+	// 			},
+	// 			"Price": {
+	// 				"number": form.get("total")
+	// 			},
+	// 			"Note": {
+	// 				"rich_text": [
+	// 					{
+	// 						"text": {
+	// 							"content": form.get("note")
+	// 						},
+	// 					},
+	// 				],
+	// 			},
+	// 			"Confirm": {
+	// 				"checkbox": form.get("confirm")
+	// 			},
+	// 			"Collect": {
+	// 				"checkbox": form.get("collect")
+	// 			},
+	// 		}
+	// 	};
 
-		const response = await fetch(
-			`https://api.notion.com/v1/databases/${PUBLIC_DATABASE_ID}/pages`,
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-					"Notion-Version": "2021-05-13",
-					Authorization: `Bearer ${PUBLIC_NOTION_TOKEN}`,
-				},
-				body: JSON.stringify(requestBody),
-			}
-		);
+	// 	const response = await fetch(
+	// 		`https://api.notion.com/v1/databases/${PUBLIC_DATABASE_ID}/pages`,
+	// 		{
+	// 			method: "POST",
+	// 			headers: {
+	// 				"Content-Type": "application/json",
+	// 				"Notion-Version": "2021-05-13",
+	// 				"Authorization": `Bearer ${PUBLIC_NOTION_TOKEN}`,
+	// 				// "Access-Control-Allow-Origin": "*"
+	// 			},
+	// 			body: JSON.stringify(requestBody),
+	// 		}
+	// 	);
 
-		if (response.ok) {
-			console.log("New page created in Notion database!");
-		} else {
-			console.error(
-				"Error creating new page in Notion database:",
-				await response.text()
-			);
-		};
-	};
+	// 	if (response.ok) {
+	// 		console.log("New page created in Notion database!");
+	// 	} else {
+	// 		console.error(
+	// 			"Error creating new page in Notion database:",
+	// 			await response.text()
+	// 		);
+	// 	};
+	// };
 
 </script>
 
@@ -159,7 +158,7 @@
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
 		<!-- <form class="Cart__contact--form" name="bestellungen" method="POST" action="/success"> -->
-		<form class="Cart__contact--form" name="bestellungen" method="POST" on:submit|preventDefault={handleSubmit}>
+		<form class="Cart__contact--form" name="bestellungen" method="POST" action="`?/order">
 			<input type="hidden" name="form-name" value="bestellungen" />
 
 			<label for="name" class="Cart__contact--label"></label>
