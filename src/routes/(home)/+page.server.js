@@ -3,7 +3,7 @@ import { SECRET_NOTION_TOKEN } from "$env/static/private";
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	order: async ({ event }) => {
+	default: async ({ event }) => {
 		const form = new FormData(event.target);
 
 		const requestBody = {

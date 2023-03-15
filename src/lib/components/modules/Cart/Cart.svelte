@@ -158,7 +158,7 @@
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- NETLIFY FORM START -->
 		<!-- <form class="Cart__contact--form" name="bestellungen" method="POST" action="/success"> -->
-		<form class="Cart__contact--form" name="bestellungen" method="POST" action="/order">
+		<form class="Cart__contact--form" name="bestellungen" method="POST" action="/success">
 			<input type="hidden" name="form-name" value="bestellungen" />
 
 			<label for="name" class="Cart__contact--label"></label>
@@ -188,7 +188,7 @@
 				<span class="checkmark"></span>
 			</label>
 
-			<input class="Cart__contact--submit" type="submit" value="{contact.button}" formaction="/order">
+			<input class="Cart__contact--submit" type="submit" value="{contact.button}">
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>
