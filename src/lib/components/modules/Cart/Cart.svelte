@@ -188,7 +188,7 @@
 				<span class="checkmark"></span>
 			</label>
 
-			<input class="Cart__contact--submit" type="submit" value="{contact.button}">
+			<input class="Cart__contact--submit" type="submit" value="{contact.button}" formaction="/order">
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>
