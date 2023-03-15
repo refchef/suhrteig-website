@@ -1,4 +1,5 @@
-import {SECRET_DATABASE_ID, SECRET_NOTION_TOKEN} from "$env/static/privat";
+import { SECRET_DATABASE_ID } from "$env/static/private";
+import { SECRET_NOTION_TOKEN } from "$env/static/private";
 
 /** @type {import('./$types').Actions} */
 export const actions = {
