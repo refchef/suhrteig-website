@@ -1,4 +1,4 @@
-// import { Client } from '@notionhq/client'
+// const {Client} = require("@notionhq/client")
 
 // export const handler = async (event) => {
 // 	const form = JSON.parse(event.body).payload.data;
