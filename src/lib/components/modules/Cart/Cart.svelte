@@ -33,6 +33,8 @@
 	}
 	$: if (collectOrder === true) {
 		delivery = "Pick Up";
+	} else if (collectOrder === false) {
+		delivery = delivery;
 	}
 
 	// Linked to checkbox collect
