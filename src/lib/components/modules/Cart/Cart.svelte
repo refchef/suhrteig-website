@@ -14,9 +14,12 @@
 	const { contact } = messages.shop;
 
 	let confirmOrder = false;
+	let collectOrder = false;
+	let delivery = "Delivery";
 	let orderTotalItems;
 	let orderTotalPrice;
 	let finalOrder = "";
+	let textPrice = "";
 	let finalPrice = null;
 
 	// Calculate total price
@@ -25,93 +28,23 @@
 	// Linked to checkbox confirm
 	$: if (confirmOrder === true) {
 		finalOrder = orderTotalItems.innerText;
-		finalPrice = orderTotalPrice.innerText;
-		console.log(finalOrder, finalPrice);
+		textPrice = orderTotalPrice.innerText;
+		finalPrice = textPrice.replace(/\D/g, "");
+	}
+	$: if (collectOrder === true) {
+		delivery = "Pick Up";
 	}
 
-	// Sends order to input field
+	// Linked to checkbox collect
+	// $: if (collectOrder === false) {
+	// 		delivery = "Delivery";
+	// 	}
+	// $: if (collectOrder === true) {
+	// 		delivery = "Pick Up";
+	// 	}
+
+	// Sends order to hidden input field
 	$: finalOrder, finalPrice;
-
-	// Send order to Notion
-	// async function handleSubmit(event) {
-	// 	const form = new FormData(event.target);
-
-	// 	const requestBody = {
-	// 		"properties": {
-	// 			"Name": {
-	// 				"title": [
-	// 					{
-	// 						"text": {
-	// 							"content": form.get("name")
-	// 						},
-	// 					},
-	// 				],
-	// 			},
-	// 			"Email": {
-	// 				"email": form.get("email"),
-	// 			},
-	// 			"Address": {
-	// 				"rich_text": [
-	// 					{
-	// 						"text": {
-	// 							"content": form.get("address")
-	// 						},
-	// 					},
-	// 				],
-	// 			},
-	// 			"Order": {
-	// 				"rich_text": [
-	// 					{
-	// 						"text": {
-	// 							"content": form.get("order")
-	// 						},
-	// 					},
-	// 				],
-	// 			},
-	// 			"Price": {
-	// 				"number": form.get("total")
-	// 			},
-	// 			"Note": {
-	// 				"rich_text": [
-	// 					{
-	// 						"text": {
-	// 							"content": form.get("note")
-	// 						},
-	// 					},
-	// 				],
-	// 			},
-	// 			"Confirm": {
-	// 				"checkbox": form.get("confirm")
-	// 			},
-	// 			"Collect": {
-	// 				"checkbox": form.get("collect")
-	// 			},
-	// 		}
-	// 	};
-
-	// 	const response = await fetch(
-	// 		`https://api.notion.com/v1/databases/${PUBLIC_DATABASE_ID}/pages`,
-	// 		{
-	// 			method: "POST",
-	// 			headers: {
-	// 				"Content-Type": "application/json",
-	// 				"Notion-Version": "2021-05-13",
-	// 				"Authorization": `Bearer ${PUBLIC_NOTION_TOKEN}`,
-	// 				// "Access-Control-Allow-Origin": "*"
-	// 			},
-	// 			body: JSON.stringify(requestBody),
-	// 		}
-	// 	);
-
-	// 	if (response.ok) {
-	// 		console.log("New page created in Notion database!");
-	// 	} else {
-	// 		console.error(
-	// 			"Error creating new page in Notion database:",
-	// 			await response.text()
-	// 		);
-	// 	};
-	// };
 
 </script>
 
@@ -170,21 +103,22 @@
 			<label for="address"></label>
 			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text"/>
 
-			<input name="order" value="{finalOrder}" type="hidden">
-			<input name="total" value="{finalPrice}" type="hidden">
+			<input name="order" value={finalOrder} type="hidden">
+			<input name="total" value={finalPrice} type="hidden">
 
 			<label for="note"></label>
 			<input name="note" class="Cart__contact--input" placeholder="Anmerkungen" type="text"/>
 
 			<label class="Cart__contact--checkbox--wrapper">
-				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value="true" required bind:checked={confirmOrder}>
-				<span for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</span>
+				<input name="delivery" type="hidden" value={delivery}>
+				<input name="delivery" class="Cart__contact--checkbox" type="checkbox" value={delivery} bind:checked={collectOrder}>
+				<span for="delivery" class="Cart__contact--checkbox-text">{contact.collect}</span>
 				<span class="checkmark"></span>
 			</label>
 
 			<label class="Cart__contact--checkbox--wrapper">
-				<input name="collect" class="Cart__contact--checkbox" type="checkbox" value="true">
-				<span for="collect" class="Cart__contact--checkbox-text">{contact.collect}</span>
+				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value={confirmOrder} required bind:checked={confirmOrder}>
+				<span for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</span>
 				<span class="checkmark"></span>
 			</label>
 
