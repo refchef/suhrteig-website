@@ -2,21 +2,17 @@
 @import "mixins";
 
 .about {
-	// @include grid;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	// background: $midnight-blue;
 	margin: rem(200) 0;
 	padding: rem(50);
-
-	// gap: rem(200);
 	@include mobile {
 		margin: 0;
-		// max-width: 0%;
-		padding: rem(50);
+		// padding: rem(50);
+		@include space(padding, s);
+
 	}
 
 }
@@ -28,17 +24,16 @@
 	font-size: rem(25);
 	line-height: rem(40);
 	max-width: 65ch;
-	// max-width: 80%;
 	@include mobile {
 		max-width: 100ch;
 		font-size: rem(20);
 		line-height: rem(25);
-		// margin: rem(40) 0;
 	}
 }
 
 .about__image {
-	margin-top: rem(80);
+	// margin-top: rem(80);
+	@include space(margin-top, s);
 	min-width: 50%;
 	max-width: 80%;
 	@include mobile {
@@ -49,4 +44,6 @@
 
 .image__caption {
 	color: $flour-white;
+	@include space(margin-top, s);
+	text-align: center;
 }

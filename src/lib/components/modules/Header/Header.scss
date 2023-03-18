@@ -14,7 +14,7 @@
 }
 
 .Header--wrapper {
-	position: absolute;
+	// position: absolute;
 	width: 100%;
 	height: rem(120);
 	// border: 1px solid greenyellow;
@@ -39,6 +39,10 @@
 	justify-content: left;
 	align-items: center;
 	height: inherit;
+	@include mobile {
+		display: none;
+	}
+
 	// border: 1px solid red;
 	// margin: 0 auto;
 	// padding: 0 rem(50);

@@ -13,7 +13,7 @@
 
 .Footer__logo--wrapper {
 	position: relative;
-	background: $flour-white;
+	background: $hot-pink;
 	border-radius: rem(20) rem(20) 0 0;
 	padding: rem(80) 0;
 	// margin: rem(40) 0;
@@ -21,6 +21,21 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.Logo {
+	font-variation-settings: "wght" 100;
+	font-variation-settings: "wdth" 100;
+	font-feature-settings: "ss13";
+	font-size: rem(85);
+	text-transform: uppercase;
+	@include mobile {
+		display: none;
+
+	}
+
+
+
 }
 
 // .Footer__logo__sign {
@@ -32,19 +47,20 @@
 // }
 
 .Footer__logo {
-	margin-bottom: rem(40);
+	margin: rem(20) 0;
 }
 
 .Footer__greetings {
-	// margin-top: rem(40);
-	// padding: rem(40);
 	text-align: center;
 	text-transform: uppercase;
 	@include font-features;
-	color: $hot-pink;
+	color: $midnight-blue;
 	font-size: 14pt;
 	line-height: 20pt;
-	font-variation-settings: "wdth" 150;
+	font-variation-settings: "wdth" 80;
+	@include mobile {
+		color: $passion-pink;
+	}
 
 }
 

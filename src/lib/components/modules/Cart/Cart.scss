@@ -8,7 +8,8 @@
 	border-radius: 0 0 3rem 3rem;
 	font-size: large;
 	@include mobile {
-		padding: rem(50);
+		@include space(padding, s);
+
 
 	}
 
@@ -43,7 +44,8 @@
 .Cart__contact--title {
 	color: $flour-white;
 	margin: 0;
-	margin-bottom: 2.5rem;
+	margin-bottom: rem(2);
+
 
 }
 
@@ -53,7 +55,7 @@
 }
 
 .Cart__products--description {
-	color: $midnight-blue;
+	color: $passion-pink;
 }
 
 .Cart__form__title {
@@ -130,6 +132,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	gap: rem(10)
+
 }
 
 input {
@@ -151,10 +155,9 @@ input {
 	width: 100%;
 	font-size: 14px;
 	outline: none;
-	margin-bottom: rem(10);
 	transition: border $hover-speed ease-in;
 	&::placeholder {
-		color: $flour-white;
+		color: $passion-pink;
 	}
 	&:focus {
 		&::placeholder {
@@ -197,12 +200,12 @@ input {
 
 .Cart__contact--submit {
 	@include blank-button;
-	background: $midnight-blue;
-	color: $flour-white;
+	background: $flour-white;
+	color: $midnight-blue;
 	margin-top: rem(20);
 	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
 	padding: 20px;
-	border: 1px solid $midnight-blue;
+	border: 1px solid $flour-white;
 	border-radius: 50px;
 	width: 100%;
 	font-size: large;
@@ -213,8 +216,8 @@ input {
 	@media (hover: hover) {
 		&:hover {
 			transition: $hover-speed ease;
-			background: $flour-white;
-			color: $midnight-blue;
+			color: $flour-white;
+			background: $midnight-blue;
 			border: 1px solid transparent;
 		}
 	}

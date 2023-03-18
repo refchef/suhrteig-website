@@ -1,4 +1,5 @@
 import { Client } from "@notionhq/client";
+import { redirect } from '@sveltejs/kit';
 import { SECRET_NOTION_TOKEN } from "$env/static/private";
 import { SECRET_DATABASE_ID } from "$env/static/private";
 
@@ -88,5 +89,6 @@ export const actions = {
 			});
 			console.log("response message", response);
 		})();
+		throw redirect(303, '/success')
 	},
 };
