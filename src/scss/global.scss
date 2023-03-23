@@ -61,9 +61,13 @@ svg {
 }
 
 ::selection {
+	background: $flour-white;
+	color: $hot-pink;
 }
 
 ::-moz-selection {
+	background: $flour-white;
+	color: $hot-pink;
 }
 
 @import "typography";

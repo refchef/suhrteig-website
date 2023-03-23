@@ -1,5 +1,6 @@
 <script>
 	import { cart } from "$lib/util/cart";
+	import { validateEmail } from "$lib/util/helper";
 	import { slide } from "svelte/transition";
 	import { quintOut } from 'svelte/easing';
 	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
@@ -13,11 +14,12 @@
 	const { summary } = messages.shop;
 	const { contact } = messages.shop;
 
+	let checkForEmail;
 	let confirmOrder = false;
-	let collectOrder = false;
-	let delivery = "Delivery";
+	// let collectOrder = false;
 	let orderTotalItems;
 	let orderTotalPrice;
+	let delivery = "";
 	let finalOrder = "";
 	let textPrice = "";
 	let finalPrice = null;
@@ -28,22 +30,15 @@
 	// Linked to checkbox confirm
 	$: if (confirmOrder === true) {
 		finalOrder = orderTotalItems.innerText;
-		textPrice = orderTotalPrice.innerText;
-		finalPrice = textPrice.replace(/\D/g, "");
-	}
-	$: if (collectOrder === true) {
-		delivery = "Pick Up";
-	} else if (collectOrder === false) {
-		delivery = delivery;
+		textPrice = orderTotalPrice.innerText.match(/[\d\.]+/);
+		finalPrice = textPrice[0];
+		console.log('this should be the final order',finalOrder);
 	}
 
-	// Linked to checkbox collect
-	// $: if (collectOrder === false) {
-	// 		delivery = "Delivery";
-	// 	}
+	// Link to checkbox collect
 	// $: if (collectOrder === true) {
-	// 		delivery = "Pick Up";
-	// 	}
+	// 	delivery = "Pick Up";
+	// }
 
 	// Sends order to hidden input field
 	$: finalOrder, finalPrice;
@@ -76,6 +71,7 @@
 				<div class="cart__summary--wrapper" bind:this={orderTotalItems}>
 					{#each $cart as item}
 						<div transition:slide="{{duration: 1000, easing: quintOut}}">
+							<!-- WIP HERE -->
 							<CartSummary {item}/>
 						</div>
 					{/each}
@@ -91,8 +87,7 @@
 	<!-- KONTAKTANGABEN -->
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
-		<!-- NETLIFY FORM START -->
-		<!-- <form class="Cart__contact--form" name="bestellungen" method="POST" action="/success"> -->
+		<!-- FORM START -->
 		<form class="Cart__contact--form" name="bestellungen" method="POST">
 			<input type="hidden" name="form-name" value="bestellungen" />
 
@@ -100,7 +95,7 @@
 			<input name="name" class="Cart__contact--input" required placeholder="Name und Vorname" type="text"/>
 
 			<label for="email"></label>
-			<input name="email" class="Cart__contact--input" required placeholder="E-Mail" type="email"/>
+			<input name="email" class="Cart__contact--input" required bind:value={checkForEmail} placeholder="E-Mail" type="email" class:field-success={validateEmail(checkForEmail)}/>
 
 			<label for="address"></label>
 			<input name="address" class="Cart__contact--input" required placeholder="Adresse" type="text"/>
@@ -111,17 +106,24 @@
 			<label for="note"></label>
 			<input name="note" class="Cart__contact--input" placeholder="Anmerkungen" type="text"/>
 
-			<label class="Cart__contact--checkbox--wrapper">
-				<input name="delivery" type="hidden" value={delivery}>
-				<input name="delivery" class="Cart__contact--checkbox" type="checkbox" value={delivery} bind:checked={collectOrder}>
-				<span for="delivery" class="Cart__contact--checkbox-text">{contact.collect}</span>
-				<span class="checkmark"></span>
-			</label>
 
-			<label class="Cart__contact--checkbox--wrapper">
-				<input name="confirm" class="Cart__contact--checkbox" type="checkbox" value={confirmOrder} required bind:checked={confirmOrder}>
-				<span for="confirm" class="Cart__contact--checkbox-text">{contact.confirm}</span>
-				<span class="checkmark"></span>
+			<div class="Radio__info">
+				Es wird nur noch in 4056, 4055 und in Teilen von 4051 und 4057 geliefert <a href="#lieferradius"> (siehe Lieferradius)</a>. Für ausserhalb, bitte Option «Pick Up» auswählen
+			</div>
+			<div class="Radio__wrapper">
+				<div class="Radio__item">
+					<input id="delivery" type="radio" name="delivery" checked value="Delivery">
+					<label for="delivery" class="Radio__Label --delivery">Delivery</label>
+				</div>
+				<div class="Radio__item">
+					<input id="pickup" type="radio" name="delivery" value="Pick Up">
+					<label for="pickup" class="Radio__Label --pickUp">Pick Up</label>
+				</div>
+			</div>
+
+			<label class="Checkbox__wrapper">
+				<input name="confirm" disabled={$cart.length === 0} class="Cart__contact--checkbox" type="checkbox" value={confirmOrder} required bind:checked={confirmOrder}>
+				<span for="confirm" class="checkmark">{contact.confirm}</span>
 			</label>
 
 			<input class="Cart__contact--submit" type="submit" value="{contact.button}">

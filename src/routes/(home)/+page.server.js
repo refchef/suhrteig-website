@@ -7,23 +7,20 @@ import { SECRET_DATABASE_ID } from "$env/static/private";
 export const actions = {
 	default: async ({ request }) => {
 		// Initialize the Notion Client
-		const notion = new Client({
-			auth: SECRET_NOTION_TOKEN,
-		});
+		const notion = new Client({ auth: SECRET_NOTION_TOKEN });
 
 		const formData = await request.formData();
-
+		console.log('incoming form data',formData);
 		const formName = formData.get("form-name");
 		const name = formData.get("name");
 		const email = formData.get("email");
 		const address = formData.get("address");
 		const order = formData.get("order");
 		const total = formData.get("total");
-		const note = formData.get("note");
+		const note = formData.get("note") === "" ? "—" : formData.get("note");
 		const delivery = formData.get("delivery");
 		const confirm = formData.get("confirm");
-
-		console.log("form data", formData);
+		console.log('new radio value',delivery);
 
 		(async () => {
 			const response = await notion.pages.create({
@@ -62,21 +59,18 @@ export const actions = {
 							},
 						],
 					},
-					"Price": {
-						"number": parseInt(total),
+					"Total": {
+						"number": parseFloat(total),
 					},
 					"Note": {
 						"rich_text": [
 							{
 								"text": {
-									"content": note,
+									"content": note.toString(),
 								},
 							},
 						],
 					},
-					// "Collect": {
-					// 	"checkbox": JSON.parse(collect),
-					// },
 					"Delivery": {
 						"select": {
 							"name": delivery,

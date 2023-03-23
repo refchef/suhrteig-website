@@ -8,7 +8,7 @@
 
 <section class="about" id="about">
 	<p class="about__text">{@html about}</p>
-	<div class="about__image">
+	<div class="about__image" id="lieferradius">
 		<Image {...radius} ratio={"1:1"} />
 		<p class="image__caption">{radius.alt}</p>
 	</div>
