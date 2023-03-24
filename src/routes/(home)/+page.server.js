@@ -10,7 +10,8 @@ export const actions = {
 		const notion = new Client({ auth: SECRET_NOTION_TOKEN });
 
 		const formData = await request.formData();
-		console.log('incoming form data',formData);
+		// console.log('incoming form data',formData);
+
 		const formName = formData.get("form-name");
 		const name = formData.get("name");
 		const email = formData.get("email");
@@ -20,7 +21,6 @@ export const actions = {
 		const note = formData.get("note") === "" ? "—" : formData.get("note");
 		const delivery = formData.get("delivery");
 		const confirm = formData.get("confirm");
-		console.log('new radio value',delivery);
 
 		(async () => {
 			const response = await notion.pages.create({
@@ -83,6 +83,6 @@ export const actions = {
 			});
 			console.log("response message", response);
 		})();
-		throw redirect(303, '/success')
+		throw redirect(302, '/success')
 	},
 };
