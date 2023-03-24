@@ -3,6 +3,7 @@
 	import { validateEmail } from "$lib/util/helper";
 	import { slide } from "svelte/transition";
 	import { quintOut } from 'svelte/easing';
+	import { enhance } from '$app/forms';
 	import ProductInCart from "$lib/components/partials/ProductInCart/ProductInCart.svelte";
 	import CartSummary from "$lib/components/partials/CartSummary/CartSummary.svelte";
 	import TotalPrice from "$lib/components/partials/TotalPrice/TotalPrice.svelte";
@@ -88,7 +89,7 @@
 	<div class="Cart__contact">
 		<p class="Cart__contact--title">{contact.title}</p>
 		<!-- FORM START -->
-		<form class="Cart__contact--form" name="bestellungen" method="POST">
+		<form class="Cart__contact--form" name="bestellungen" method="POST" use:enhance>
 			<input type="hidden" name="form-name" value="bestellungen" />
 
 			<label for="name" class="Cart__contact--label"></label>
