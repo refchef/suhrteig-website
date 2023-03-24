@@ -82,7 +82,7 @@ export const actions = {
 				},
 			});
 			console.log("response message", response);
+			throw redirect(303, '/success')
 		})();
-		// throw redirect(303, '/success')
 	},
 };
