@@ -10,27 +10,21 @@
 	align-items: center;
 	justify-content: center;
 	gap: rem(80);
-	// padding: rem(40) rem(40) rem(0) rem(40);
-	// padding-top: rem(100);
-	margin-top: rem(40);
-	margin-bottom: rem(80);
+	@include space(margin-top, s);
+	@include space(margin-bottom, s);
 	@include mobile {
 		flex-direction:column-reverse;
 		min-height: max-content;
 		padding-top: rem(50);
 		padding-bottom: rem(100);
 	}
-
-
 }
 
-
 .Intro__wrapper {
-	// border: 1px solid yellowgreen;
-	display:flex;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction:column;
+	flex-direction: column;
 	height: 100%;
 	// min-width: 25%;
 	// max-width: 35%;

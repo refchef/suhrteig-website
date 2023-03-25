@@ -28,7 +28,7 @@ body {
 
 body {
 	@include text-normal;
-	// color: $flour-white;
+	color: $flour-white;
 	background: $midnight-blue;
 	// background-image: url("../../src/lib/assets/svg/Background.svg");
 	-webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
@@ -61,9 +61,13 @@ svg {
 }
 
 ::selection {
+	background: $flour-white;
+	color: $hot-pink;
 }
 
 ::-moz-selection {
+	background: $flour-white;
+	color: $hot-pink;
 }
 
 @import "typography";

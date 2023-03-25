@@ -1,20 +1,42 @@
 <script>
 	import Logo from "$lib/assets/svg/Logo.svg"
 	import Sign from "$lib/assets/svg/Sign.svg"
+	import { onMount } from "svelte";
+
 	import messages from "$lib/util/messages";
 
 	const contact = Object.values(messages.footer.contact)
 
+	let myFooterText;
+	let getWidth;
+	let width;
+
+	onMount(() => {
+		const updateText = (e) => {
+			getWidth = e.clientX / innerWidth;
+			width = getWidth * (150 - 50) + 50;
+			myFooterText.style.fontVariationSettings = '"wdth"' + width;
+		}
+		window.addEventListener("mousemove", updateText);
+	})
+
+	$: innerWidth = 0;
+	$: getWidth = 0;
+
 </script>
+<svelte:window bind:innerWidth />
 
 <section class="Footer">
 	<div class="Footer__logo--wrapper">
 		<!-- <div class="Footer__logo__sign">
 			<Sign/>
 		</div> -->
+		<div>
+			<Logo/>
+		</div>
 		<div class="Footer__logo">
-			<div class="Logo">
-				<Logo/>
+			<div class="Logo" bind:this={myFooterText}>
+				Suhrteig
 			</div>
 		</div>
 		<div class="Footer__greetings">

@@ -56,7 +56,9 @@
 							>
 								<p class="product__button--default">–</p>
 							</button>
-							<div class="cart__message">im Warenkorb</div>
+							<a href="#cart">
+								<div class="cart__message">zum Warenkorb</div>
+							</a>
 						{:else if product.quantity === 0}
 							<button
 								on:click={addProduct}

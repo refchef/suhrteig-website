@@ -13,34 +13,40 @@
 	const { header } = messages;
 
 
-	$: innerWidth = 0;
 	let myText;
 	let getWidth;
 	let width;
+
 	onMount(() => {
 		const updateText = (e) => {
-			getWidth = e.offsetX / innerWidth;
-			width = getWidth * (150 - 65) + 65;
+			getWidth = e.clientX / innerWidth;
+			width = getWidth * (150 - 50) + 50;
 			myText.style.fontVariationSettings = '"wdth"' + width;
 		}
 		window.addEventListener("mousemove", updateText);
 	})
 
+	$: innerWidth = 0;
+	$: getWidth = 0;
+
+
 </script>
 
 <svelte:window bind:innerWidth />
-<News {news}/>
+
 
 <header class="Header">
-	<div class="Header__logo">
-		<div class="Header__title" bind:this={myText}>{title}</div>
-	</div>
+	{#if news}
+		<div class="Header__news">
+			<News {news}/>
+		</div>
+	{/if}
 	<div class="Header--wrapper">
-		<div class="Header__tagline">
+		<!-- <div class="Header__tagline">
 			<p>{tagline}</p>
-			<!-- <p>getWidth: {getWidth}</p>
-			<p>innerWidth: {innerWidth}</p>
-			<p>width: {width}</p> -->
+		</div> -->
+		<div class="Header__logo">
+			<div class="Header__title" bind:this={myText}>{title}</div>
 		</div>
 		<div class="Header__status">
 			{header.preStatus}
@@ -48,11 +54,7 @@
 				{status}
 			</div>
 		</div>
-		<!-- <span class="onScrollStatus">
-			<CurrentStatus {status}/>
-		</span> -->
 	</div>
-
 </header>
 
 <style lang="scss" src="./Header.scss"></style>

@@ -35,11 +35,11 @@ export default {
 			"addressInput": "Deine Adresse",
 			"button": "Bestellung abschicken",
 			"confirm": "Ich bestätige meine Bestellung.",
-			"collect": "Ich möchte meine Bestellung selber abholen."
+			"collect": "Ich hole meine Bestellung selber ab."
 		}
 	},
 	"footer": {
-		"greetings": "From Basel </br> with Love",
+		"greetings": "From Basel with Love",
 		"contact": {
 			"instagram": {
 				"title": "Instagram",
@@ -53,13 +53,13 @@ export default {
 				"title": "E-Mail",
 				"url": "mailto:suhrteig@gmail.com"
 			},
-			"thanks": {
-				"title": "Font by Dinamo®",
-				"url": "https://abcdinamo.com"
-			},
 			"imprint": {
 				"title": "Design + Development by Refael Blatt",
 				"url": "https://www.refael.ch"
+			},
+			"thanks": {
+				"title": "Font by Dinamo®",
+				"url": "https://abcdinamo.com"
 			},
 		}
 	}

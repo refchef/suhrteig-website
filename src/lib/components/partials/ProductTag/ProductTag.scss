@@ -12,7 +12,8 @@
 	color: $midnight-blue;
 	letter-spacing: .1rem;
 	width: fit-content;
-	padding: .5rem 1rem .5rem 1rem;
+	// padding: .5rem 1rem .5rem 1rem;
+	padding: rem(5) rem(12);
 	display: inline-flex;
 	border: 1px $passion-pink solid;
 	align-items: center;
@@ -24,13 +25,6 @@
 	@include mobile {
 		display: flex;
 		flex-direction: column;
-	}
-	@media (hover: hover) {
-		&:hover {
-			transition: $hover-speed ease-in-out;
-			background: $passion-pink;
-			border: 1px solid $hot-pink;
-		}
 	}
 }
 

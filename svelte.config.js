@@ -20,6 +20,14 @@ const config = {
 			onError: 'continue',
 			entries: ['*'],
 		},
+	},
+	vitePlugin: {
+		experimental: {
+			inspector: {
+				holdMode: true,
+				toggleKeyCombo: 'meta-shift'
+			}
+		}
 	}
 };
 
