@@ -22,7 +22,7 @@ export const actions = {
 		const delivery = formData.get("delivery");
 		const confirm = formData.get("confirm");
 
-		(async () => {
+		// (async () => {
 			const response = await notion.pages.create({
 				parent: {
 					type: "database_id",
@@ -82,7 +82,7 @@ export const actions = {
 				},
 			});
 			console.log("response message", response);
-		})();
-		throw redirect(302, '/success')
+		// })();
+		throw redirect(303, '/success')
 	},
 };
