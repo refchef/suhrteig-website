@@ -16,6 +16,7 @@
 
 	let checkForEmail;
 	let confirmOrder = false;
+	let submitDisabled = true;
 	// let collectOrder = false;
 	let orderTotalItems;
 	let orderTotalPrice;
@@ -32,13 +33,13 @@
 		finalOrder = orderTotalItems.innerText;
 		textPrice = orderTotalPrice.innerText.match(/[\d\.]+/);
 		finalPrice = textPrice[0];
+		submitDisabled = false;
 		console.log('this should be the final order',finalOrder);
-	}
 
-	// Link to checkbox collect
-	// $: if (collectOrder === true) {
-	// 	delivery = "Pick Up";
-	// }
+	}
+	$: if (confirmOrder === false) {
+		submitDisabled = true;
+	}
 
 	// Sends order to hidden input field
 	$: finalOrder, finalPrice;
@@ -108,7 +109,7 @@
 
 
 			<div class="Radio__info">
-				Es wird nur noch in 4056, 4055 und in Teilen von 4051 und 4057 geliefert <a href="#lieferradius"> (siehe Lieferradius)</a>. Für ausserhalb, bitte Option «Pick Up» auswählen
+				Es wird nur noch in 4056, 4055 und in Teilen von 4051 und 4057 geliefert <a href="#lieferradius"> → Lieferradius</a> . Für ausserhalb, bitte Option «Pick Up» auswählen
 			</div>
 			<div class="Radio__wrapper">
 				<div class="Radio__item">
@@ -126,7 +127,7 @@
 				<span for="confirm" class="checkmark">{contact.confirm}</span>
 			</label>
 
-			<input class="Cart__contact--submit" type="submit" value="{contact.button}">
+			<input class="Cart__contact--submit" type="submit" disabled={submitDisabled} value="{contact.button}">
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>

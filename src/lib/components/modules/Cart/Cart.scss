@@ -215,6 +215,9 @@ input {
 	// padding-top: rem(20);
 	// padding-bottom: rem(10);
 	padding: rem(20) rem(5) rem(5) rem(10);
+	& a {
+		color: $midnight-blue;
+	}
 }
 
 .Radio__wrapper {
@@ -300,6 +303,10 @@ input {
 	justify-content: center;
 	cursor: pointer;
 	transition: $hover-speed ease;
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
 	@media (hover: hover) {
 		&:hover {
 			transition: $hover-speed ease;

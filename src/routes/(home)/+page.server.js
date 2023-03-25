@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client";
-import { redirect } from '@sveltejs/kit';
+import { redirect } from "@sveltejs/kit";
 import { SECRET_NOTION_TOKEN } from "$env/static/private";
 import { SECRET_DATABASE_ID } from "$env/static/private";
 
@@ -22,67 +22,65 @@ export const actions = {
 		const delivery = formData.get("delivery");
 		const confirm = formData.get("confirm");
 
-		// (async () => {
-			const response = await notion.pages.create({
-				parent: {
-					type: "database_id",
-					database_id: SECRET_DATABASE_ID,
+		const response = await notion.pages.create({
+			parent: {
+				type: "database_id",
+				database_id: SECRET_DATABASE_ID,
+			},
+			properties: {
+				Name: {
+					title: [
+						{
+							text: {
+								content: name,
+							},
+						},
+					],
 				},
-				properties: {
-					"Name": {
-						"title": [
-							{
-								"text": {
-									"content": name,
-								},
+				Email: {
+					email: email,
+				},
+				Address: {
+					rich_text: [
+						{
+							text: {
+								content: address,
 							},
-						],
-					},
-					"Email": {
-						"email": email,
-					},
-					"Address": {
-						"rich_text": [
-							{
-								"text": {
-									"content": address,
-								},
+						},
+					],
+				},
+				Order: {
+					rich_text: [
+						{
+							text: {
+								content: order,
 							},
-						],
-					},
-					"Order": {
-						"rich_text": [
-							{
-								"text": {
-									"content": order,
-								},
+						},
+					],
+				},
+				Total: {
+					number: parseFloat(total),
+				},
+				Note: {
+					rich_text: [
+						{
+							text: {
+								content: note.toString(),
 							},
-						],
-					},
-					"Total": {
-						"number": parseFloat(total),
-					},
-					"Note": {
-						"rich_text": [
-							{
-								"text": {
-									"content": note.toString(),
-								},
-							},
-						],
-					},
-					"Delivery": {
-						"select": {
-							"name": delivery,
-						}
-					},
-					"Confirm": {
-						"checkbox": JSON.parse(confirm),
+						},
+					],
+				},
+				Delivery: {
+					select: {
+						name: delivery,
 					},
 				},
-			});
-			console.log("response message", response);
-		// })();
-		throw redirect(303, '/success')
+				Confirm: {
+					checkbox: JSON.parse(confirm),
+				},
+			},
+		});
+		console.log("response message", response);
+		throw redirect(303, "/success");
 	},
 };

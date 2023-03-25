@@ -44,6 +44,36 @@
 
 .image__caption {
 	color: $flour-white;
-	@include space(margin-top, s);
+	margin-top: rem(40);
+	padding-left: rem(20);
 	text-align: center;
+	display: flex;
+	gap: rem(40);
+}
+
+.caption__lieferung,
+.caption__pickup {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: rem(10);
+	&:before {
+		content: '';
+		display: inline-block;
+		position: relative;
+		top: 0;
+		left: 0;
+		width: rem(25);
+		height: rem(25);
+		background: $midnight-blue;
+		border: 1px solid $flour-white;
+		border-radius: rem(25);
+	}
+}
+
+.caption__pickup {
+	&:before {
+		background: $flour-white;
+		border: 1px solid $flour-white;
+	}
 }
