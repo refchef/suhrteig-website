@@ -25,7 +25,7 @@
 	align-items: center;
 	justify-content: space-between;
 	@include mobile {
-		@include space(height, l);
+		@include space(height, m);
 		padding: rem(10);
 		justify-content: center;
 	}

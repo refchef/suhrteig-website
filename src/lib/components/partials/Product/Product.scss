@@ -28,12 +28,12 @@
 .product__button {
 	position: absolute;
 	display: flex;
-	bottom: 20px;
-	left: 20px;
+	bottom: rem(20);
+	right: rem(20);
 	width: max-content;
 	align-items: center;
 	.cart__message {
-		margin-left: rem(10);
+		margin-right: rem(10);
 		text-align: right;
 		color: $midnight-blue;
 		right:10px;
@@ -79,6 +79,9 @@
 
 .product__button--default {
 	font-size: xx-large;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .product__button--soldOut {

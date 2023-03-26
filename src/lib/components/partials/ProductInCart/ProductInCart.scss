@@ -7,7 +7,7 @@
 	color: $flour-white;
 	background-color: $midnight-blue;
 	font-size: large;
-	padding: 10px;
+	padding: rem(12);
 	height: 35px;
 	width: 35px;
 	border-radius: 25px;
@@ -19,6 +19,7 @@
 	transition: $hover-speed ease;
 	@media (hover: hover) {
 		&:hover {
+			scale: 1.1;
 			transition: $hover-speed ease;
 			background: $flour-white;
 			color: $midnight-blue;

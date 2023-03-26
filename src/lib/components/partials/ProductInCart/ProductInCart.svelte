@@ -1,5 +1,7 @@
 <script>
 	import { cart } from "$lib/util/cart";
+	import Plus from "$lib/assets/svg/Plus.svg"
+	import Minus from "$lib/assets/svg/Minus.svg"
 
 	export let product;
 
@@ -41,10 +43,14 @@
 </script>
 
 <span class="cart__productname">{product.productname}</span>
-<button class="button__cart" type="button" on:click={countDown(product)}>–</button>
+<button class="button__cart" type="button" on:click={countDown(product)}>
+	<Minus/>
+</button>
 <span class="cart__product__counter">
 	{product.quantity}
 </span>
-<button class="button__cart" type="button" class:--disabled={disabled} on:click={countUp(product)}>+</button>
+<button class="button__cart" type="button" class:--disabled={disabled} on:click={countUp(product)}>
+	<Plus/>
+</button>
 
 <style src="./ProductInCart.scss"></style>
