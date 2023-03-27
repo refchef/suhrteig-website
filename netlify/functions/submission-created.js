@@ -1,4 +1,4 @@
-import { Client } from "@notionhq/client";
+const {Client} = require("@notionhq/client")
 
 exports.handler = async function (event) {
 	const notion = new Client({ auth: process.env.SECRET_NOTION_TOKEN });
