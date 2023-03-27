@@ -10,7 +10,7 @@
 <div class="Intro">
 	<div class="Intro__wrapper">
 		<div class="Intro__description">
-			{@html intro}
+			Netlify Serverless Submission – {@html intro}
 		</div>
 		<div class="Intro__cta">
 			<div class="Intro__cta--wrapper">
