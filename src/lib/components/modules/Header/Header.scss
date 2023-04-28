@@ -20,7 +20,7 @@
 	// border: 1px solid greenyellow;
 	padding: 0 rem(40);
 	background-color: $hot-pink;
-	border-radius: 0 0 5rem 5rem;
+	border-radius: 0 0 rem(20) rem(20);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -63,15 +63,6 @@
 	transform: translateY(5px);
 	@include mobile {
 		font-size: rem(45);
-		display: none;
-	}
-}
-
-
-
-
-.Header__tagline {
-	@include mobile {
 		display: none;
 	}
 }

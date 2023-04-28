@@ -1,17 +1,16 @@
 import { Client } from "@notionhq/client";
+import sgMail from "@sendgrid/mail";
 import { redirect } from "@sveltejs/kit";
 import { SECRET_NOTION_TOKEN } from "$env/static/private";
 import { SECRET_DATABASE_ID } from "$env/static/private";
+import { SENDGRID_API_KEY } from "$env/static/private";
 
 /** @type {import('./$types').Actions} */
 export const actions = {
 	default: async ({ request }) => {
-		// Initialize the Notion Client
-		const notion = new Client({ auth: SECRET_NOTION_TOKEN });
 
+		// FORM DATA
 		const formData = await request.formData();
-		// console.log('incoming form data',formData);
-
 		const formName = formData.get("form-name");
 		const name = formData.get("name");
 		const email = formData.get("email");
@@ -22,6 +21,36 @@ export const actions = {
 		const delivery = formData.get("delivery");
 		const confirm = formData.get("confirm");
 
+		// SEND EMAIL NOTIFICATION
+		sgMail.setApiKey(SENDGRID_API_KEY);
+		const msg = {
+			to: "refael.blatt@icloud.com",
+			from: "mail@refael.ch", // Use the email address or domain you verified in SendGrid UI
+			subject: "Neue Suhrteig Bestellung 💌",
+			text: "Juhu, eine neue Bestellung!",
+			html:
+				`Name: ${name}</br>
+				Bestellung: ${order}</br>
+				Total: ${total} CHF</br>
+				</hr>
+				In <a href="https://www.notion.so/refchef/${SECRET_DATABASE_ID}">Notion</a> öffnen`,
+		};
+		(async () => {
+			try {
+				await sgMail.send(msg);
+			} catch (error) {
+				console.error(error);
+
+				if (error.response) {
+					console.error(error.response.body);
+				}
+			}
+		})();
+
+		// INITIALIZE NOTION
+		const notion = new Client({ auth: SECRET_NOTION_TOKEN });
+
+		// SEND DATA TO NOTION
 		const response = await notion.pages.create({
 			parent: {
 				type: "database_id",

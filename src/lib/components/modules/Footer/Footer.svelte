@@ -31,22 +31,22 @@
 		<!-- <div class="Footer__logo__sign">
 			<Sign/>
 		</div> -->
-		<div>
-			<Logo/>
+		<div class="Footer__greetings">
+			{@html messages.footer.greetings}
 		</div>
 		<div class="Footer__logo">
 			<div class="Logo" bind:this={myFooterText}>
 				Suhrteig
 			</div>
 		</div>
-		<div class="Footer__greetings">
-			{@html messages.footer.greetings}
+		<div class="Logo_emblem">
+			<Logo/>
 		</div>
 	</div>
 	<ul class="Footer__items">
 		{#each contact as item}
 			<li class="Footer__item">
-				<a href="{ item.url }">{ item.title }</a>
+				<a href="{ item.url }" target="_blank">{ item.title }</a>
 			</li>
 		{/each}
 	</ul>

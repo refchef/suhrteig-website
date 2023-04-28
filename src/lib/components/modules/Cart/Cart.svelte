@@ -41,6 +41,10 @@
 		submitDisabled = true;
 	}
 
+	const loadingHandler = () => {
+		contact.button = "laden ..."
+	}
+
 	// Sends order to hidden input field
 	$: finalOrder, finalPrice;
 
@@ -127,7 +131,7 @@
 				<span for="confirm" class="checkmark">{contact.confirm}</span>
 			</label>
 
-			<input class="Cart__contact--submit" type="submit" disabled={submitDisabled} value="{contact.button}">
+			<input class="Cart__contact--submit" type="submit" disabled={submitDisabled} on:click={loadingHandler} value="{contact.button}">
 		</form>
 		<!-- NETLIFY FORM END -->
 	</div>

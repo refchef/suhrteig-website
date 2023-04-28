@@ -4,7 +4,6 @@ query {
 			node {
 				status
 				title_txt: title
-				tagline
 				intro_html: intro
 				news_html: news
 				about_html: about
@@ -13,9 +12,14 @@ query {
 				_blocks: body1 {
 					... on HomepageBody1Product {
 						type
+						primary {
+							nosales
+							message_html: message
+						}
 						fields {
 							id
 							productname_txt: productname
+							productattribute
 							description_txt: description
 							tags
 							weight

@@ -23,11 +23,27 @@
 	justify-content: center;
 }
 
+.Logo_emblem {
+	// @media (hover: hover) {
+	// 	&:hover {
+	// 		animation: rotate 10s infinite alternate $hover-speed;
+	// 	}
+	// }
+}
+@keyframes rotate {
+	from {
+		// transform: rotate(0);
+	}
+	to {
+		// transform: rotate(360deg);
+	}
+}
+
 .Logo {
 	font-variation-settings: "wght" 100;
 	font-variation-settings: "wdth" 100;
 	font-feature-settings: "ss13";
-	font-size: rem(85);
+	font-size: rem(500);
 	text-transform: uppercase;
 	@include mobile {
 		display: none;
@@ -54,7 +70,7 @@
 	text-align: center;
 	text-transform: uppercase;
 	@include font-features;
-	color: $midnight-blue;
+	color: $passion-pink;
 	font-size: 14pt;
 	line-height: 20pt;
 	font-variation-settings: "wdth" 80;
@@ -73,15 +89,13 @@
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	background: $passion-pink;
 	@include mobile {
 		flex-direction: column;
 		text-align: center;
 		height: max-content;
 		padding: rem(40) 0;
-		background: $passion-pink;
 		border-radius: 0 0 3rem 3rem;
-
-
 	}
 
 
@@ -96,15 +110,14 @@
 	@media (hover: hover) {
 		&:hover {
 			color: $flour-white;
-
 			transition: $hover-speed ease;
-			// border-bottom: 1px solid $hot-pink;
 			font-variation-settings: "wdth" 150;
 
 		}
 	}
 	@include mobile {
 		margin: rem(10) 0;
+		font-size: rem(15);
 
 	}
 }

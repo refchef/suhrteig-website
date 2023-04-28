@@ -90,24 +90,46 @@
 	cursor: not-allowed;
 }
 
+.product__infos {
+	display: flex;
+	flex-direction: column;
+	gap: rem(30);
+	padding: 0 rem(5);
+}
+
 .product__name {
+	padding-top: rem(48);
 	color: $hot-pink;
-	font-size: xx-large;
+	font-size: rem(24);
 	margin-bottom: 0;
+}
+
+.product__productattribute {
+	color: $midnight-blue;
+	font-size: rem(24);
+	margin: 0;
+	transform: translateY(rem(-5));
 }
 .product__weight {
 	font-size: small;
-	color: $midnight-blue;
+	color: $hot-pink;
 }
 .product__price {
-	color: $midnight-blue;
-	font-size: xx-large;
+	font-size: small;
 	margin-top: 0;
+	color: $flour-white;
+	background: $hot-pink;
+	padding: rem(10) rem(20);
+	width: max-content;
+	border-radius: rem(50);
+
 }
 
 .product__description {
+	@include font-features;
 	color: $midnight-blue;
 	font-size: small;
+	// font-stretch: 90%;
 }
 .product__item--wrapper {
 	// border: 1px orange solid;

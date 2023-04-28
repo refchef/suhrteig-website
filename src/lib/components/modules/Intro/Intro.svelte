@@ -2,8 +2,10 @@
 	import Logo from "$lib/assets/svg/Logo.svg"
 	import messages from "$lib/util/messages"
 
-	const { header } = messages;
 	export let intro;
+	export let noShop;
+	const { nosales } = noShop;
+	const { header } = messages;
 
 </script>
 
@@ -14,9 +16,11 @@
 		</div>
 		<div class="Intro__cta">
 			<div class="Intro__cta--wrapper">
-				<a class="Intro__cta__button first" href="{header.orderButton.target}">
-					{header.orderButton.title}
-				</a>
+				{#if !nosales}
+					<a class="Intro__cta__button first" href="{header.orderButton.target}">
+						{header.orderButton.title}
+					</a>
+				{/if}
 				<a class="Intro__cta__button" href="{header.aboutButton.target}">
 					{header.aboutButton.title}
 				</a>

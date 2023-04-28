@@ -7,11 +7,12 @@
 	min-height: 100vh;
 	width: 100vw;
 	color: $midnight-blue;
+	// background-image: url("https://images.unsplash.com/photo-1612136435731-ad3e522eac01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80");
 	align-items: center;
 	justify-content: center;
 	gap: rem(80);
-	@include space(margin-top, s);
-	@include space(margin-bottom, s);
+	// @include space(margin-top, s);
+	// @include space(margin-bottom, s);
 	@include mobile {
 		flex-direction:column-reverse;
 		min-height: max-content;
