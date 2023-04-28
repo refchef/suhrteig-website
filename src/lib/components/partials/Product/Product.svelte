@@ -11,6 +11,7 @@
 		id,
 		productphoto,
 		productname,
+		productattribute,
 		weight,
 		description,
 		price,
@@ -20,7 +21,15 @@
 		soldout,
 	} = product;
 
-	let splitTags = tags.split(",");
+	let splitTags = null;
+
+	$: if (tags === null) {
+		// console.log('no tags here:',tags);
+	} else if (tags.includes(",")){
+		splitTags = tags.split(",");
+	} else if(!tags.includes(",")){
+		splitTags = tags;
+	}
 
 	const addProduct = () => {
 		product.quantity += 1;
@@ -88,14 +97,20 @@
 					</div>
 				{/if}
 			</div>
-			<p class="product__name">
-				{productname} <span class="product__weight">{weight}g</span>
-			</p>
-			<p class="product__price">CHF {price}</p>
-			<p class="product__description">{description}</p>
-			<ProductTag tags={splitTags} />
-			<!-- TODO: Set max order amount -->
-			<!-- <p>max order amount { amount }</p> -->
+			<div class="product__infos">
+
+				<div class="product__name">
+					{productname}
+					{#if productattribute}
+						<div class="product__productattribute">{productattribute}</div>
+					{/if}
+				</div>
+				<div class="product__price">CHF {price}</div>
+				<div class="product__description">{description}</div>
+				<!-- <span class="product__weight">{weight}g</span> -->
+				<ProductTag tags={splitTags} />
+			</div>
+
 		</div>
 	</div>
 </article>

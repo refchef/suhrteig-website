@@ -3,16 +3,16 @@
 
 
 .product__tags {
-	// background-color: blue;
-	// border: 1px solid grey;
-	margin-top: 4rem;
+	display: flex;
+	display: flex;
+	flex-direction: row;
+	gap: rem(4);
 }
 .product__tag {
 	// background: $midnight-blue;
 	color: $midnight-blue;
-	letter-spacing: .1rem;
+	letter-spacing: .05rem;
 	width: fit-content;
-	// padding: .5rem 1rem .5rem 1rem;
 	padding: rem(5) rem(12);
 	display: inline-flex;
 	border: 1px $passion-pink solid;
@@ -25,12 +25,5 @@
 	@include mobile {
 		display: flex;
 		flex-direction: column;
-	}
-}
-
-p:not(:first-child) {
-	margin-left: .5rem;
-	@include mobile {
-		margin-left: 0;
 	}
 }

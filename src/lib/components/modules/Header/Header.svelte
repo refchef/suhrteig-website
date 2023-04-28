@@ -4,14 +4,11 @@
 	import { onMount } from "svelte";
 	import News from "$lib/components/modules/News/News.svelte";
 
-
 	export let title;
-	export let tagline;
 	export let status;
 	export let news;
 
 	const { header } = messages;
-
 
 	let myText;
 	let getWidth;
@@ -42,11 +39,8 @@
 		</div>
 	{/if}
 	<div class="Header--wrapper">
-		<!-- <div class="Header__tagline">
-			<p>{tagline}</p>
-		</div> -->
 		<div class="Header__logo">
-			<div class="Header__title" bind:this={myText}>{title}</div>
+			<a class="Header__title" href="/" bind:this={myText}>{title}</a>
 		</div>
 		<div class="Header__status">
 			{header.preStatus}

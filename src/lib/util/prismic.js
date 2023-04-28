@@ -47,8 +47,9 @@ const propsFromType = props => {
 	switch (props.type) {
 		case "product":
 			return {
-				fields: props.fields
-			};			
+				fields: props.fields,
+				primary: props.primary
+			};
 	}
 
 	return {type: props.type || props.__typename};
@@ -98,7 +99,7 @@ export const prismicQuery = async ({query, fetch, ref, variables = {}}) => {
  * @param fetch – current fetch instance
  * @returns {Promise<string>}
  */
-export const getRef = async (fetch) => {	
+export const getRef = async (fetch) => {
 	const response = await fetch(`https://${env.prismicRepo}.cdn.prismic.io/api/v2`);
 	const json = await response.json();
 
