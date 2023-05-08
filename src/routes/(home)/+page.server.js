@@ -24,8 +24,8 @@ export const actions = {
 		// SEND EMAIL NOTIFICATION
 		sgMail.setApiKey(SENDGRID_API_KEY);
 		const msg = {
-			to: "refael.blatt@icloud.com",
-			from: "mail@refael.ch", // Use the email address or domain you verified in SendGrid UI
+			to: "suhrteig@gmail.com",
+			from: "suhrteig@gmail.com", // Use the email address or domain you verified in SendGrid UI
 			subject: "Neue Suhrteig Bestellung 💌",
 			text: "Juhu, eine neue Bestellung!",
 			html:
