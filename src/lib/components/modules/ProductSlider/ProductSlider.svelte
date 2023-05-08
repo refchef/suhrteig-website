@@ -15,13 +15,15 @@
 		breakpoints[bps.mobile] = {
 			slides: {
 				perView: 1.15,
+				spacing: 0,
 			}
 		}
 		slider = new KeenSlider(slider, {
 			slides: {
 				perView: 4.5,
+				spacing: 20
 			},
-			breakpoints,
+			breakpoints
 		});
 	});
 </script>

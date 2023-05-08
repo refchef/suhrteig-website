@@ -106,7 +106,7 @@
 
 .Cart__summary--billing {
 	font-size: small;
-	color: $passion-pink;
+	color: $flour-white;
 	margin-top: auto;
 	justify-self: baseline;
 }
@@ -147,7 +147,7 @@ input {
 	background: $hot-pink;
 	color: $midnight-blue;
 	padding: rem(20);
-	border: 2px solid $flour-white;
+	border: 3px solid $flour-white;
 	border-radius: 50px;
 	width: 100%;
 	font-size: 14px;
@@ -163,7 +163,7 @@ input {
 		&::placeholder {
 			// visibility: hidden;
 		}
-		border: 2px solid $flour-white;
+		border: 3px solid $flour-white;
 	}
 	&:hover {
 		cursor: pointer;
@@ -172,7 +172,7 @@ input {
 		// border: 2px solid $soft-green;
 	}
 	&.field-danger {
-		border: 2px solid red;
+		border: 3px solid red;
 	}
 	// &input[type=checkbox]{
 	// 	border: 2px solid blue;
@@ -235,7 +235,7 @@ input {
 	text-align: center;
 
 	.Radio__Label {
-		border: 2px solid $passion-pink;
+		border: 3px solid $passion-pink;
 		width: 100%;
 		padding: rem(20) 0;
 		color: $passion-pink;
@@ -256,7 +256,7 @@ input {
 	}
 	input[type=radio]:checked {
 		+ .Radio__Label {
-			border: 2px solid $flour-white;
+			border: 3px solid $flour-white;
 			color: $midnight-blue;
 			background-color: $flour-white;
 			transition: $hover-speed ease;
@@ -292,10 +292,11 @@ input {
 	@include blank-button;
 	background: $flour-white;
 	color: $midnight-blue;
+	border: 3px solid $passion-pink;
 	margin-top: rem(20);
-	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
+	box-shadow: 1px 1px 54px 0px rgba(0,0,0,0.1);
 	padding: 20px;
-	border: 1px solid $flour-white;
+	// border: 1px solid $flour-white;
 	border-radius: 50px;
 	width: 100%;
 	font-size: large;
@@ -312,7 +313,7 @@ input {
 			transition: $hover-speed ease;
 			color: $flour-white;
 			background: $midnight-blue;
-			border: 1px solid transparent;
+			border: 3px solid transparent;
 		}
 	}
 }

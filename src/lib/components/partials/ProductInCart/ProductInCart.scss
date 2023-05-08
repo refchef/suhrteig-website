@@ -26,11 +26,14 @@
 			border: 1px solid transparent;
 		}
 	}
+	&:disabled {
+		opacity: 0.2;
+		cursor: default;
+
+	}
 }
 
 .--disabled {
-	opacity: 0.2;
-	cursor: default;
 }
 
 .cart__product__counter {

@@ -11,10 +11,11 @@
 		for(let item of $cart) {
 				if(item.id === product.id) {
 					if(product.quantity === product.maxquantity) {
-						// Do something
-						console.log("reached max amount");
+						// TODO: Set button to disabled when max amount is reached
+						disabled = true;
 					}
 					else {
+						disabled = false;
 						product.quantity += 1
 						console.log(product.quantity);
 						$cart = $cart;
@@ -26,30 +27,30 @@
 
 	const countDown = (product) => {
 		for(let item of $cart) {
-				if(item.id === product.id) {
-					if(product.quantity > 1 ) {
-						product.quantity -= 1
-						$cart = $cart
-						console.log(product.quantity);
-					} else {
-						$cart = $cart.filter((cartItem) => cartItem != product)
-						product.quantity = 0;
-					}
-					return;
+			if(item.id === product.id) {
+				if(product.quantity > 1 ) {
+					product.quantity -= 1
+					$cart = $cart
+					console.log(product.quantity);
+				} else {
+					$cart = $cart.filter((cartItem) => cartItem != product)
+					product.quantity = 0;
 				}
+				return;
+			}
 		}
 	}
 
 </script>
 
-<span class="cart__productname">{product.productname}</span>
+<span class="cart__productname">{product.productname} {product.productattribute}</span>
 <button class="button__cart" type="button" on:click={countDown(product)}>
 	<Minus/>
 </button>
 <span class="cart__product__counter">
 	{product.quantity}
 </span>
-<button class="button__cart" type="button" class:--disabled={disabled} on:click={countUp(product)}>
+<button class="button__cart" {disabled} type="button" class:--disabled={disabled} on:click={countUp(product)}>
 	<Plus/>
 </button>
 

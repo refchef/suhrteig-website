@@ -14,9 +14,13 @@
 .Footer__logo--wrapper {
 	position: relative;
 	background: $hot-pink;
+	// background-image: url("../../../assets/svg/Logo.svg");
+	// background-repeat: no-repeat;
+	// background-size: 115%;
+	// background-position: center;
 	border-radius: rem(20) rem(20) 0 0;
 	padding: rem(80) 0;
-	// margin: rem(40) 0;
+	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -24,19 +28,13 @@
 }
 
 .Logo_emblem {
-	// @media (hover: hover) {
-	// 	&:hover {
-	// 		animation: rotate 10s infinite alternate $hover-speed;
-	// 	}
-	// }
-}
-@keyframes rotate {
-	from {
-		// transform: rotate(0);
+	// border: 1px solid red;
+	height: 50%;
+	display: none;
+	@include mobile {
+		display: unset;
 	}
-	to {
-		// transform: rotate(360deg);
-	}
+	// width: 50%;
 }
 
 .Logo {

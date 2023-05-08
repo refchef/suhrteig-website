@@ -30,10 +30,13 @@ export const actions = {
 			text: "Juhu, eine neue Bestellung!",
 			html:
 				`Name: ${name}</br>
+				<hr>
 				Bestellung: ${order}</br>
+				<hr>
 				Total: ${total} CHF</br>
-				</hr>
-				In <a href="https://www.notion.so/refchef/${SECRET_DATABASE_ID}">Notion</a> öffnen`,
+				<hr>
+				Bestellung in <a href="https://www.notion.so/refchef/${SECRET_DATABASE_ID}">Notion</a> öffnen</br>
+				<hr>`,
 		};
 		(async () => {
 			try {

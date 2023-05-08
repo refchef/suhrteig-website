@@ -35,11 +35,15 @@ export default {
 			"addressInput": "Deine Adresse",
 			"button": "Bestellung abschicken",
 			"confirm": "Ich bestätige meine Bestellung.",
-			"collect": "Ich hole meine Bestellung selber ab."
+			"collect": "Ich hole meine Bestellung selber ab.",
+			"radius": "Es wird nur noch in 4056, 4055 und in Teilen von 4051 und 4057 geliefert. Für ausserhalb, bitte Option «Pick Up» auswählen. <a href='#lieferradius'>Mehr Infos hier.</a>"
 		}
 	},
+	"about": {
+		"title": "Über Suhrteig"
+	},
 	"footer": {
-		"greetings": "From Basel with Love",
+		"greetings": "Stretch and fold",
 		"contact": {
 			"instagram": {
 				"title": "Instagram",

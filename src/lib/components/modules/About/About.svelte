@@ -1,12 +1,15 @@
 <script>
+	import messages from "$lib/util/messages";
 	import Image from "$lib/components/partials/Image/Image.svelte";
 
 	export let about;
 	export let radius;
+	const { title } = messages.about;
 
 </script>
 
 <section class="about" id="about">
+	<h2 class="about__title">{title}</h2>
 	<p class="about__text">{@html about}</p>
 	<div class="about__image" id="lieferradius">
 		<Image {...radius} ratio={"1:1"} />

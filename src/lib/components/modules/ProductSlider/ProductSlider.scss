@@ -5,15 +5,22 @@
 .product__slider {
 	background-color: $flour-white;
 	border-radius: 3rem 3rem 0 0;
-	// padding-left: rem(20);
-	// padding-right: rem(20) ;
+	padding: 0 rem(20);
+	@include mobile {
+		padding: 0;
+	}
 }
 
 .keen-slider {
-	.keen-slider__slide:last-of-type {
-		padding: 0;
-		padding-right: rem(20);
-		// background-color: red;
+	overflow: visible;
+	@include mobile {
+		overflow: hidden;
+	}
+	.keen-slider__slide {
+		@include space(padding-bottom, s);
+		@include mobile {
+			padding: 0 rem(10);
+		}
 	}
 
 }

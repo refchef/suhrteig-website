@@ -113,7 +113,7 @@
 
 
 			<div class="Radio__info">
-				Es wird nur noch in 4056, 4055 und in Teilen von 4051 und 4057 geliefert <a href="#lieferradius"> → Lieferradius</a> . Für ausserhalb, bitte Option «Pick Up» auswählen
+				{@html contact.radius}
 			</div>
 			<div class="Radio__wrapper">
 				<div class="Radio__item">

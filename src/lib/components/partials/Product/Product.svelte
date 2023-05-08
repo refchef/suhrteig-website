@@ -50,11 +50,11 @@
 				{#if !soldout}
 					{#if product.quantity === 0}
 						<div style:opacity={1}>
-							<Image {...productphoto} ratio={"4:5"} />
+							<Image {...productphoto} ratio={"4:6"} />
 						</div>
 					{:else}
 						<div style:opacity={0.3}>
-							<Image {...productphoto} ratio={"4:5"} />
+							<Image {...productphoto} ratio={"4:6"} />
 						</div>
 					{/if}
 					<div class="product__button">
@@ -105,7 +105,7 @@
 						<div class="product__productattribute">{productattribute}</div>
 					{/if}
 				</div>
-				<div class="product__price">CHF {price}</div>
+				<div class="product__price">CHF {price.toFixed(2)}</div>
 				<div class="product__description">{description}</div>
 				<!-- <span class="product__weight">{weight}g</span> -->
 				<ProductTag tags={splitTags} />

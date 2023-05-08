@@ -6,8 +6,11 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: rem(200) 0;
-	padding: rem(50);
+	@include space(margin, l);
+	// margin: rem(200) 0;
+	padding: rem(20);
+	// border: 1px solid red;
+	text-align: left;
 	@include mobile {
 		margin: 0;
 		// padding: rem(50);
@@ -17,8 +20,14 @@
 
 }
 
+.about__title {
+	color: $hot-pink;
+	font-stretch: 150%;
+
+}
+
 .about__text {
-	color: $flour-white;
+	color: $passion-pink;
 	font-stretch: 75%;
 	@include font-features;
 	font-size: rem(25);
@@ -35,7 +44,7 @@
 	// margin-top: rem(80);
 	@include space(margin-top, s);
 	min-width: 50%;
-	max-width: 80%;
+	// max-width: 80%;
 	@include mobile {
 		min-width: 100%;
 
@@ -45,15 +54,18 @@
 .image__caption {
 	@include font-features;
 
-	color: $flour-white;
+	color: $midnight-blue;
 	margin-top: rem(40);
 	padding-left: rem(20);
 	text-align: center;
 	display: flex;
 	gap: rem(40);
-	font-size: rem(20);
-	line-height: rem(40);
+	font-size: rem(16);
+	// line-height: rem(40);
 	max-width: 65ch;
+	@include mobile {
+		text-align: left;
+	}
 }
 
 // .caption__lieferung,

@@ -14,10 +14,10 @@
 				{item.quantity}x
 			</span>
 		{/key}
-		{item.productname}
+		{item.productname} {item.productattribute}
 	</span>
 	<span class="Cart__summary--highlight item--price">
-		CHF {item.quantity * item.price}
+		CHF {(item.quantity * item.price).toFixed(2)}
 	</span>
 </div>
 

@@ -4,8 +4,8 @@
 .News {
 	--duration: 60s; // default (component prop)
 	--gap: 5rem; // default (component prop)
-	background: $flour-white;
-	color: $hot-pink;
+	background: $midnight-blue;
+	color: $flour-white;
 	line-height: 1.5;
 	width: 100%;
 	height: rem(30);
@@ -16,7 +16,6 @@
 	font-variation-settings: "wdth" 100;
 	transition: $hover-speed all ease;
 	font-size: rem(12);
-
 	&:hover {
 		background: $midnight-blue;
 		color: $flour-white;
