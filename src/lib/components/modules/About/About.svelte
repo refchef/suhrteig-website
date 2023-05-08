@@ -9,7 +9,9 @@
 </script>
 
 <section class="about" id="about">
-	<h2 class="about__title">{title}</h2>
+	<div class="title__wrapper">
+		<h2 class="about__title">{title}</h2>
+	</div>
 	<p class="about__text">{@html about}</p>
 	<div class="about__image" id="lieferradius">
 		<Image {...radius} ratio={"1:1"} />

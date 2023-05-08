@@ -6,28 +6,82 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	@include space(margin, l);
+	@include space(padding, l);
+	@include space(margin, s);
 	// margin: rem(200) 0;
-	padding: rem(20);
+	// padding: rem(20);
 	// border: 1px solid red;
+	background-color: $midnight-blue;
 	text-align: left;
+	border-radius: rem(30);
+
+	animation: background;
+	animation-duration: 60s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+
 	@include mobile {
-		margin: 0;
-		// padding: rem(50);
 		@include space(padding, s);
+		@include space(margin, s);
+
 
 	}
 
 }
 
-.about__title {
-	color: $hot-pink;
-	font-stretch: 150%;
+.title__wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	width: 100vw;
+	overflow: hidden;
+	// border: 1px solid red;
+	@include mobile {
+		height: 25vh;
 
+	}
+}
+.about__title {
+	white-space: nowrap;
+	position: absolute;
+	@include font-features;
+	font-size: rem(70);
+	line-height: rem(80);
+	font-stretch: 75%;
+	text-align: center;
+	color: $hot-pink;
+	animation-name: growing;
+	animation-duration: 60s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@keyframes growing {
+	from {
+		font-size: rem(70);
+		font-variation-settings: "wdth" 50;
+	}
+	to {
+		font-size: rem(240);
+		font-variation-settings: "wdth" 150;
+	}
+}
+
+@keyframes background {
+	from {
+		background: $passion-pink;
+	}
+	to {
+		background: $midnight-blue;
+	}
 }
 
 .about__text {
-	color: $passion-pink;
+	color: $flour-white;
 	font-stretch: 75%;
 	@include font-features;
 	font-size: rem(25);
@@ -43,8 +97,8 @@
 .about__image {
 	// margin-top: rem(80);
 	@include space(margin-top, s);
-	min-width: 50%;
-	// max-width: 80%;
+	min-width: 80%;
+	max-width: 100%;
 	@include mobile {
 		min-width: 100%;
 
@@ -54,7 +108,7 @@
 .image__caption {
 	@include font-features;
 
-	color: $midnight-blue;
+	color: $flour-white;
 	margin-top: rem(40);
 	padding-left: rem(20);
 	text-align: center;
@@ -67,30 +121,3 @@
 		text-align: left;
 	}
 }
-
-// .caption__lieferung,
-// .caption__pickup {
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: flex-start;
-// 	gap: rem(10);
-	// &:before {
-	// 	content: '';
-	// 	display: inline-block;
-	// 	position: relative;
-	// 	top: 0;
-	// 	left: 0;
-	// 	width: rem(25);
-	// 	height: rem(25);
-	// 	background: $midnight-blue;
-	// 	border: 1px solid $flour-white;
-	// 	border-radius: rem(25);
-	// }
-// }
-
-// .caption__pickup {
-	// &:before {
-	// 	background: $flour-white;
-	// 	border: 1px solid $flour-white;
-	// }
-// }

@@ -6,6 +6,7 @@
 	background-color: $flour-white;
 	border-radius: 3rem 3rem 0 0;
 	padding: 0 rem(20);
+	overflow: scroll;
 	@include mobile {
 		padding: 0;
 	}
