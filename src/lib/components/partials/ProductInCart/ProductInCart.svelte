@@ -14,8 +14,11 @@
 						// TODO: Set button to disabled when max amount is reached
 						disabled = true;
 					}
+					// else if(product.quantity < product.maxquantity) {
+					// 	disabled = false;
+					// }
 					else {
-						disabled = false;
+						// disabled = false;
 						product.quantity += 1
 						console.log(product.quantity);
 						$cart = $cart;
@@ -32,6 +35,7 @@
 					product.quantity -= 1
 					$cart = $cart
 					console.log(product.quantity);
+						disabled = false;
 				} else {
 					$cart = $cart.filter((cartItem) => cartItem != product)
 					product.quantity = 0;

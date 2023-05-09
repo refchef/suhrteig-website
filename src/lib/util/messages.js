@@ -40,7 +40,7 @@ export default {
 		}
 	},
 	"about": {
-		"title": "Über Suhrteig"
+		"title": "Suhrteig"
 	},
 	"footer": {
 		"greetings": "Stretch and fold",

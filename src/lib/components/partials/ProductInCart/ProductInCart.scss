@@ -26,15 +26,13 @@
 			border: 1px solid transparent;
 		}
 	}
-	&:disabled {
+	&.--disabled {
 		opacity: 0.2;
 		cursor: default;
-
 	}
 }
 
-.--disabled {
-}
+
 
 .cart__product__counter {
 	color: $flour-white;
