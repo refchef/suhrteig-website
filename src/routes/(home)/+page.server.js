@@ -27,7 +27,6 @@ export const actions = {
 			to: "suhrteig@gmail.com",
 			from: "suhrteig@gmail.com", // Use the email address or domain you verified in SendGrid UI
 			subject: "Neue Suhrteig Bestellung 💌",
-			text: "Juhu, eine neue Bestellung!",
 			html:
 				`Name: ${name}</br>
 				<hr>
