@@ -1,0 +1,57 @@
+@import "variables";
+@import "mixins";
+
+
+.MobileCart {
+	@include above-mobile {
+		display: none;
+	}
+	@include mobile {
+		display: inline-block;
+	}
+	z-index: 1000;
+}
+
+
+
+.MobileCart__floating {
+	box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.1);
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: rem(60);
+	height: rem(60);
+	bottom: rem(25);
+	right: rem(25);
+	border-radius: 50%;
+	background: $midnight-blue;
+	transform: translateY(100px);
+	transition: all 0.5s $default-easing;
+	visibility: hidden;
+
+	&.--show {
+		@include mobile {
+			transition: all 0.5 $default-easing;
+			visibility: visible;
+			transform: translateY(0);
+		}
+	}
+
+}
+
+
+
+.MobileCart--counter {
+	display: flex;
+	// font-size: 8pt;
+	color: $midnight-blue;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: rem(20);
+	height: rem(20);
+	background: $hot-pink;
+	border-radius: 50%;
+}

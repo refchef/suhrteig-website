@@ -2,41 +2,34 @@
 @import "mixins";
 
 .Intro {
-	// @include grid;
 	display: flex;
 	position: relative;
-	// height: 100vh;
 	min-height: 100vh;
 	width: 100vw;
-	color: $c-dark;
-	// justify-content: flex-start;
+	color: $midnight-blue;
+	// background-image: url("https://images.unsplash.com/photo-1612136435731-ad3e522eac01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80");
 	align-items: center;
 	justify-content: center;
 	gap: rem(80);
-	padding: rem(20) rem(40) rem(0) rem(40);
-	padding-top: rem(80);
+	// @include space(margin-top, s);
+	// @include space(margin-bottom, s);
 	@include mobile {
 		flex-direction:column-reverse;
 		min-height: max-content;
-		padding-top: rem(200);
-		padding-bottom: rem(200);
+		padding-top: rem(50);
+		padding-bottom: rem(100);
 	}
-
-
 }
 
-
 .Intro__wrapper {
-	// border: 1px solid yellowgreen;
-	display:flex;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction:column;
+	flex-direction: column;
 	height: 100%;
-	min-width: 25%;
-	max-width: 35%;
+	// min-width: 25%;
+	// max-width: 35%;
 	@include mobile {
-		border: 1px solid red;
 		min-width: 100%;
 	}
 }
@@ -45,7 +38,6 @@
 	width: 100%;
 	transition: $hover-speed ease;
 	@include mobile {
-		border: 1px solid blue;
 		flex-direction: column;
 	}
 	@media (hover: hover) {
@@ -61,7 +53,7 @@
 	align-items: center;
 	flex-direction: column;
 	min-width: rem(300);
-	background: $c-light;
+	background: $flour-white;
 	padding: rem(80) rem(20) rem(20) rem(20);
 	border-radius: rem(50);
 	@include mobile {
@@ -80,11 +72,26 @@
 }
 
 .Intro__cta {
-	width: 100%;
+	min-width: 100%;
+	@include mobile {
+		max-width: 90%;
+	}
+}
+
+.Intro__cta--wrapper {
+	display: flex;
+	justify-content: center;
+	padding: rem(90) 0;
+	gap: rem(20);
+	flex-direction: row;
+	@include mobile {
+		flex-direction: column;
+		padding: rem(45) rem(20);
+	}
 }
 
 .Intro__cta__button {
-	background-color: $c-dark;
+	background: $flour-white;
 	flex: 0 0 auto;
 	text-align: center;
 	width: auto;
@@ -93,20 +100,40 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: $c-pink;
+	color: $midnight-blue;
 	height: rem(50);
 	transition: $hover-speed ease;
 	font-size: rem(20);
-	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
+	box-shadow: 1px 1px 54px 0px rgba(106, 106, 106, 0.1);
+	border: 4px solid $passion-pink;
+	font-weight: 100;
+	font-variation-settings: "wdth" 65;
 
-	@include font-m;
+	&:first-child {
+		background: $hot-pink;
+		color: $flour-white;
+		@media (hover: hover) {
+			&:hover {
+				// color: $hot-pink;
+				// background: $flour-white;
+				font-variation-settings: "wdth" 150;
+			}
+		}
+	}
+
 	@media (hover: hover) {
 		&:hover {
-			background-color: $c-pink;
-			color: $c-dark;
+			background-color: $hot-pink;
+			color: $flour-white;
 			transition: $hover-speed ease;
 			cursor: pointer;
-			@include font-l;
+			font-variation-settings: "wdth" 150;
+
+			// @include font-l;
+			// font-weight: 900;
+			// font-variation-settings: "wght" 900;
+			// font-variation-settings: "wdth" 200;
+			// font-variation-settings: "wght" 550;
 		// font-size: rem(22);
 		}
 	}
@@ -120,26 +147,49 @@
 	// @include font-m;
 	// height: 100%;
 	margin-top: rem(50);
-	// color: $c-pink;
+	// color: $hot-pink;
 	// @include space(margin-bottom, s);
 }
 
 .Intro__links--item {
 	@include font-s;
-	color: $c-light;
+	color: $flour-white;
 	border-bottom: 1px solid transparent;
 	transition: $hover-speed ease-out;
 	@media (hover: hover) {
 		&:hover {
 			transition: 0.2s ease-in;
-			border-bottom: 1px solid $c-pink--light;
+			border-bottom: 1px solid $passion-pink;
 		}
 	}
 }
 
 .Intro__description {
+	@include font-features;
+	color: $midnight-blue;
 	text-align: center;
-	max-width: 45ch;
-	@include font-xl;
-	color: $c-pink;
+	max-width: 30ch;
+	font-size: rem(70);
+	line-height: rem(80);
+	font-stretch: 75%;
+	@include mobile {
+		max-width: 45ch;
+		font-size: rem(30);
+		line-height: rem(35);
+		padding: 0 rem(20);
+		@include space(margin-top, s);
+		@include space(margin-bottom, l);
+
+	}
+
+}
+
+.gif {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	@include mobile {
+		top: 80%;
+		left: 10%;
+	}
 }

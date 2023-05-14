@@ -2,20 +2,122 @@
 @import "mixins";
 
 .about {
-	@include grid;
-	color: $c-light;
-	// background: $c-dark;
-}
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	@include space(padding, l);
+	@include space(margin, s);
+	// margin: rem(200) 0;
+	// padding: rem(20);
+	// border: 1px solid red;
+	background-color: $midnight-blue;
+	text-align: left;
+	border-radius: rem(30);
 
-.about__wrapper {
-	grid-column: 3 / span 4;
-	font-size: large;
-	line-height: 2;
-	padding: rem(200) 0;
+	animation: background;
+	animation-duration: 60s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+
 	@include mobile {
-		font-size: medium;
-		padding-top: rem(20) 0;
-		grid-column: 1 / span 8;
+		@include space(padding, s);
+		@include space(margin, s);
+
+
 	}
 
+}
+
+.title__wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	width: 100vw;
+	overflow: hidden;
+	// border: 1px solid red;
+	@include mobile {
+		height: 25vh;
+
+	}
+}
+.about__title {
+	white-space: nowrap;
+	position: absolute;
+	@include font-features;
+	font-size: rem(70);
+	line-height: rem(80);
+	font-stretch: 75%;
+	text-align: center;
+	color: $hot-pink;
+	animation-name: growing;
+	animation-duration: 60s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@keyframes growing {
+	from {
+		font-size: rem(70);
+		font-variation-settings: "wdth" 50;
+	}
+	to {
+		font-size: rem(240);
+		font-variation-settings: "wdth" 150;
+	}
+}
+
+@keyframes background {
+	from {
+		background: $passion-pink;
+	}
+	to {
+		background: $midnight-blue;
+	}
+}
+
+.about__text {
+	color: $flour-white;
+	font-stretch: 75%;
+	@include font-features;
+	font-size: rem(25);
+	line-height: rem(40);
+	max-width: 65ch;
+	@include mobile {
+		max-width: 100ch;
+		font-size: rem(20);
+		line-height: rem(25);
+	}
+}
+
+.about__image {
+	// margin-top: rem(80);
+	@include space(margin-top, s);
+	min-width: 80%;
+	max-width: 100%;
+	@include mobile {
+		min-width: 100%;
+
+	}
+}
+
+.image__caption {
+	@include font-features;
+
+	color: $flour-white;
+	margin-top: rem(40);
+	padding-left: rem(20);
+	text-align: center;
+	display: flex;
+	gap: rem(40);
+	font-size: rem(16);
+	// line-height: rem(40);
+	max-width: 65ch;
+	@include mobile {
+		text-align: left;
+	}
 }

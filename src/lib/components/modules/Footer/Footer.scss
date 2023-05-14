@@ -1,41 +1,133 @@
 @import "variables";
 @import "mixins";
 
-.footer {
-	@include space(height, m);
-	padding: 0 rem(40);
-	border-top: 1px solid $c-pink;
+.Footer {
+	// @include space(height, m);
+	// padding: 0;
+	// border-top: 1px solid $hot-pink;
 	@include mobile {
 		height: 100%;
-		padding: rem(40);
+		// padding-top: rem(40);
 	}
 }
-.footer__items {
+
+.Footer__logo--wrapper {
+	position: relative;
+	background: $hot-pink;
+	// background-image: url("../../../assets/svg/Logo.svg");
+	// background-repeat: no-repeat;
+	// background-size: 115%;
+	// background-position: center;
+	border-radius: rem(20) rem(20) 0 0;
+	padding: rem(80) 0;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.Logo_emblem {
+	// border: 1px solid red;
+	height: 50%;
+	display: none;
+	@include mobile {
+		display: unset;
+	}
+	// width: 50%;
+}
+
+.Logo {
+	font-variation-settings: "wght" 100;
+	font-variation-settings: "wdth" 100;
+	font-feature-settings: "ss13";
+	font-size: rem(500);
+	text-transform: uppercase;
+	@include mobile {
+		display: none;
+
+	}
+
+
+
+}
+
+// .Footer__logo__sign {
+// 	position: absolute;
+// 	top: rem(100);
+// 	right: rem(150);
+
+// 	color: $hot-pink;
+// }
+
+.Footer__logo {
+	margin: rem(20) 0;
+}
+
+.Footer__greetings {
+	text-align: center;
+	text-transform: uppercase;
+	@include font-features;
+	color: $passion-pink;
+	font-size: 14pt;
+	line-height: 20pt;
+	font-variation-settings: "wdth" 80;
+	@include mobile {
+		display: none
+	}
+}
+.Footer__MobileGreetings {
+	display: none;
+		text-align: center;
+	text-transform: uppercase;
+	@include font-features;
+	color: $passion-pink;
+	font-size: 14pt;
+	line-height: 20pt;
+	font-variation-settings: "wdth" 80;
+	@include mobile {
+		display: unset
+	}
+}
+
+.Footer__items {
 	@include flatlist;
-	height: 100%;
+	@include space(height, m);
+	padding: 0 rem(40);
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	background: $passion-pink;
 	@include mobile {
 		flex-direction: column;
+		text-align: center;
+		height: max-content;
+		padding: rem(40) 0;
+		border-radius: 0 0 3rem 3rem;
 	}
 
 
 }
-.footer__item a{
-	color: $c-pink;
-	border-bottom: 1px solid transparent;
-	padding-bottom: rem(2);
-	transition: 0.2s ease-out;
+.Footer__item a{
+	color: $hot-pink;
+	// border-bottom: 1px solid transparent;
+	// padding-bottom: rem(2);
+	transition: $hover-speed ease;
+	font-variation-settings: "wdth" 100;
+
 	@media (hover: hover) {
 		&:hover {
-			transition: 0.2s ease-in;
-			border-bottom: 1px solid $c-pink;
+			color: $flour-white;
+			transition: $hover-speed ease;
+			font-variation-settings: "wdth" 150;
+
 		}
 	}
 	@include mobile {
 		margin: rem(10) 0;
+		font-size: rem(15);
+
 	}
 }

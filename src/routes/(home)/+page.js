@@ -1,4 +1,4 @@
-import query from "$lib/graphql/query/getHomepage.graphql"
+import query from "$lib/graphql/query/getHomepage.graphql";
 import {prismicQuery} from "$lib/util/prismic.js";
 
 // /** @type {import('./$types').PageServerLoad} */

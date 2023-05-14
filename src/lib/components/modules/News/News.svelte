@@ -10,21 +10,15 @@
 <style lang="scss" src="./News.scss"></style>
 
 {#if news}
-	<div class="News"
-		class:News--reverse={reverse}
-		style={ gap ?
-				`--gap: ${gap}em` :
-				duration ?
-				`--duration: ${duration}s` :
-				null }
-		 transition:fly={{ x: -50 }}
+	<div class="News" class:News--reverse={reverse} style={ gap ? `--gap: ${gap}em` : duration ? `--duration: ${duration}s` : null }
+		 transition:fly={{ x: -500 }}
 	>
 		<div class="News__group">
 			<span>{@html news}</span>
 			<span aria-hidden="true">{@html news}</span>
 			<span aria-hidden="true">{@html news}</span>
 		</div>
-		<div aria-hidden="true" class="news__group">
+		<div aria-hidden="true" class="News__group">
 			<span>{@html news}</span>
 			<span>{@html news}</span>
 			<span>{@html news}</span>

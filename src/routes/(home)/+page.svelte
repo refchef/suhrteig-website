@@ -2,47 +2,22 @@
 	/** @type {import('./$types').PageData} */
 	import Header from "$lib/components/modules/Header/Header.svelte";
 	import Intro from "$lib/components/modules/Intro/Intro.svelte";
-	import News from "$lib/components/modules/News/News.svelte";
-	import Product from "$lib/components/partials/Product/Product.svelte";
-	import ProductSlider from "$lib/components/modules/ProductSlider/ProductSlider.svelte"
-	import Cart from "$lib/components/modules/Cart/Cart.svelte";
 	import About from "$lib/components/modules/About/About.svelte";
 	import Shop from "$lib/components/modules/Shop/Shop.svelte";
 	import Footer from "$lib/components/modules/Footer/Footer.svelte";
-	import CurrentStatus from "$lib/components/partials/CurrentStatus/CurrentStatus.svelte";
+	import MobileCart from "$lib/components/partials/MobileCart/MobileCart.svelte";
 
 	export let data;
 	const homepage = data.homepage[0];
 
 </script>
 
+<Header title={homepage.title} news={homepage.news} status={homepage.status}/>
+<Intro intro={homepage.intro} noShop={homepage._blocks[0].props.primary}/>
+<Shop noShop={homepage._blocks[0].props.primary} billing={homepage.billing} delivery={homepage.delivery} products={homepage._blocks[0]} />
+<MobileCart/>
+<About about={homepage.about} radius={homepage.radius}/>
+<Footer/>
 
-	<!-- Header.svelte -->
-	<!-- <Header title={homepage.title} tagline={homepage.tagline} status={homepage.status}/> -->
 
-	<CurrentStatus status={homepage.status}/>
-	<!-- Intro.svelte -->
-	<!-- <Intro intro={homepage.intro} news={homepage.news}/> -->
 
-	<!-- News.svelte -->
-	<!-- <News news={homepage.news}/> -->
-
-	<!-- ProductSlider.svelte -->
-	<!-- <ProductSlider products={homepage._blocks[0]} /> -->
-
-	<!-- <Shop news={homepage.news} products={homepage._blocks[0]} /> -->
-	<!--
-		Shop.svelte
-			- ProductSlider
-				- Product
-				- ProductTag
-			- Cart
-	 -->
-	<!-- Cart.svelte -->
-	<!-- <Cart/> -->
-
-	<!-- About.svelte -->
-	<!-- <About about={homepage.about}/> -->
-
-	<!-- Footer.svelte -->
-	<!-- <Footer/> -->

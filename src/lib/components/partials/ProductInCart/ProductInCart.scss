@@ -4,9 +4,10 @@
 .button__cart {
 	@include blank-button;
 	cursor: pointer;
-	background-color: $c-dark;
+	color: $flour-white;
+	background-color: $midnight-blue;
 	font-size: large;
-	padding: 10px;
+	padding: rem(12);
 	height: 35px;
 	width: 35px;
 	border-radius: 25px;
@@ -18,20 +19,21 @@
 	transition: $hover-speed ease;
 	@media (hover: hover) {
 		&:hover {
+			scale: 1.1;
 			transition: $hover-speed ease;
-			background: $c-light;
-			color: $c-dark;
+			background: $flour-white;
+			color: $midnight-blue;
 			border: 1px solid transparent;
 		}
 	}
-}
-
-.--disabled {
-	opacity: 0.2;
-	cursor: default;
+	&.--disabled {
+		opacity: 0.2;
+		cursor: default;
+	}
 }
 
 .cart__product__counter {
+	color: $flour-white;
 	font-size: large;
 	width: 50px;
 	text-align: center;
@@ -39,6 +41,12 @@
 }
 
 .cart__productname {
-	margin-left: 1rem;
-	font-size: large;
+	margin-right: auto;
+	font-size: medium;
+	color: $midnight-blue;
+	max-width: 15ch;
+	@include mobile {
+		max-width: 20ch;
+		font-size: rem(14);
+	}
 }

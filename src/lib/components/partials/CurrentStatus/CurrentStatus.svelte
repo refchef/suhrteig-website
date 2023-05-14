@@ -1,21 +1,10 @@
 <script>
-	import { onMount } from "svelte";
 	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
 	export let status;
 
 	let showStatus = true;
-	// onMount(() => {
-	// 	window.onscroll = function() {
-	// 		let scrollLimit = 200;
-	// 		if (window.scrollY >= scrollLimit) {
-	// 			showStatus = true;
-	// 		} else if (window.scrollY <= scrollLimit) {
-	// 			showStatus = false;
-	// 		}
-	// 	};
-	// })
 
 </script>
 

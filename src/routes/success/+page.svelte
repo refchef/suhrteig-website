@@ -1,1 +1,7 @@
-<h1>Vielen Dank für deine Bestellung. Ich melde mich bei dir.</h1>
+<script>
+	import SuccessMessage from "$lib/components/modules/SuccessMessage/SuccessMessage.svelte"
+</script>
+
+
+<SuccessMessage/>
+

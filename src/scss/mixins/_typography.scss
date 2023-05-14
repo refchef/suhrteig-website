@@ -52,3 +52,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+@mixin font-features {
+	font-feature-settings: "ss01", "ss05", "ss06", "ss08", "ss09", "ss13";
+}

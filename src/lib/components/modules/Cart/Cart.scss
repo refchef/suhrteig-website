@@ -3,22 +3,30 @@
 
 .Cart {
 	@include grid;
-	background: $c-pink;
-	padding: 5rem;
+	background: $hot-pink;
+	padding: rem(50);
 	border-radius: 0 0 3rem 3rem;
 	font-size: large;
 	@include mobile {
+		@include space(padding, s);
+
 
 	}
-	// display: flex;
+
 }
 
-input {
-	font-family: ABC Gravity;
+.Cart__contact--submit input {
+	font-family: Gravity;
 }
 
 .Cart__products {
 	grid-column: 1 / span 2;
+
+	@include tablet-portrait {
+		grid-column: 1 / span 4;
+		margin: rem(25) 0;
+	}
+
 	@include mobile {
 		grid-column: 1 / span 8;
 		margin: rem(25) 0;
@@ -34,9 +42,10 @@ input {
 .Cart__products--title,
 .Cart__summary--title,
 .Cart__contact--title {
-	color: $c-dark;
+	color: $flour-white;
 	margin: 0;
-	margin-bottom: 2.5rem;
+	margin-bottom: rem(20);
+	font-variation-settings: "wdth" 120;
 
 }
 
@@ -45,23 +54,33 @@ input {
 	// border: 1px solid red;
 }
 
+.Cart__products--description {
+	color: $passion-pink;
+}
+
 .Cart__form__title {
 	// grid-column: 3 / span 2;
 	// border: 1px solid darkcyan;
 }
 
 .Cart__contact--title {
-	grid-column: 7 / span 2;
+	// grid-column: 6 / span 3;
 	// border: 1px solid yellow;
 
 }
 
 .Cart__summary--highlight {
-	color: $c-dark;
+	color: $midnight-blue;
 }
 
 .Cart__summary {
 	grid-column: 3 / span 3;
+
+	@include tablet-portrait {
+		grid-column: 5 / span 4;
+		margin: rem(25) 0;
+	}
+
 	@include mobile {
 		grid-column: 1 / span 8;
 		margin: rem(25) 0;
@@ -83,20 +102,28 @@ input {
 	// color: green;
 }
 .item--price {
-	color: $c-pink--light;
+	color: $passion-pink;
 	padding-left: rem(10);
 }
 
 .Cart__summary--billing {
 	font-size: small;
-	color: $c-light;
-	margin-top: rem(20);
+	color: $flour-white;
+	margin-top: auto;
+	justify-self: baseline;
+	font-variation-settings: "wdth" 90;
 }
 
 
 .Cart__contact {
 	grid-column: 6 / span 3;
 	// border: 1px solid yellow;
+
+	@include tablet-portrait {
+		grid-column: 1 / span 8;
+		margin: rem(25) 0;
+	}
+
 	@include mobile {
 		grid-column: 1 / span 8;
 	}
@@ -106,7 +133,12 @@ input {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	// border: 1px solid red;
+	gap: rem(10)
+
+}
+
+input {
+	font-family: Gravity;
 }
 
 
@@ -115,81 +147,180 @@ input {
 
 .Cart__contact--input {
 	appearance: none;
-	background: $c-pink;
-	color: $c-dark;
-	padding: 20px;
-	border: 2px solid $c-pink--light;
+	background: $hot-pink;
+	color: $midnight-blue;
+	padding: rem(20);
+	border: 3px solid $flour-white;
 	border-radius: 50px;
 	width: 100%;
 	font-size: 14px;
 	outline: none;
-	margin-bottom: rem(10);
 	transition: border $hover-speed ease-in;
 	&::placeholder {
-		color: $c-light;
+		color: $passion-pink;
+	}
+	&:placeholder-shown {
+		border: 2px solid $passion-pink;
 	}
 	&:focus {
 		&::placeholder {
-			visibility: hidden;
+			// visibility: hidden;
 		}
-		border: 2px solid $c-light;
+		border: 3px solid $flour-white;
 	}
+	&:hover {
+		cursor: pointer;
+	}
+	&.field-success {
+		// border: 2px solid $soft-green;
+	}
+	&.field-danger {
+		border: 3px solid red;
+	}
+	// &input[type=checkbox]{
+	// 	border: 2px solid blue;
+	// 	opacity: 0.5;
+	// }
+	// &.Cart__contact--checkbox {
+	// 	opacity: 0.5;
+
+	// }
 }
 
-.Cart__contact--label input:valid + .Cart__contact--placeholder,
-.Cart__contact--label input:focus + .Cart__contact--placeholder {
-	top: 0;
-	font-size: 10px;
-	color: $c-dark;
-	background-color: $c-pink;
-	width: fit-content;
-
-  }
+// .Cart__contact--label input:valid + .Cart__contact--placeholder,
+// .Cart__contact--label input:focus + .Cart__contact--placeholder {
+// 	top: 0;
+// 	font-size: 10px;
+// 	color: $midnight-blue;
+// 	background-color: $hot-pink;
+// 	width: fit-content;
+// }
 
 .Cart__products--item {
 	display: flex;
 	align-items: center;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	border-bottom: 1px solid $c-pink--light;
-}
-.Cart__contact--checkbox-text {
-	font-size: small;
-	padding: 20px 20px 20px 0;
-	width: 100%;
-	font-size: 14px;
-	outline: none;
-	margin-bottom: rem(10);
+	// justify-content: space-between;
+	padding: 1rem 0;
+	border-bottom: 1px solid $passion-pink;
 }
 
-.Cart__contact--checkbox input {
-	// appearance: none;
+.Checkbox__wrapper {
+	width: 100%;
+	padding-top: rem(20);
+	&:hover {
+		cursor: pointer;
+	}
 }
+
+.Delivery__info {
+	font-size: small;
+	margin-top: rem(10);
+	padding: rem(20) rem(5) rem(5) rem(10);
+	font-variation-settings: "wdth" 90;
+
+}
+
+.Radio__wrapper {
+	width: 100%;
+	display: flex;
+}
+
+.Radio__item {
+	width: 100%;
+	height: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: rem(10);
+	text-align: center;
+
+	.Radio__Label {
+		border: 3px solid $passion-pink;
+		width: 100%;
+		padding: rem(20) 0;
+		color: $passion-pink;
+		&.--delivery {
+			// background: blue;
+			border-radius: 50px 0 0 50px;
+		}
+		&.--pickUp {
+			// background: green;
+			border-radius: 0 50px 50px 0;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	input[type=radio] {
+		display: none;
+	}
+	input[type=radio]:checked {
+		+ .Radio__Label {
+			border: 3px solid $flour-white;
+			color: $midnight-blue;
+			background-color: $flour-white;
+			transition: $hover-speed ease;
+		}
+	}
+}
+
+
+
+// .Cart__contact--checkbox {
+// 	&::placeholder {
+// 		font-size: small;
+// 		padding: 10px 0;
+// 		width: 100%;
+// 		font-size: 12px;
+// 		outline: none;
+// 		margin-left: rem(5);
+// 		color: blue;
+// 	}
+// }
+
+// .Cart__contact--checkbox-text {
+// 	padding: 10px 0;
+// 	width: 100%;
+// 	font-size: rem(15);
+// 	outline: none;
+// 	margin-left: rem(5);
+// }
+
+
 
 .Cart__contact--submit {
 	@include blank-button;
-	background: $c-dark;
-	color: $c-pink;
-	box-shadow: 10px 10px 54px 0px rgba(0,0,0,0.2);
-
+	background: $flour-white;
+	color: $midnight-blue;
+	border: 3px solid $passion-pink;
+	margin-top: rem(20);
+	box-shadow: 1px 1px 54px 0px rgba(0,0,0,0.1);
 	padding: 20px;
-	border: 1px solid $c-dark;
+	// border: 1px solid $flour-white;
 	border-radius: 50px;
 	width: 100%;
 	font-size: large;
-	// font-weight: bold;
-	// font-size: 14px;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
 	transition: $hover-speed ease;
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
 	@media (hover: hover) {
 		&:hover {
 			transition: $hover-speed ease;
-			background: $c-light;
-			color: $c-dark;
-			border: 1px solid transparent;
+			color: $flour-white;
+			background: $midnight-blue;
+			border: 3px solid transparent;
 		}
 	}
+}
 
+.loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 }

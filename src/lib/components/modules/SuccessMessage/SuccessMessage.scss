@@ -1,0 +1,84 @@
+@import "variables";
+@import "mixins";
+
+.Success {
+	padding: rem(20);
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: rem(10);
+}
+
+.Success__message {
+	text-align: center;
+	color: $midnight-blue;
+	max-width: 65ch;
+	padding-bottom: rem(10);
+	font-size: rem(45);
+	line-height: rem(85);
+	font-stretch: 75%;
+	font-feature-settings: "ss01", "ss05", "ss06", "ss08", "ss09", "ss13";
+	@include mobile {
+		padding-top: rem(40);
+		padding-bottom: rem(10);
+		font-size: rem(20);
+		line-height: rem(40);
+
+	}
+}
+
+.Success__cta {
+	display: flex;
+	flex-direction: row;
+}
+
+.Success__cta--wrapper {
+	display: flex;
+	justify-content: center;
+	gap: rem(20);
+	flex-direction: row;
+	@include mobile {
+		flex-direction: column;
+	}
+}
+
+.Success__cta__button {
+	@include font-features;
+	background: $flour-white;
+	flex: 0 0 auto;
+	text-align: center;
+	width: auto;
+	padding: 5rem;
+	border-radius: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $midnight-blue;
+	height: 5rem;
+	border: 3px solid $passion-pink;
+	transition: 0.2s ease-in-out;
+	font-size: 20px;
+	box-shadow: 1px 1px 54px 0px rgba(106, 106, 106, 0.1);
+	font-weight: 100;
+	font-variation-settings: "wdth" 65;
+
+	&.--isPrimary {
+		color: $flour-white;
+		background: $hot-pink;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			// transition: $hover-speed ease;
+			// color: $flour-white;
+			// background: $midnight-blue;
+			// border: 1px solid transparent;
+			background: $hot-pink;
+			color: $flour-white;
+			font-variation-settings: "wdth" 150;
+		}
+	}
+}

@@ -1,28 +1,54 @@
 <script>
-	import CurrentStatus from "$lib/components/partials/CurrentStatus/CurrentStatus.svelte";
+	// import CurrentStatus from "$lib/components/partials/CurrentStatus/CurrentStatus.svelte";
+	import messages from "$lib/util/messages";
+	import { onMount } from "svelte";
+	import News from "$lib/components/modules/News/News.svelte";
 
 	export let title;
-	export let tagline;
 	export let status;
+	export let news;
+
+	const { header } = messages;
+
+	let myText;
+	let getWidth;
+	let width;
+
+	onMount(() => {
+		const updateText = (e) => {
+			getWidth = e.clientX / innerWidth;
+			width = getWidth * (150 - 50) + 50;
+			myText.style.fontVariationSettings = '"wdth"' + width;
+		}
+		window.addEventListener("mousemove", updateText);
+	})
+
+	$: innerWidth = 0;
+	$: getWidth = 0;
+
 
 </script>
 
-<style lang="scss" src="./Header.scss"></style>
+<svelte:window bind:innerWidth />
+
 
 <header class="Header">
-	<div class="Header--wrapper">
-		<div class="Header__phrase">
-			<span class="Header__title">{title}</span>
-			<span class="Header__tagline">{tagline}</span>
+	{#if news}
+		<div class="Header__news">
+			<News {news}/>
 		</div>
-		<div class="Header__status" >
-			Ich bin aktuell am
-			<div class="Header__currentStatus" >
+	{/if}
+	<div class="Header--wrapper">
+		<div class="Header__logo">
+			<a class="Header__title" href="/" bind:this={myText}>{title}</a>
+		</div>
+		<div class="Header__status">
+			{header.preStatus}
+			<div class="Header__currentStatus">
 				{status}
 			</div>
 		</div>
-		<span class="onScrollStatus">
-			<CurrentStatus {status}/>
-		</span>
 	</div>
 </header>
+
+<style lang="scss" src="./Header.scss"></style>

@@ -4,17 +4,24 @@ query {
 			node {
 				status
 				title_txt: title
-				tagline
 				intro_html: intro
 				news_html: news
 				about_html: about
+				billing_html: rechnung_details
+				delivery_html: delivery_details
+				radius_img: radius
 				_blocks: body1 {
 					... on HomepageBody1Product {
 						type
+						primary {
+							nosales
+							message_html: message
+						}
 						fields {
 							id
 							productname_txt: productname
-							description_txt: description
+							productattribute
+							description_html: description
 							tags
 							weight
 							price
@@ -29,44 +36,3 @@ query {
 		}
 	}
 }
-
-# query {
-# 	allHomepages {
-# 		homepage_e: edges {
-# 			node {
-# 				status
-# 				title_txt: title
-# 				tagline
-#         		intro_html: intro
-# 				news_html: news
-# 				about_html: about
-# 				_blocks: body {
-# 					... on HomepageBodyProducts {
-# 						type
-# 						fields {
-# 							productname_txt: productname
-# 							description_txt: description
-# 							tags
-# 							weight
-# 							price
-# 							amount
-# 							productphoto_img: productphoto
-# 							soldout
-# 						}
-# 					}
-# 					... on HomepageBodyLinks {
-# 						type
-# 						fields {
-# 							linkname
-# 							link {
-# 								... on _ExternalLink {
-# 									url
-# 								}
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-# }

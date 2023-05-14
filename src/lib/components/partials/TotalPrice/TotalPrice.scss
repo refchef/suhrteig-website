@@ -1,0 +1,18 @@
+@import "variables";
+@import "mixins";
+
+
+.Cart__summary--highlight {
+	color: $flour-white;
+	padding: rem(10) 0;
+	margin-bottom: rem(20);
+	display: flex;
+	border-bottom: 1px solid $passion-pink;
+
+	// padding-top: rem(20);
+}
+
+.price {
+	margin-left: auto;
+	color: $midnight-blue;
+}

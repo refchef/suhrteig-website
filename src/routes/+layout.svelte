@@ -2,7 +2,7 @@
 
     import {fade} from "svelte/transition";
     import {navigating} from "$app/stores";
-	
+
 </script>
 
 <style lang="scss" src="../../src/scss/global.scss" global></style>
