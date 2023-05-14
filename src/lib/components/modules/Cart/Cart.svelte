@@ -8,7 +8,8 @@
 	import TotalPrice from "$lib/components/partials/TotalPrice/TotalPrice.svelte";
 	import messages from "$lib/util/messages";
 
-	export let billing;
+	export let billing = null;
+	export let delivery = null;
 
 	const { product } = messages.shop;
 	const { summary } = messages.shop;
@@ -20,7 +21,6 @@
 	// let collectOrder = false;
 	let orderTotalItems;
 	let orderTotalPrice;
-	let delivery = "";
 	let finalOrder = "";
 	let textPrice = "";
 	let finalPrice = null;
@@ -112,8 +112,8 @@
 			<input name="note" class="Cart__contact--input" placeholder="Anmerkungen" type="text"/>
 
 
-			<div class="Radio__info">
-				{@html contact.radius}
+			<div class="Delivery__info">
+				{@html delivery}
 			</div>
 			<div class="Radio__wrapper">
 				<div class="Radio__item">

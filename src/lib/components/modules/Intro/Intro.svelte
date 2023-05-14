@@ -1,6 +1,15 @@
 <script>
+	/** @type {import('./$types').PageData} */
+
+	// import { draggableAction } from "svelte-legos"
 	import Logo from "$lib/assets/svg/Logo.svg"
 	import messages from "$lib/util/messages"
+	import gif from "$lib/assets/gifs/suhrteig-brezel.gif"
+	import { onMount } from "svelte";
+
+	onMount(() => {
+
+	})
 
 	export let intro;
 	export let noShop;
@@ -14,6 +23,7 @@
 		<div class="Intro__description">
 			{@html intro}
 		</div>
+		<!-- <img class="gif" src="{gif}" alt="rotating brezel"> -->
 		<div class="Intro__cta">
 			<div class="Intro__cta--wrapper">
 				{#if !nosales}

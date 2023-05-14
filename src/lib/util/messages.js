@@ -44,6 +44,7 @@ export default {
 	},
 	"footer": {
 		"greetings": "Stretch and fold",
+		"greetingsMobile": "Most bacteria are your friends",
 		"contact": {
 			"instagram": {
 				"title": "Instagram",

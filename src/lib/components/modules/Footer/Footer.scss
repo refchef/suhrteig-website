@@ -73,9 +73,21 @@
 	line-height: 20pt;
 	font-variation-settings: "wdth" 80;
 	@include mobile {
-		color: $passion-pink;
+		display: none
 	}
-
+}
+.Footer__MobileGreetings {
+	display: none;
+		text-align: center;
+	text-transform: uppercase;
+	@include font-features;
+	color: $passion-pink;
+	font-size: 14pt;
+	line-height: 20pt;
+	font-variation-settings: "wdth" 80;
+	@include mobile {
+		display: unset
+	}
 }
 
 .Footer__items {

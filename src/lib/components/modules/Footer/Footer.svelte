@@ -28,11 +28,11 @@
 
 <section class="Footer">
 	<div class="Footer__logo--wrapper">
-		<!-- <div class="Footer__logo__sign">
-			<Sign/>
-		</div> -->
 		<div class="Footer__greetings">
 			{@html messages.footer.greetings}
+		</div>
+		<div class="Footer__MobileGreetings">
+			{@html messages.footer.greetingsMobile}
 		</div>
 		<div class="Footer__logo">
 			<div class="Logo" bind:this={myFooterText}>

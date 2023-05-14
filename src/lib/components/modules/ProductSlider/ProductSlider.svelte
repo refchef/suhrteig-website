@@ -28,14 +28,16 @@
 	});
 </script>
 
-<section class="product__slider" id="bestellen">
-	<div bind:this={slider} class="keen-slider">
-		{#each fields as product}
+{#if products}
+	<section class="product__slider" id="bestellen">
+		<div bind:this={slider} class="keen-slider">
+			{#each fields as product}
 			<div class="keen-slider__slide">
 				<Product {product} />
 			</div>
-		{/each}
-	</div>
-</section>
+			{/each}
+		</div>
+	</section>
+{/if}
 
 <style lang="scss" src="./ProductSlider.scss"></style>

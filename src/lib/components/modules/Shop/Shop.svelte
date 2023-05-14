@@ -8,11 +8,12 @@
 
 	export let products = []
 	export let billing;
+	export let delivery;
 </script>
 
 {#if !nosales}
 	<ProductSlider {products}/>
-	<Cart {billing}/>
+	<Cart {billing} {delivery}/>
 {:else}
 	<NoShop {message}/>
 {/if}

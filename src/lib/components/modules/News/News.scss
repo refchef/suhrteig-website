@@ -13,7 +13,8 @@
 	overflow: hidden;
 	gap: var(--gap);
 	z-index: 100;
-	font-variation-settings: "wdth" 100;
+	font-variation-settings: "wdth" 90;
+	letter-spacing: 0.7px;
 	transition: $hover-speed all ease;
 	font-size: rem(12);
 	&:hover {

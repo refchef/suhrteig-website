@@ -183,3 +183,13 @@
 	}
 
 }
+
+.gif {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	@include mobile {
+		top: 80%;
+		left: 10%;
+	}
+}

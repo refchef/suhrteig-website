@@ -45,6 +45,8 @@
 	color: $flour-white;
 	margin: 0;
 	margin-bottom: rem(20);
+	font-variation-settings: "wdth" 120;
+
 }
 
 .Cart__products--title {
@@ -109,6 +111,7 @@
 	color: $flour-white;
 	margin-top: auto;
 	justify-self: baseline;
+	font-variation-settings: "wdth" 90;
 }
 
 
@@ -209,15 +212,12 @@ input {
 	}
 }
 
-.Radio__info {
+.Delivery__info {
 	font-size: small;
 	margin-top: rem(10);
-	// padding-top: rem(20);
-	// padding-bottom: rem(10);
 	padding: rem(20) rem(5) rem(5) rem(10);
-	& a {
-		color: $midnight-blue;
-	}
+	font-variation-settings: "wdth" 90;
+
 }
 
 .Radio__wrapper {

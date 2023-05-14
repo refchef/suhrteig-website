@@ -8,6 +8,7 @@ query {
 				news_html: news
 				about_html: about
 				billing_html: rechnung_details
+				delivery_html: delivery_details
 				radius_img: radius
 				_blocks: body1 {
 					... on HomepageBody1Product {
@@ -20,7 +21,7 @@ query {
 							id
 							productname_txt: productname
 							productattribute
-							description_txt: description
+							description_html: description
 							tags
 							weight
 							price

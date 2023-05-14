@@ -32,8 +32,6 @@
 	}
 }
 
-
-
 .cart__product__counter {
 	color: $flour-white;
 	font-size: large;
@@ -44,6 +42,11 @@
 
 .cart__productname {
 	margin-right: auto;
-	font-size: large;
+	font-size: medium;
 	color: $midnight-blue;
+	max-width: 15ch;
+	@include mobile {
+		max-width: 20ch;
+		font-size: rem(14);
+	}
 }

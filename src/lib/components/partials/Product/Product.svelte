@@ -106,7 +106,7 @@
 					{/if}
 				</div>
 				<div class="product__price">CHF {price.toFixed(2)}</div>
-				<div class="product__description">{description}</div>
+				<p class="product__description richtext">{@html description}</p>
 				<!-- <span class="product__weight">{weight}g</span> -->
 				<ProductTag tags={splitTags} />
 			</div>

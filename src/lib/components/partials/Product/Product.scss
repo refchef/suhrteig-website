@@ -94,6 +94,8 @@
 	color: $hot-pink;
 	font-size: rem(24);
 	margin-bottom: 0;
+	font-variation-settings: "wdth" 110;
+
 }
 
 .product__productattribute {
@@ -101,6 +103,8 @@
 	font-size: rem(24);
 	margin: 0;
 	transform: translateY(rem(-5));
+	font-variation-settings: "wdth" 75;
+
 }
 .product__weight {
 	font-size: small;
@@ -114,11 +118,11 @@
 	padding: rem(10) rem(20);
 	width: max-content;
 	border-radius: rem(50);
-
 }
 
 .product__description {
 	@include font-features;
+	white-space: pre-line;
 	color: $midnight-blue;
 	font-size: small;
 	// font-stretch: 90%;

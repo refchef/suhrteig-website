@@ -14,7 +14,7 @@
 
 <Header title={homepage.title} news={homepage.news} status={homepage.status}/>
 <Intro intro={homepage.intro} noShop={homepage._blocks[0].props.primary}/>
-<Shop noShop={homepage._blocks[0].props.primary} billing={homepage.billing} products={homepage._blocks[0]} />
+<Shop noShop={homepage._blocks[0].props.primary} billing={homepage.billing} delivery={homepage.delivery} products={homepage._blocks[0]} />
 <MobileCart/>
 <About about={homepage.about} radius={homepage.radius}/>
 <Footer/>
