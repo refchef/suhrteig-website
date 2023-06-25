@@ -88,7 +88,7 @@
 						class:--soldOut={soldout}
 						style:opacity={soldout ? "0.3" : "1"}
 					>
-						<Image {...productphoto} ratio={"4:5"} />
+						<Image {...productphoto} ratio={"4:6"} />
 					</div>
 					<div class="product__button">
 						<button type="button" class="product__button__add">
