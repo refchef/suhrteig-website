@@ -30,6 +30,12 @@ export const actions = {
 			html:
 				`Name: ${name}</br>
 				<hr>
+				Email: ${email}</br>
+				<hr>
+				Adresse: ${address}</br>
+				<hr>
+				Delivery: ${delivery}</br>
+				<hr>
 				Bestellung: ${order}</br>
 				<hr>
 				Total: ${total} CHF</br>
